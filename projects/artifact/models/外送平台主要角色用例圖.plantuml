@@ -1,0 +1,55 @@
+@startuml
+left to right direction
+
+actor 消費者
+actor 外送員
+actor 餐廳商家
+actor 平台營運管理者
+
+rectangle "外送平台系統" {
+  usecase "瀏覽餐廳與商品" as UC1
+  usecase "下訂單與付款" as UC2
+  usecase "查詢訂單進度" as UC3
+  usecase "補充取餐地點與指示" as UC4
+  usecase "申請退款或補償" as UC5
+  usecase "即時客服協助" as UC6
+  usecase "接收訂單與備餐" as UC7
+  usecase "管理商品、庫存與營業時間" as UC8
+  usecase "暫停接單" as UC9
+  usecase "回報異常與爭議處理" as UC10
+  usecase "接收配送任務與導航" as UC11
+  usecase "回報配送進度與異常" as UC12
+  usecase "查詢酬勞與結算明細" as UC13
+  usecase "管理派單與公平分配" as UC14
+  usecase "數據分析與營運監控" as UC15
+  usecase "金流與稅務管理" as UC16
+  usecase "溝通協作與訊息管理" as UC17
+  usecase "資料查詢與匯出" as UC18
+
+  消費者 --> UC1
+  消費者 --> UC2
+  消費者 --> UC3
+  消費者 --> UC4
+  消費者 --> UC5
+  消費者 --> UC6
+
+  餐廳商家 --> UC7
+  餐廳商家 --> UC8
+  餐廳商家 --> UC9
+  餐廳商家 --> UC10
+  餐廳商家 --> UC17
+  餐廳商家 --> UC18
+
+  外送員 --> UC10
+  外送員 --> UC11
+  外送員 --> UC12
+  外送員 --> UC13
+  外送員 --> UC17
+
+  平台營運管理者 --> UC14
+  平台營運管理者 --> UC15
+  平台營運管理者 --> UC16
+  平台營運管理者 --> UC17
+  平台營運管理者 --> UC18
+}
+@enduml

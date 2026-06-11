@@ -1,0 +1,709 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>draft_v0</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, "Noto Sans TC", sans-serif; margin: 24px; }
+    body.has-floating-toc { margin-right: 292px; }
+    .md-body { max-width: 1200px; margin: 0 auto; }
+    .plant-floating-toc {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      z-index: 20;
+      width: 236px;
+      max-height: calc(100vh - 48px);
+      overflow-y: auto;
+      scrollbar-width: none;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.12);
+      padding: 10px;
+    }
+    .plant-floating-toc::-webkit-scrollbar { display: none; }
+    .plant-floating-toc__title { margin: 0 0 6px; min-height: 20px; font-size: 13px; font-weight: 700; color: #1e293b; }
+    .plant-floating-toc__title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      list-style: none;
+      user-select: none;
+    }
+    .plant-floating-toc__title::-webkit-details-marker { display: none; }
+    .plant-floating-toc__title::after {
+      content: "收起";
+      padding: 2px 0;
+      color: #64748b;
+      font-size: 11px;
+      font-weight: 650;
+    }
+    .plant-floating-toc:not([open]) {
+      width: auto;
+      overflow: visible;
+      padding: 8px 10px;
+    }
+    .plant-floating-toc:not([open]) .plant-floating-toc__title { margin: 0; }
+    .plant-floating-toc:not([open]) .plant-floating-toc__title::after { content: "目錄"; }
+    .plant-floating-toc__items { display: flex; flex-direction: column; gap: 2px; }
+    .plant-floating-toc__link {
+      display: block;
+      border-radius: 7px;
+      padding: 6px 8px;
+      color: #475569;
+      font-size: 12px;
+      line-height: 1.35;
+      text-decoration: none;
+    }
+    .plant-floating-toc__link:hover { background: #f1f5f9; color: #0f172a; }
+    .plant-floating-toc__link.is-active {
+      background: #e5e7eb;
+      color: #1f2937;
+      font-weight: 700;
+    }
+    .plant-floating-toc__link--level-3 { padding-left: 18px; color: #64748b; }
+    .plant-floating-toc__link--level-4,
+    .plant-floating-toc__link--level-5,
+    .plant-floating-toc__link--level-6 { padding-left: 28px; color: #64748b; }
+    .table-wrap { width: 100%; overflow-x: auto; }
+    table { border-collapse: collapse; width: 100%; table-layout: fixed; margin: 12px 0; }
+    th, td { border: 1px solid #d0d0d0; padding: 8px; text-align: left; vertical-align: top; }
+    .table-compact th, .table-compact td { white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
+    .table-readable th, .table-readable td { white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
+    .table-traceability { table-layout: fixed; }
+    .table-traceability th:first-child, .table-traceability td:first-child { width: 128px; white-space: nowrap; }
+    .table-traceability th:nth-child(2), .table-traceability td:nth-child(2) { width: auto; }
+    .table-traceability th:nth-child(3), .table-traceability td:nth-child(3) { width: 260px; white-space: normal; overflow-wrap: anywhere; word-break: normal; }
+    .table-traceability td:nth-child(3) a { display: inline-block; margin: 0 4px 4px 0; white-space: nowrap; }
+    .dr-trace-feedback-table { table-layout: fixed; width: 100%; }
+    .dr-trace-feedback-table th,
+    .dr-trace-feedback-table td { white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
+    .dr-trace-feedback-table th:nth-child(1), .dr-trace-feedback-table td:nth-child(1) { width: 72px; }
+    .dr-trace-feedback-table th:nth-child(2), .dr-trace-feedback-table td:nth-child(2) { width: 120px; }
+    .dr-trace-feedback-table th:nth-child(3), .dr-trace-feedback-table td:nth-child(3) { width: 190px; }
+    .dr-trace-source-chip {
+      display: inline-block;
+      margin: 0 4px 4px 0;
+      padding: 2px 6px;
+      border-radius: 999px;
+      background: #eef2f7;
+      color: #475569;
+      font-size: 0.86em;
+      line-height: 1.45;
+      white-space: nowrap;
+    }
+    .table-user-requirements th:first-child, .table-user-requirements td:first-child { width: 96px; white-space: nowrap; }
+    .table-user-requirements th:nth-child(2), .table-user-requirements td:nth-child(2),
+    .table-user-requirements th:nth-child(4), .table-user-requirements td:nth-child(4) { width: 180px; }
+    .table-open-questions th:first-child, .table-open-questions td:first-child { width: 96px; white-space: nowrap; }
+    .table-open-questions th:nth-child(3), .table-open-questions td:nth-child(3) { width: 220px; white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
+    td > p:first-child { margin-top: 0; }
+    td > p:last-child { margin-bottom: 0; }
+    img { max-width: 100%; height: auto; display: block; margin: 12px auto; }
+    code, pre { white-space: pre-wrap; }
+    .srs-dr-ref,
+    h4 a[href*="design_rationale.html#"],
+    li a[href*="design_rationale.html#con-"] {
+      display: inline-flex;
+      align-items: center;
+      margin-left: 0.35rem;
+      transform: translateY(-0.35em);
+      font-size: 0.62em;
+      font-weight: 700;
+      line-height: 1;
+      color: #64748b;
+      text-decoration: none;
+    }
+    .srs-dr-ref:hover,
+    h4 a[href*="design_rationale.html#"]:hover,
+    li a[href*="design_rationale.html#con-"]:hover { color: #0f172a; text-decoration: underline; }
+    @media (max-width: 1024px) {
+      body.has-floating-toc { margin: 16px; padding-bottom: 72px; }
+      .plant-floating-toc {
+        top: auto;
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        width: auto;
+        max-height: 38vh;
+      }
+    }
+  </style>
+</head>
+<body class="">
+
+<div class="md-body">
+<h1 id="draft">Draft</h1>
+<h2 id="scope">Scope</h2>
+<h3 id="in-scope">In Scope</h3>
+<ul>
+<li>提供消費者、外送員、餐廳商家及平台營運管理者使用的外送平台系統，涵蓋訂單處理、付款、配送進度查詢、即時協助與爭議處理等主要流程。</li>
+<li>支援多角色（消費者、外送員、餐廳商家、平台營運管理者）之操作介面與資訊呈現，並確保各角色可取得其所需之功能與資訊。</li>
+<li>管理與同步訂單、商品、庫存、營業時間、配送資訊及相關費用，並確保資料正確性與透明度。</li>
+<li>提供金流結算、酬勞與撥款管理，並符合法規要求之稅務與合規作業。</li>
+<li>支援平台內部與外部（如商家、外送員、消費者）之溝通協作與爭議處理機制。</li>
+</ul>
+<h2 id="user-requirements">User Requirements</h2>
+<div class="table-wrap"><table class="table-compact">
+<thead>
+<tr>
+<th>ID</th>
+<th>Stakeholder</th>
+<th>Requirement</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>URL-1</td>
+<td>消費者</td>
+<td>消費者需要一個操作流程簡單、選餐、付款與訂單進度查詢皆清楚明瞭的外送平台，以提升使用意願。</td>
+<td>initial</td>
+</tr>
+<tr>
+<td>URL-2</td>
+<td>消費者</td>
+<td>消費者需要外送平台具備即時協助與便捷的退款流程，以提升服務可靠性並有效處理出餐延遲或外送員服務不佳等問題。</td>
+<td>initial</td>
+</tr>
+<tr>
+<td>URL-3</td>
+<td>消費者</td>
+<td>消費者需要外送平台能夠透明公開所有商品價格及相關費用（如運費、服務費），避免於結帳流程中出現未事先告知的額外費用，以提升價格透明度與消費信任。</td>
+<td>initial</td>
+</tr>
+<tr>
+<td>URL-4</td>
+<td>消費者</td>
+<td>消費者需要外送平台在外送過程中若發生食物傾倒、送錯或餐點變冷等問題時，能夠提供明確的賠償或處理機制。</td>
+<td>initial</td>
+</tr>
+<tr>
+<td>URL-5</td>
+<td>消費者</td>
+<td>消費者需要能夠即時查詢外送訂單的預計送達時間，以便根據外送進度決定是否繼續使用平台服務。</td>
+<td>initial</td>
+</tr>
+<tr>
+<td>URL-6</td>
+<td>外送員</td>
+<td>外送員需要外送平台具備順暢且不會出錯的地圖導航與取餐流程，並確保系統運作速度與資訊正確性，以提升每日可完成的訂單數量。</td>
+<td>initial</td>
+</tr>
+<tr>
+<td>URL-7</td>
+<td>外送員</td>
+<td>外送員需要平台能夠公平處理惡意投訴及出餐延遲等爭議，並提供適當的保護機制。</td>
+<td>initial</td>
+</tr>
+<tr>
+<td>URL-8</td>
+<td>外送員</td>
+<td>外送員需要外送平台能夠標註無法進入的超商或社區，或提供相關聯絡方式，以減少因無法完成配送而浪費時間。</td>
+<td>initial</td>
+</tr>
+<tr>
+<td>URL-9</td>
+<td>外送員</td>
+<td>外送員需要外送平台能夠準確且依固定週期結算酬勞，並避免產生酬勞扣款或計算錯誤的情形，以維持合作意願。</td>
+<td>initial</td>
+</tr>
+<tr>
+<td>URL-10</td>
+<td>外送員</td>
+<td>外送員需要外送平台合理分配訂單，避免派單數量過少或集中特定外送員，以確保派案制度的公平性。</td>
+<td>initial</td>
+</tr>
+<tr>
+<td>URL-11</td>
+<td>平台營運管理者</td>
+<td>平台營運管理者需要系統具備穩定性與可靠性，避免頻繁當機或出錯，以維護用戶留存與品牌形象。</td>
+<td>initial</td>
+</tr>
+<tr>
+<td>URL-12</td>
+<td>平台營運管理者</td>
+<td>平台營運管理者需要能即時查看分析數據、訂單流量、營收與異常狀況，以便隨時調整行銷策略或處理緊急問題。</td>
+<td>initial</td>
+</tr>
+<tr>
+<td>URL-13</td>
+<td>平台營運管理者</td>
+<td>平台營運管理者需要平台具備順暢且有效的與商家及外送員溝通渠道，以避免因溝通不良導致問題堆積並增加客服壓力。</td>
+<td>initial</td>
+</tr>
+<tr>
+<td>URL-14</td>
+<td>平台營運管理者</td>
+<td>平台營運管理者需要平台在金流與稅務相關作業上完全符合法規要求，以避免因違規導致的罰款風險，並維護公司合規底線。</td>
+<td>initial</td>
+</tr>
+<tr>
+<td>URL-15</td>
+<td>平台營運管理者</td>
+<td>平台營運管理者需要系統的功能與費用設計能在吸引消費者、照顧外送員權益和維持平台收入三者之間取得平衡。</td>
+<td>initial</td>
+</tr>
+<tr>
+<td>URL-16</td>
+<td>餐廳商家</td>
+<td>餐廳商家需要一個操作介面簡單且便於管理的系統，能夠明確呈現訂單資訊並自動與庫存及營業時間同步，以降低員工操作錯誤的風險。</td>
+<td>initial</td>
+</tr>
+<tr>
+<td>URL-17</td>
+<td>餐廳商家</td>
+<td>餐廳商家需要平台能夠協助釐清消費者投訴或外送員遲到等責任歸屬，以避免商家在無法合理判斷責任時單方面承擔損失。</td>
+<td>initial</td>
+</tr>
+<tr>
+<td>URL-18</td>
+<td>餐廳商家</td>
+<td>餐廳商家需要平台能夠準時結算撥款並清楚呈現結算明細，以確保商家收款流程的透明與信任，並避免出現延遲結帳或無預警扣款的情形。</td>
+<td>initial</td>
+</tr>
+<tr>
+<td>URL-19</td>
+<td>餐廳商家</td>
+<td>餐廳商家需要平台收取的手續費維持在合理範圍，以確保商家在薄利多銷情境下仍能獲利並維持續約及持續上架意願。</td>
+<td>initial</td>
+</tr>
+<tr>
+<td>URL-20</td>
+<td>餐廳商家</td>
+<td>餐廳商家需要能即時暫停接單，以避免因食材短缺或臨時公休造成無法完成的訂單。</td>
+<td>initial</td>
+</tr>
+<tr>
+<td>URL-21</td>
+<td>消費者</td>
+<td>消費者需要能夠在每次訂餐時自由選擇取餐地點與接收方式，並可於平台介面彈性補充取餐相關指示或注意事項，且外送員能確實收到這些資訊，以因應不同生活情境下的需求。</td>
+<td>elicitation_r1</td>
+</tr>
+<tr>
+<td>URL-22</td>
+<td>消費者</td>
+<td>消費者需要平台在設定取餐方式時，必須事先明確告知並讓消費者確認，避免自動決定或更改取餐方式而未經消費者同意。</td>
+<td>elicitation_r1</td>
+</tr>
+<tr>
+<td>URL-23</td>
+<td>平台營運管理者</td>
+<td>平台營運管理者需要系統能夠依據不同國家或合作內容，保存金流與交易資料達到法規及商業合約所要求的年限，並確保資料於稽核或查核時可立即提供完整且不可被修改的原始紀錄。</td>
+<td>elicitation_r1</td>
+</tr>
+<tr>
+<td>URL-24</td>
+<td>平台營運管理者</td>
+<td>平台營運管理者需要系統能夠支援金流與交易資料以便於審查的格式匯出，例如csv、pdf或API調用，以利營運管理與稽核作業。</td>
+<td>elicitation_r1</td>
+</tr>
+<tr>
+<td>URL-25</td>
+<td>外送員</td>
+<td>外送員需要能夠在遇到餐廳未營業或備餐延遲等異常情況時，於平台上快速上報並獲得明確的後續處理指引，以減少現場等待與不確定感，並確保派單量與收入不因異常事件受到不公平影響。</td>
+<td>elicitation_r1</td>
+</tr>
+<tr>
+<td>URL-26</td>
+<td>消費者</td>
+<td>消費者需要外送平台在補充取餐地點或接收方式等指示後，能夠明確回饋外送員已讀取並確認相關訊息，以提升資訊傳遞的可靠性與消費者安心感。</td>
+<td>elicitation_r1</td>
+</tr>
+<tr>
+<td>URL-27</td>
+<td>平台營運管理者</td>
+<td>平台營運管理者需要外送平台在消費者指定非住家地點（如公司、超商、公共空間等）作為取餐地點時，能明確揭露相關風險與責任，並於必要時要求消費者在下單前確認同意條款、說明進出規則或提供聯絡協助，且若場域需要特別同意，平台必須能查驗消費者權限或留存同意證明，以避免平台承擔無法控管的糾紛責任。</td>
+<td>elicitation_r1</td>
+</tr>
+<tr>
+<td>URL-28</td>
+<td>外送員</td>
+<td>外送員需要外送平台在接單後及接近目的地前，能夠明顯且即時提醒取餐或送餐的特殊指示，並確保相關內容不被隱藏，方便外送員在配送過程中即時掌握消費者的臨時留言或變更資訊。</td>
+<td>elicitation_r1</td>
+</tr>
+<tr>
+<td>URL-29</td>
+<td>消費者</td>
+<td>消費者需要外送平台在外送員未依照已讀的取餐指示完成時，能主動通知消費者、提供外送員說明未能配合原因的機會，並協助消費者了解狀況與處理流程，若無合理理由未配合時，平台需有具體補償機制以保障消費者權益。</td>
+<td>elicitation_r1</td>
+</tr>
+<tr>
+<td>URL-30</td>
+<td>平台營運管理者</td>
+<td>平台營運管理者需要外送平台在涉及特殊或高風險取餐地點時，具備要求消費者每次下單時主動確認並說明進出權限及特殊指示、必要時上傳門禁資訊或臨時聯絡人，並留存消費者同意證據，以降低營運風險並能於主管機關或消費申訴時佐證平台已盡責。</td>
+<td>elicitation_r1</td>
+</tr>
+<tr>
+<td>URL-31</td>
+<td>外送員</td>
+<td>外送員需要外送平台在送餐流程的每個關鍵步驟提供明顯且不易忽略的提醒，並確保重要訊息不會被隱藏於多層選單或頁面中，以降低資訊遺漏風險。</td>
+<td>elicitation_r1</td>
+</tr>
+<tr>
+<td>URL-32</td>
+<td>外送員</td>
+<td>外送員需要外送平台在有風險或重要變動時，能以明確且易於理解的方式提醒相關內容，讓外送員能立即得知並正確應對。</td>
+<td>elicitation_r1</td>
+</tr>
+<tr>
+<td>URL-33</td>
+<td>外送員</td>
+<td>外送員需要外送平台的提醒功能不會妨礙導航、問題回報等其他重要操作，避免因提醒訊息導致操作誤觸或流程中斷。</td>
+<td>elicitation_r1</td>
+</tr>
+<tr>
+<td>URL-34</td>
+<td>消費者</td>
+<td>消費者在外送員未依照補充取餐指示導致問題時，需要能夠於平台上簡單快速地選擇退款或等值補償（如折價券、平台點數），且補償金額需合理反映實際損失，並可依個人偏好選擇補償方式。</td>
+<td>elicitation_r1</td>
+</tr>
+<tr>
+<td>URL-35</td>
+<td>消費者</td>
+<td>消費者在遇到外送過程中無法聯絡外送員或現場發生特殊問題等複雜情境時，需要平台主動提供客服協助，避免需自行多次追問處理進度。</td>
+<td>elicitation_r1</td>
+</tr>
+<tr>
+<td>URL-36</td>
+<td>平台營運管理者</td>
+<td>平台營運管理者需要系統在消費者指定特殊取餐地點（如校園、醫院、商辦大樓等）時，能夠揭露該地點的進出限制或隱私規範，並要求消費者在下單前明確同意相關風險與現場規則，必要時提供臨時聯絡人或門禁資料，並保留同意紀錄，以確保平台不被推定為現場配送問題的唯一責任方。</td>
+<td>elicitation_r1</td>
+</tr>
+<tr>
+<td>URL-37</td>
+<td>外送員</td>
+<td>外送員在無法依照消費者補充指示完成配送或現場遇到突發狀況時，需要外送平台提供簡單明確且可快速操作的回報與協助流程，包含常見問題選項、即時留言、消費者即時通知與回應機制，以及在消費者未回應時由平台自動或人工協助處理，並於整個過程中提供進度提醒與紀錄，確保外送員權益不受損。</td>
+<td>elicitation_r1</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="feedback">Feedback</h2>
+<h3 id="findings">Findings</h3>
+<ul>
+<li>外送平台業者於平台介面有義務明確揭示商品價格、服務費或運費，以及消費者與外送平台業者取消訂單時的退費與理由機制。</li>
+<li>外送平台業者必須保存貨款計算、交易往來與爭議處理紀錄，提高金流與營運透明度，以降低任意扣款或終止合作的風險。</li>
+<li>外送平台如介接第三方支付金流，應配合法規規範與第三方支付業者之合規要求，確保消費者付款與退款安全。</li>
+<li>根據《外送員權益保障及外送平臺管理法》與多地自治條例，外送平台必須蒐集並依法保存包括消費者自訂取餐地點與交付方式在內的訂單資料，同時必須依個人資料保護法對資料處理、傳輸及調閱承擔法定義務。</li>
+<li>平台管理流程在消費者指定第三方場所時，需釐清場域與管理單位授權或同意規則，善用揭示和條款規定以免平台無意承擔第三方物業或安全責任。</li>
+<li>根據主管機關指引，外送平台於消費者指定非住家地點（如公司、超商、公共空間）做為取餐地點時，需履行資訊揭露責任，包括揭示業者資訊、聯絡及申訴管道與商品資訊，保障消費者知情權利。</li>
+<li>法規要求平台於消費者下單前，應充分揭露商品標示、交付方式等重要資訊，以提升透明度與防止爭議，特別強調消費者訂購過程中的資訊完整性。</li>
+<li>現有法規及指引未強制規範平台需查驗消費者於第三方地點的通行權限或主動保留同意紀錄，主要著重於揭露義務，而非進行場所權限查證。</li>
+<li>外送平台金流與支付服務涉及第三方支付業者時，必須符合台灣主管機關對於金流安全、稽核、資金流向管控及資料保存之法定要求，並將勞工待遇與消費者保障納入設計考量。</li>
+<li>個人資料蒐集、處理及利用，須遵守台灣個人資料保護法及其相關子法，於金流、消費者資料、訂單資訊等均有強制保存、揭露、查詢與刪除規範要求，違反時主管機關得處以重大罰鍰。</li>
+<li>金流服務應導入明確的用戶資料安全管控機制，如強制加密、資料分級權限、紀錄留存、防火牆及稽核日誌，以因應產業標準之安全審查與合規要求，並避免個資外洩風險。</li>
+<li>外送平台金流與支付相關資料，於財務查核或政府稽核時需支援格式化匯出（如CSV、PDF、API），並確保資料完整不被竄改，以滿足查核、報稅與糾紛處理責任。</li>
+<li>根據《外送員權益保障及外送平臺管理法》第17、18、19條等規定，外送平台在與消費者、合作商家、外送員涉及責任歸屬、異常處理、退款及補償時，必須保存包含訂單、價格、退款、補償、消費者同意紀錄等相關資料至少二年，並不得拒絕主管機關或目的事業主管機關之查閱要求。</li>
+<li>主管機關或目的事業主管機關可要求外送平台提供消費者同意、交易、退款、補償、客訴與風險說明等資料，平台必須依法保存與稽核。</li>
+<li>衛福部食品外送平台管理指引要求：凡涉及高風險運送地點、消費食品、配送限制時，平台應明確揭露食品衛生及現場管控規範，並依食安法、衛生契約條件揭露風險與消費者注意事項，以保障平台、消費者及外送員之法律責任分界。</li>
+<li>目前台灣針對外送平台的管理法規雖以食品安全、勞動權益、個人資料保護等為主，尚未有明確強制針對派單公平性及演算法異常通報防作弊設下具體技術規範，但公平交易法對於平台演算法造成市場壟斷、不公或差別待遇有高度關注，且競爭政策要求平台應避免因系統機制造成利害關係人權益受損。</li>
+<li>外送平台因演算法派單、資料揭露與異常機制屬於與多方利害關係人之間的權益分配和資訊透明範疇，若出現明顯偏袒、封殺、差別待遇或在異常上報後系統性對外送員不利，消費者或外送員可透過《公平交易法》向主管機關申訴或檢舉，且需具備妥適佐證流程。</li>
+<li>依據台灣《消費者保護法》，平台需在消費者與服務提供者間遭遇爭議時設有公平的消費申訴與賠償機制，且若未依約或未合理說明則需對損害承擔賠償責任。相關流程舉證義務會視具體爭議內容與平台、外送員角色而定（如定型化契約條款或具體爭議調解程序）。</li>
+<li>消費者保護法及定型化契約規範企業（平台）應提供明確的商品／服務資訊、補償方式、解除契約權及損害賠償機制，並將重要權利、義務、例外及責任於契約條款中清楚載明且取得消費者同意；否則遇到爭議時，即推定為對消費者顯失公平，由企業舉證並承擔較重責任。</li>
+</ul>
+<h3 id="constraints">Constraints</h3>
+<ul>
+<li>平台應於操作介面明確揭示所有商品價格、各項服務費與運費，並完整列出各種取消訂單之理由及對應退費機制，不得有未公開的額外費用，此義務為地方法規強制規定。</li>
+<li>業者須保存金流計算、酬勞、交易紀錄與相關爭議處理資料，以符合法定稽核、查核或客訴需要，避免資料遺失風險。</li>
+<li>若平台需於訂單蒐集、處理或儲存住址、聯絡資訊、自由備註欄等消費者個人資料，必須符合《個人資料保護法》對用途、揭露、範圍、第三方資料提供等規範，並配合地方法規與主管機關指導原則。</li>
+<li>涉及第三方物業、公共空間或受管理區域作為交付地點時，平台候選規約需能提示並管理該地點進出權限或須獲授權事宜，免於違反場域本地營運及管理規則。</li>
+<li>平台於消費者自訂取餐地點時，必須依主管機關及消保規定揭露重要資訊與責任條款，惟現有規範未強制消費者同意紀錄或進出權查核，僅要求揭示及同意條款機制。</li>
+<li>金流、支付與退款管理機制必須遵循第三方支付管理辦法及個人資料保護法中訂明的保存年限、查核與揭露義務，不得任意縮短保存期限、隱匿或刪改交易資料。</li>
+<li>個人資料於金流串接與名單分享時，僅限於必要範圍內揭露予合作第三方，並須明確告知與用戶同意相關範圍。</li>
+<li>平台於高風險或特殊取餐地點須建立明確之同意機制，並保存同意紀錄至少二年，以備主管機關查核。</li>
+<li>涉及非住家、公共空間、醫院、公司等特殊地點時，應於下單過程明確揭露配送責任、現場入內條件及消費者需同意之風險，違者平台可能需承擔無法舉證之法律責任。</li>
+<li>平台派單機制及異常通報流程應避免造成對特定外送員的不公平排擠、收入下降或報復，平台在設計派單分配、異常報告後續處理時應有資料留存、決策證據及解釋機制以利主管機關查核。</li>
+<li>若平台演算法因異常通報而自動限制派單或降低收入應有明確事前揭露並供外送員陳述意見，避免產生黑箱或不當懲罰現象成為監理檢查重點。</li>
+<li>平台必須比對定型化契約應記載與不得記載事項並接受主管機關調查、糾紛時應能提出證據證明已盡揭露與責任分工義務，否則消費者申訴時將被推定為對消費者不利。</li>
+<li>補償金額、賠償方式及舉證分工若未在服務條款明確界定，實務上將由調解委員會依個案權責認定，平台應避免使用顯失公平之條款並具備完整爭議處理記錄與證據留存機制。</li>
+</ul>
+<h3 id="risks">Risks</h3>
+<ul>
+<li>未依規範揭示價格或退費機制將可能受到地方政府罰則或消保爭議，或影響營運資格。</li>
+<li>金流結算或貨款、酬勞處理未保存依法必需的紀錄，將無法於爭議或稽核時提供證明，面臨被認定違規並遭罰款或合作終止風險。</li>
+<li>允許第三方物業、公共場域作為交付地點，若涉及擅自進出、未經同意取得通行權，可能造成營運糾紛、平台或外送員需承擔違規責任甚至涉及居住或公共安全爭論。</li>
+<li>消費者如於備註或自訂欄填入過多敏感資訊（如門禁密碼），平台若無充分資料保護與限制機制，恐導致資料外洩、資訊濫用、違反個資法及信任風險。</li>
+<li>如未適當揭露交付方式、限制或責任條款，消費糾紛（例如無法進入取餐點、餐點遺失損害）發生時，將提高雙方責任爭議與增加消保風險。</li>
+<li>若支付流程、資料保存、審查方式未達主管機關（如金管會或個資保護組織）標準，將構成直接違規，可能面臨高額罰鍰、停權甚至被勒令下架服務。</li>
+<li>資料揭露或保存若欠缺充分加密、防火牆與稽核措施，將提高個資外洩及資料竄改風險，造成消費者信任流失與聲譽損害。</li>
+<li>若高風險地點未明確揭露、同意或資訊留存不全，遇到配送失誤、權限糾紛或消費申訴時，平台恐有舉證困難並須承擔加重賠償或監管罰責。</li>
+<li>若操作彈性優先於責任揭露，未設限特殊取餐地點流程，將造成平台在消費糾紛或主管機關查核時舉證不全，影響風險控管。</li>
+<li>若設計的派單及異常通報邏輯過於複雜不透明，平台一旦發生大規模申訴或群體上報異常，稽核時將無法證明其公平性，有遭主管機關糾正、調查甚至裁罰風險。</li>
+<li>出現集體異常通報時若無合適鑑別、審核與防作弊設計，平台有被指控系統性壓低異常上報者派單量，或被認定有差別待遇行為之法規風險。</li>
+<li>若補償條款、賠償流程、舉證責任未在服務條款載明，遇糾紛時主管機關或法院易推定平台對消費者不利，導致平台承擔全額賠償或受罰。</li>
+<li>若外送員權益相關責任、流程界線與例外情形未在契約說明，當外送員未依指示或遇特殊情形時，平台將難以舉證其已履行查證與通知之義務，恐遭糾紛處分。</li>
+</ul>
+<h3 id="recommendations">Recommendations</h3>
+<ul>
+<li>建議訂單、付款與退款流程全面整合金流、退費條件揭示與即時異動回饋，同步確保消費者查詢與紀錄保存。</li>
+<li>建議於訂單與金流記錄系統設立不可刪除、可稽溯之記錄保留機制，支援法規、稅務與爭議處理。</li>
+<li>建議彈性取餐介面設計採用地點類型分類與風險提示，於選擇第三方場合時提供權利義務揭露及授權警示，降低糾紛與營運爭議。</li>
+<li>建議對訂單敏感資料（如門禁碼、進出說明）設置脫敏顯示、存取日誌與必要性檢查等措施，只讓必須角色限度取得，強化個資保護與日後查證能力。</li>
+<li>平台條款應告知消費者選擇第三方場所時需主動取得管理單位同意，未獲同意交付失敗或阻礙將不視為平台或外送員違約，以減少平台責任模糊。</li>
+<li>建議平台於非住家地點交付時，在下單階段明確揭露風險與限制（如不可進入、超時或特殊管理規範），可增設消費者同意條款以減少糾紛。</li>
+<li>建議對於高風險或受管制地點，可選擇性增加消費者權限確認（如確認擁有進入權或補充聯絡資訊），以降低平台運營風險。</li>
+<li>候選設計應主動參考金管會、消保團體及大型第三方支付平台公開政策，確立金流、資訊安全、資料保存與查核流程的標準作法，提前映射法規規範到系統設計內容。</li>
+<li>在用戶條款與隱私聲明中，建議明確列出資料保存年限、合作第三方範圍，用戶查詢與刪除機制，以及所有交易或補償資料的保存原則，以減少未來糾紛與法律風險。</li>
+<li>建議平台於涉及特殊、非住家或高風險地點時，設計強制同意條款及揭露流程（如每次明顯提示、同意核取、特殊資訊上傳），相關紀錄需可稽核與查調滿足二年以上保留標準。</li>
+<li>建議平台針對非住家、公共空間、醫院、公司等類型設置自動化識別、風險提醒及責任揭露標準流程，並供消費者及外送員查閱備查，維持證據力。</li>
+<li>建議平台派單與異常處理演算法定期接受第三方審查與稽核，並建立公開透明的申訴及調查管道以降低法規與信任風險。</li>
+<li>建議明確揭露異常通報對派單演算法的影響條件與風險，並提供外送員異議申訴與申報歷程查詢功能，以強化營運決策透明度及避免爭議。</li>
+<li>建議平台於定型化契約及服務條款明確載明補償金額計算原則、實際補償方式、舉證責任分工及申訴與調解機制，並於平台介面主動揭露並取得消費者同意，確保合規與營運穩定。</li>
+<li>建議建立外送過程即時異常記錄、通知回報及全程舉證留存功能，並於糾紛流程界定外送員不可歸責及合理說明之認定基準，以利調解及舉證分流。</li>
+</ul>
+<h3 id="sources">Sources</h3>
+<ul>
+<li><a href="https://ppg.ly.gov.tw/ppg/SittingAttachment/download/2024101846/13102020124690060004.pdf" target="_blank" rel="noopener noreferrer">外送平台之整併、收費指引、 個資保護、 產業發展</a></li>
+<li><a href="https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL093442" target="_blank" rel="noopener noreferrer">臺北市外送平台管理自治條例（部分條文）</a></li>
+<li><a href="https://www.mol.gov.tw/1607/1632/1633/87384" target="_blank" rel="noopener noreferrer">立法院三讀通過「外送員權益保障及外送平臺管理法」</a></li>
+<li><a href="https://law.lia-roc.org.tw/Law/Content?lsid=FL105973" target="_blank" rel="noopener noreferrer">外送員權益保障及外送平臺管理法</a></li>
+<li><a href="https://law.taichung.gov.tw/LawContent.aspx?id=GL004214" target="_blank" rel="noopener noreferrer">臺中市外送平台業者管理自治條例</a></li>
+<li><a href="https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637044824446715969" target="_blank" rel="noopener noreferrer">網路美食外送平台業者自主衛生管理指引（含部分資訊揭露要求）</a></li>
+<li><a href="https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvNjg0L3JlbGZpbGUvNTExMzYvODM1MzI2OS80OTJmOTA0Mi1lY2YyLTRiMTctOGVkNC04MGY0YzhjMDZkOWQucGRm&amp;n=MTEwMDkzMC3kv67mraPjgIzntrLot6%2Fnvo7po5%2FlpJbpgIHlubPlj7Dmpa3ogIXoh6rkuLvooZvnlJ%2FnrqHnkIbmjIflvJXjgI0ucGRm&amp;icon=.pdf" target="_blank" rel="noopener noreferrer">網路美食外送平台業者自主衛生管理指引（PDF，臺北市政府官方）</a></li>
+<li><a href="https://www.pthg.gov.tw/plancse/cp.aspx?n=0953088AA5FDB908" target="_blank" rel="noopener noreferrer">消費者保護專區-線上美食外送平台消費爭議申訴案件</a></li>
+<li><a href="https://www.tappaysdk.com/taiwan-zhtw/privacy" target="_blank" rel="noopener noreferrer">TapPay金流服務平台 隱私權政策</a></li>
+<li><a href="https://health.kcg.gov.tw/News_Content.aspx?n=A354A5298C8A4AA8&amp;sms=26BD5515159837CE&amp;s=69FB21D69C6E32DA" target="_blank" rel="noopener noreferrer">政府機關公開資料</a></li>
+<li><a href="https://www.ly.gov.tw/Pages/ashx/File.ashx?FilePath=~%2FFile%2FAttach%2F246293%2FFile_19842414.pdf" target="_blank" rel="noopener noreferrer">外送平台管理之相關法制研析(pdf) - 立法院</a></li>
+<li><a href="https://www.ftc.gov.tw/uploadDecision/82b972a5-5e2d-44bf-bd1c-e9dadd0a5abb.pdf" target="_blank" rel="noopener noreferrer">公平交易委員會案例／決議文件</a></li>
+<li><a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0170001" target="_blank" rel="noopener noreferrer">消費者保護法-全國法規資料庫</a></li>
+<li><a href="https://www.ey.gov.tw/Page/4FF303AE95592945/f65a641d-d096-48c1-b357-435ac7786e72" target="_blank" rel="noopener noreferrer">消費者保護法(行政院全球資訊網-主管法規)</a></li>
+<li><a href="https://www.sme.gov.tw/consumer/files/1621/146B6F25-BBF1-4065-80DF-BB80EC258254" target="_blank" rel="noopener noreferrer">從消費者保護規定的介紹兼論損害賠償責任歸屬的立法趨勢</a></li>
+<li><a href="https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL012059" target="_blank" rel="noopener noreferrer">消費者保護法第11 條 - 臺北市法規查詢系統</a></li>
+</ul>
+<h2 id="system-models">System Models</h2>
+<h3 id="sm-1-外送平台系統情境圖-contextdiagram">SM-1 外送平台系統情境圖 (context_diagram)</h3>
+<p><img src="../models/%E5%A4%96%E9%80%81%E5%B9%B3%E5%8F%B0%E7%B3%BB%E7%B5%B1%E6%83%85%E5%A2%83%E5%9C%96.png" alt="外送平台系統情境圖" /></p>
+<p>此情境圖用來釐清外送平台系統的邊界，明確呈現消費者、外送員、餐廳商家與平台營運管理者等主要外部角色，以及與第三方支付/金流服務的互動，並標示各角色與系統間的主要資料流、事件流與責任分工。</p>
+<h3 id="sm-2-外送平台主要角色用例圖-usecasediagram">SM-2 外送平台主要角色用例圖 (use_case_diagram)</h3>
+<p><img src="../models/%E5%A4%96%E9%80%81%E5%B9%B3%E5%8F%B0%E4%B8%BB%E8%A6%81%E8%A7%92%E8%89%B2%E7%94%A8%E4%BE%8B%E5%9C%96.png" alt="外送平台主要角色用例圖" /></p>
+<h4 id="1-消費者">1. 消費者</h4>
+<div class="table-wrap"><table class="table-compact">
+<thead>
+<tr>
+<th>UC ID</th>
+<th>Use Case</th>
+<th>Purpose</th>
+<th>Interface</th>
+<th>Related Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UC1</td>
+<td>瀏覽餐廳與商品</td>
+<td>消費者可於平台上瀏覽可訂購的餐廳與商品資訊，了解菜單、價格、營業時間等內容。</td>
+<td>餐廳列表頁、餐廳詳細頁、商品（菜單）瀏覽頁</td>
+<td>URL-1, URL-3</td>
+</tr>
+<tr>
+<td>UC2</td>
+<td>下訂單與付款</td>
+<td>消費者選擇商品後可建立訂單並完成付款，系統需揭露所有費用並支援多元支付方式。</td>
+<td>購物車頁、訂單確認頁、付款流程頁、費用明細揭露區</td>
+<td>URL-1, URL-3, URL-22</td>
+</tr>
+<tr>
+<td>UC3</td>
+<td>查詢訂單進度</td>
+<td>消費者可即時查詢訂單處理、備餐、配送等進度及預計送達時間。</td>
+<td>訂單進度查詢頁、訂單詳情頁</td>
+<td>URL-1, URL-5</td>
+</tr>
+<tr>
+<td>UC4</td>
+<td>補充取餐地點與指示</td>
+<td>消費者可於下單時或訂單成立後補充取餐地點、接收方式及特殊指示，並確認外送員已讀取。</td>
+<td>取餐地點設定頁、訂單備註／指示填寫區、指示已讀回饋區</td>
+<td>URL-21, URL-22, URL-26</td>
+</tr>
+<tr>
+<td>UC5</td>
+<td>申請退款或補償</td>
+<td>消費者於訂單異常、配送問題或服務不佳時可申請退款或補償，並選擇補償方式。</td>
+<td>訂單問題申請頁、退款／補償申請流程頁、補償方式選擇區</td>
+<td>URL-2, URL-4, URL-34</td>
+</tr>
+<tr>
+<td>UC6</td>
+<td>即時客服協助</td>
+<td>消費者於訂單過程中遇到問題時可即時聯繫客服，獲得協助與處理進度回饋。</td>
+<td>客服聯繫頁、即時對話／留言區</td>
+<td>URL-2, URL-35</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="2-餐廳商家">2. 餐廳商家</h4>
+<div class="table-wrap"><table class="table-compact">
+<thead>
+<tr>
+<th>UC ID</th>
+<th>Use Case</th>
+<th>Purpose</th>
+<th>Interface</th>
+<th>Related Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UC7</td>
+<td>接收訂單與備餐</td>
+<td>餐廳商家接收新訂單並依據訂單內容備餐，更新訂單狀態。</td>
+<td>訂單接收頁、訂單詳情頁、備餐進度管理頁</td>
+<td>URL-16</td>
+</tr>
+<tr>
+<td>UC8</td>
+<td>管理商品、庫存與營業時間</td>
+<td>餐廳商家可管理菜單商品、調整庫存數量及設定營業時間，確保資訊同步。</td>
+<td>商品管理頁、庫存管理頁、營業時間設定頁</td>
+<td>URL-16</td>
+</tr>
+<tr>
+<td>UC9</td>
+<td>暫停接單</td>
+<td>餐廳商家可因臨時公休或食材短缺等原因，暫停接單以避免無法完成訂單。</td>
+<td>接單狀態設定頁</td>
+<td>URL-20</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="3-餐廳商家-外送員">3. 餐廳商家、外送員</h4>
+<div class="table-wrap"><table class="table-compact">
+<thead>
+<tr>
+<th>UC ID</th>
+<th>Use Case</th>
+<th>Purpose</th>
+<th>Interface</th>
+<th>Related Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UC10</td>
+<td>回報異常與爭議處理</td>
+<td>餐廳商家或外送員可針對訂單異常（如備餐延遲、配送問題）進行回報，並啟動爭議處理流程。</td>
+<td>外送員配送任務頁、配送狀態回報頁、異常回報頁</td>
+<td>URL-17, URL-25, URL-37</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="4-外送員">4. 外送員</h4>
+<div class="table-wrap"><table class="table-compact">
+<thead>
+<tr>
+<th>UC ID</th>
+<th>Use Case</th>
+<th>Purpose</th>
+<th>Interface</th>
+<th>Related Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UC11</td>
+<td>接收配送任務與導航</td>
+<td>外送員接收新配送任務，取得取餐與送餐地點資訊，並可使用導航功能。</td>
+<td>配送任務列表頁、任務詳情頁、地圖導航頁</td>
+<td>URL-6, URL-8</td>
+</tr>
+<tr>
+<td>UC12</td>
+<td>回報配送進度與異常</td>
+<td>外送員於配送過程中可回報進度、異常狀況或現場問題，並獲得處理指引。</td>
+<td>外送員配送任務頁、配送狀態回報頁、異常回報頁</td>
+<td>URL-25, URL-28, URL-31, URL-32, URL-33</td>
+</tr>
+<tr>
+<td>UC13</td>
+<td>查詢酬勞與結算明細</td>
+<td>外送員可查詢歷史酬勞、結算明細及撥款狀態，確保收入透明。</td>
+<td>酬勞查詢頁、結算明細頁</td>
+<td>URL-9</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="5-平台營運管理者">5. 平台營運管理者</h4>
+<div class="table-wrap"><table class="table-compact">
+<thead>
+<tr>
+<th>UC ID</th>
+<th>Use Case</th>
+<th>Purpose</th>
+<th>Interface</th>
+<th>Related Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UC14</td>
+<td>管理派單與公平分配</td>
+<td>平台營運管理者可設定與監控訂單派發規則，確保派單公平並處理異常分配。</td>
+<td>派單規則設定頁、派單監控頁、異常分配查詢頁</td>
+<td>URL-10</td>
+</tr>
+<tr>
+<td>UC15</td>
+<td>數據分析與營運監控</td>
+<td>平台營運管理者可即時查看訂單流量、營收、異常狀況等數據，支援營運決策。</td>
+<td>數據儀表板、營運監控頁、異常狀況分析頁</td>
+<td>URL-12, URL-11</td>
+</tr>
+<tr>
+<td>UC16</td>
+<td>金流與稅務管理</td>
+<td>平台營運管理者可管理金流結算、稅務作業，並確保符合法規要求。</td>
+<td>金流管理頁、稅務管理頁、結算紀錄查詢頁</td>
+<td>URL-14, URL-18, URL-23</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="6-餐廳商家-外送員-平台營運管理者">6. 餐廳商家、外送員、平台營運管理者</h4>
+<div class="table-wrap"><table class="table-compact">
+<thead>
+<tr>
+<th>UC ID</th>
+<th>Use Case</th>
+<th>Purpose</th>
+<th>Interface</th>
+<th>Related Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UC17</td>
+<td>溝通協作與訊息管理</td>
+<td>多方角色可於平台內進行訊息溝通、協作與重要通知管理，提升協作效率。</td>
+<td>訊息中心頁、協作通知頁</td>
+<td>URL-13</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="7-餐廳商家-平台營運管理者">7. 餐廳商家、平台營運管理者</h4>
+<div class="table-wrap"><table class="table-compact">
+<thead>
+<tr>
+<th>UC ID</th>
+<th>Use Case</th>
+<th>Purpose</th>
+<th>Interface</th>
+<th>Related Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UC18</td>
+<td>資料查詢與匯出</td>
+<td>餐廳商家與平台營運管理者可查詢、匯出訂單、金流、交易等資料，支援稽核與管理。</td>
+<td>資料查詢頁、資料匯出頁</td>
+<td>URL-18, URL-23, URL-24</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+
+</body>
+</html>

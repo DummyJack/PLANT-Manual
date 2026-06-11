@@ -1,0 +1,24 @@
+@startuml
+left to right direction
+actor "消費者" as Consumer
+actor "外送員" as Courier
+actor "餐廳商家" as Merchant
+actor "平台營運管理者" as Operator
+rectangle "外送平台系統" as System
+cloud "第三方支付/金流服務" as PaymentService
+
+Consumer --> System : 下單、付款、查詢進度、退款申請、補償申請、投訴
+System --> Consumer : 訂單狀態、價格/費用揭露、退款/補償結果、通知
+
+Courier --> System : 接單、取餐/送餐進度回報、異常上報、酬勞查詢、投訴/申訴
+System --> Courier : 派單、路線導航、取餐/送餐指示、酬勞結算、通知
+
+Merchant --> System : 接單、備餐進度、營業/庫存同步、暫停接單、結算查詢、責任釐清申請
+System --> Merchant : 訂單通知、結算明細、異常/投訴通知
+
+Operator --> System : 系統監控、數據查詢、營運管理、資料匯出、爭議處理、合規查核
+System --> Operator : 營運報表、異常/稽核通知、資料查詢結果
+
+System --> PaymentService : 付款請求、退款請求、結算撥款、資料查詢
+PaymentService --> System : 付款/退款/結算結果、金流資料
+@enduml

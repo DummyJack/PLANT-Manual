@@ -1,0 +1,897 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>R1-M2</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, "Noto Sans TC", sans-serif; margin: 24px; }
+    body.has-floating-toc { margin-right: 292px; }
+    .md-body { max-width: 1200px; margin: 0 auto; }
+    .plant-floating-toc {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      z-index: 20;
+      width: 236px;
+      max-height: calc(100vh - 48px);
+      overflow-y: auto;
+      scrollbar-width: none;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.12);
+      padding: 10px;
+    }
+    .plant-floating-toc::-webkit-scrollbar { display: none; }
+    .plant-floating-toc__title { margin: 0 0 6px; min-height: 20px; font-size: 13px; font-weight: 700; color: #1e293b; }
+    .plant-floating-toc__title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      list-style: none;
+      user-select: none;
+    }
+    .plant-floating-toc__title::-webkit-details-marker { display: none; }
+    .plant-floating-toc__title::after {
+      content: "收起";
+      padding: 2px 0;
+      color: #64748b;
+      font-size: 11px;
+      font-weight: 650;
+    }
+    .plant-floating-toc:not([open]) {
+      width: auto;
+      overflow: visible;
+      padding: 8px 10px;
+    }
+    .plant-floating-toc:not([open]) .plant-floating-toc__title { margin: 0; }
+    .plant-floating-toc:not([open]) .plant-floating-toc__title::after { content: "目錄"; }
+    .plant-floating-toc__items { display: flex; flex-direction: column; gap: 2px; }
+    .plant-floating-toc__link {
+      display: block;
+      border-radius: 7px;
+      padding: 6px 8px;
+      color: #475569;
+      font-size: 12px;
+      line-height: 1.35;
+      text-decoration: none;
+    }
+    .plant-floating-toc__link:hover { background: #f1f5f9; color: #0f172a; }
+    .plant-floating-toc__link.is-active {
+      background: #e5e7eb;
+      color: #1f2937;
+      font-weight: 700;
+    }
+    .plant-floating-toc__link--level-3 { padding-left: 18px; color: #64748b; }
+    .plant-floating-toc__link--level-4,
+    .plant-floating-toc__link--level-5,
+    .plant-floating-toc__link--level-6 { padding-left: 28px; color: #64748b; }
+    .table-wrap { width: 100%; overflow-x: auto; }
+    table { border-collapse: collapse; width: 100%; table-layout: fixed; margin: 12px 0; }
+    th, td { border: 1px solid #d0d0d0; padding: 8px; text-align: left; vertical-align: top; }
+    .table-compact th, .table-compact td { white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
+    .table-readable th, .table-readable td { white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
+    .table-traceability { table-layout: fixed; }
+    .table-traceability th:first-child, .table-traceability td:first-child { width: 128px; white-space: nowrap; }
+    .table-traceability th:nth-child(2), .table-traceability td:nth-child(2) { width: auto; }
+    .table-traceability th:nth-child(3), .table-traceability td:nth-child(3) { width: 260px; white-space: normal; overflow-wrap: anywhere; word-break: normal; }
+    .table-traceability td:nth-child(3) a { display: inline-block; margin: 0 4px 4px 0; white-space: nowrap; }
+    .dr-trace-feedback-table { table-layout: fixed; width: 100%; }
+    .dr-trace-feedback-table th,
+    .dr-trace-feedback-table td { white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
+    .dr-trace-feedback-table th:nth-child(1), .dr-trace-feedback-table td:nth-child(1) { width: 72px; }
+    .dr-trace-feedback-table th:nth-child(2), .dr-trace-feedback-table td:nth-child(2) { width: 120px; }
+    .dr-trace-feedback-table th:nth-child(3), .dr-trace-feedback-table td:nth-child(3) { width: 190px; }
+    .dr-trace-source-chip {
+      display: inline-block;
+      margin: 0 4px 4px 0;
+      padding: 2px 6px;
+      border-radius: 999px;
+      background: #eef2f7;
+      color: #475569;
+      font-size: 0.86em;
+      line-height: 1.45;
+      white-space: nowrap;
+    }
+    .table-user-requirements th:first-child, .table-user-requirements td:first-child { width: 96px; white-space: nowrap; }
+    .table-user-requirements th:nth-child(2), .table-user-requirements td:nth-child(2),
+    .table-user-requirements th:nth-child(4), .table-user-requirements td:nth-child(4) { width: 180px; }
+    .table-open-questions th:first-child, .table-open-questions td:first-child { width: 96px; white-space: nowrap; }
+    .table-open-questions th:nth-child(3), .table-open-questions td:nth-child(3) { width: 220px; white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
+    td > p:first-child { margin-top: 0; }
+    td > p:last-child { margin-bottom: 0; }
+    img { max-width: 100%; height: auto; display: block; margin: 12px auto; }
+    code, pre { white-space: pre-wrap; }
+    .srs-dr-ref,
+    h4 a[href*="design_rationale.html#"],
+    li a[href*="design_rationale.html#con-"] {
+      display: inline-flex;
+      align-items: center;
+      margin-left: 0.35rem;
+      transform: translateY(-0.35em);
+      font-size: 0.62em;
+      font-weight: 700;
+      line-height: 1;
+      color: #64748b;
+      text-decoration: none;
+    }
+    .srs-dr-ref:hover,
+    h4 a[href*="design_rationale.html#"]:hover,
+    li a[href*="design_rationale.html#con-"]:hover { color: #0f172a; text-decoration: underline; }
+    @media (max-width: 1024px) {
+      body.has-floating-toc { margin: 16px; padding-bottom: 72px; }
+      .plant-floating-toc {
+        top: auto;
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        width: auto;
+        max-height: 38vh;
+      }
+    }
+  </style>
+</head>
+<body class="">
+
+<div class="md-body">
+<h1 id="正式化使用者需求">正式化使用者需求</h1>
+<ul>
+<li><strong>Proposed by</strong>: mediator</li>
+<li><strong>Participants</strong>: mediator, analyst, 消費者, 外送員, 平台營運管理者, 餐廳商家</li>
+<li><strong>Status</strong>: agreed</li>
+</ul>
+<h2 id="摘要">摘要</h2>
+<p>本議題聚焦於確認所有需求條目（功能性、非功能性、合規/約束型）已完成正式化，並涵蓋消費者、外送員、平台營運、餐廳等主要利害關係人的核心需求與底線。討論過程中，各方針對資訊同步、異常處理、補償流程、責任歸屬等重點表達關注，並確認現有需求條目已無重大遺漏或爭議。最終確認需求來源、驗收條件與追蹤性皆明確，無 coverage gap。</p>
+<h2 id="決議">決議</h2>
+<p>正式採納現有需求條目（REQ-1~REQ-37, REQ-40）為專案正式需求，確認其可驗證、可追蹤、來源明確且符合各方底線。後續如有新場景、法規變動或需求細化，將另開議題追蹤，不影響本次正式化結論。</p>
+<h2 id="討論紀錄">討論紀錄</h2>
+<h3 id="analyst">analyst</h3>
+<p>針對「需求正式化」議題，本分析師確認本次會議已圍繞需求涵蓋、需求條目品質、驗收基準、來源追蹤完整性與同類需求合併粒度做了全面覆蓋、串查及明確標註。經系統性回顧，所有 URL 條目（共37筆）皆已透過對應 REQ 條目正式化，且每一筆 REQ 條目皆具備明確驗收條件（Acceptance Criteria）與來源，可驗證、可追蹤、無未決 coverage gap。</p>
+<p>需求範圍（scope）未發現超出來源證據的新擴張；目前所有功能性、非功能性與合規／約束型需求也都有明確分群與分類，無重複或遺漏。</p>
+<p>條目粒度方面，現有個別外送員相關需求（如 REQ-6、REQ-7、REQ-26、REQ-29、REQ-30）拆分較細，部分功能間有明顯重疊；但已開始進行合理合併，待下輪「需求細化與分群」（refine_requirement）議題時再統一調整，不影響本次正式化結論。</p>
+<p>驗收條件方面，依現有描述均已足以讓後續測試或審查依據條文直接驗證，無模糊風險。</p>
+<p>若無新需求輸入、利害關係人補充或模型變動，依現行資料與決策（R1-M2）本議題已具備結案標準。</p>
+<p>提醒：如需進一步細化需求分群、合併過細者，相關討論建議落於 refine_requirement 議題追蹤即可。</p>
+<h4 id="需求更新">需求更新</h4>
+<h5 id="req-1-訂單流程簡化與透明">REQ-1: 訂單流程簡化與透明</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 系統應設計簡單明瞭的選餐、付款及訂單進度查詢流程，讓使用者能以最少步驟完成操作，且於各環節提供清楚指示與相關資訊，提升消費者操作意願與便利性。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>消費者可於30秒內完成點餐至下單流程，不需重複填入相同資訊。</li>
+<li>訂單進度查詢介面包含餐點準備、外送員取餐、配送中、即將送達等明確狀態標示。</li>
+<li>所有操作介面有明顯且易懂的指示（如按鈕名稱、提示訊息），無操作死角。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-2-即時協助與便捷退款處理">REQ-2: 即時協助與便捷退款處理</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 系統應於消費者遇到出餐延遲、外送員服務不佳等問題時，提供即時線上協助通道與一站式退款申請流程，並於合理時間內完成退款處理及回復查詢。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>消費者可於訂單詳細頁直接發起即時協助（如線上客服、智能回復）。</li>
+<li>消費者可於三分鐘內完成退款申請，平台需於規定期限（如3個工作天內）完成初步處理及回覆。</li>
+<li>系統自動保留協助及退款申請紀錄，供雙方查詢。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-3-價格及費用資訊揭露規範">REQ-3: 價格及費用資訊揭露規範</h5>
+<ul>
+<li><strong>Type</strong>: constraint</li>
+<li><strong>Requirement</strong>: 系統介面必須明確揭示所有商品價格、各項服務費與運費，並完整列出各種取消訂單之理由及對應退費機制，不得有未公開的額外費用，並需符合地方法規與主管機關規定。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>消費者於結帳前可一覽所有金額明細與必要費用。</li>
+<li>無提前揭露之額外費用，不得於結帳時臨時新增未說明之費用項目。</li>
+<li>取消訂單介面提供各種理由選項與其退費標準規則說明。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-4-訂單異常賠償及處理機制">REQ-4: 訂單異常賠償及處理機制</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 系統應建立於外送過程中發生餐點傾倒、送錯、餐點變冷等異常時的回報入口，提供消費者明確的賠償標準與自動、人工處理機制，並保留所有相關證據與處理日誌。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>消費者可於訂單異常事件發生後，三分鐘內於平台完成回報。</li>
+<li>平台系統自動依事件類型推算及提醒可申請之賠償方式及標準。</li>
+<li>後台具處理紀錄、證據保存及申訴調查流程，方便主管機關稽核。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-5-外送訂單預計送達時間查詢">REQ-5: 外送訂單預計送達時間查詢</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 系統應於訂單成立後即時顯示預計送達時間於消費者介面，並根據配送進度自動更新此時間，協助消費者掌握外送狀態並決定是否使用平台服務。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>訂單成立後即刻於消費者查詢頁顯示預計送達時間。</li>
+<li>送達時間根據外送進度動態更新（如交通、天氣、異常事件等）且更新頻率明確（如每3分鐘一次）。</li>
+<li>消費者可隨時查詢歷史及即時的送達預估紀錄，且介面標示清晰。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-6-地圖導航-取餐與配送流程支持">REQ-6: 地圖導航、取餐與配送流程支持</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 當外送員前往餐廳或消費者地點進行取餐與配送時，系統應於同一頁面整合顯示地圖導航、取餐指示及相關配送資訊，並根據訂單狀態自動更新目的地及指示。未授權或無法進入場所時，系統應顯示聯絡資料協助外送員處理現場障礙。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>外送員可於一個頁面內同時查詢導航路線、取餐指示、配送資訊及可用聯絡方式。</li>
+<li>導航指南須與訂單狀態聯動，自動調整目的地並顯示異常情境提示。</li>
+<li>導航錯誤（如導至錯誤地點）、取餐/配送指示顯示錯誤或關鍵資訊遺漏之訂單比例低於1%（以日均計算）。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>場所或聯絡資訊需合規揭露，誤用可能衍生個資風險。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-7-系統效能與資訊正確性">REQ-7: 系統效能與資訊正確性</h5>
+<ul>
+<li><strong>Type</strong>: non-functional</li>
+<li><strong>Requirement</strong>: 系統應維持高效的回應速度與處理能力，並確保訂單、導航及關鍵資訊的正確性和時效性，避免因為錯誤或延遲影響外送員執行訂單。此品質要求應涵蓋操作介面、地圖、報酬資料等主要系統交易範圍。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>外送員操作關鍵畫面時，系統回應時間於2秒內完成。</li>
+<li>配送、取餐或金流資訊每日整體錯誤率於萬分之一以下，且高峰時段資訊不延遲。</li>
+<li>服務異常時，錯誤通報於5分鐘內進入管理者監控系統。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>高併發流量或外部地圖服務異常可能影響整體處理效能與資料一致性。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-8-爭議處理與外送員保護機制">REQ-8: 爭議處理與外送員保護機制</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 系統應提供外送員針對惡意投訴或出餐延遲等爭議事件，快速提交申訴或說明之途徑，並於爭議處理過程中設計適當保護措施，以避免誤判及平台對外送員不公平待遇。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>外送員可於每次涉及爭議的訂單詳情頁，在3步驟內提交異議。</li>
+<li>系統於受理爭議時，暫時凍結相關懲處，待調查完成後再執行。</li>
+<li>每筆爭議案件均有處理紀錄供日後稽核與外送員查詢。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>惡意申訴濫用導致處理資源耗損。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-9-酬勞結算與正確度管理">REQ-9: 酬勞結算與正確度管理</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 系統應依約定週期自動結算外送員酬勞，並確保結算明細、扣款、錯誤修正流程透明，讓外送員可隨時查詢酬勞記錄與明細，避免漏發、誤扣與異常狀況。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>外送員可於結算日當天查看當期酬勞明細與異常狀況說明。</li>
+<li>任何扣款項目需有明確說明與下方申訴機制連結。</li>
+<li>系統每月主動核對訂單與酬勞記錄，發現異常自動推播通知外送員。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>結算邏輯或介面設計不清將引發外送員誤解與爭議。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-10-訂單派送公平性">REQ-10: 訂單派送公平性</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 系統訂單派單邏輯應確保訂單分配不因外送員身份、過往紀錄或出餐異常而不公平排擠，避免訂單過度集中於特定外送員或讓部分外送員長期接單數過少，提升派案制度的公開與合理性。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>平台每週自動產出派單分配統計報表供主管查核。</li>
+<li>若發現演算法造成長期極端分配現象，系統自動產生異常提示並供人工審查介入。</li>
+<li>外送員可查閱個人歷史派單分配情況，若有爭議可發起申訴。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>演算法不透明可能引發排擠爭議及外送員信任危機。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-11-系統穩定性與可靠性">REQ-11: 系統穩定性與可靠性</h5>
+<ul>
+<li><strong>Type</strong>: non-functional</li>
+<li><strong>Requirement</strong>: 系統在日常營運、維運作業及高併發情境下，必須維持穩定運作，避免頻繁當機、錯誤或服務中斷，以確保用戶得以持續使用服務且不因系統異常中斷主要業務流程。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>全年平均可用率達99.9%以上（含維護時段）。</li>
+<li>每月因系統當機或主要功能異常造成的服務中斷不得超過1次。</li>
+<li>系統發生異常後於10分鐘內自動通報與啟動復原流程。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>高併發或關鍵維運時段遇到系統當機，將造成大量用戶流失與品牌信任危機。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-12-營運即時數據監控與異常分析">REQ-12: 營運即時數據監控與異常分析</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 平台應提供營運管理者即時查詢分析平台數據（如訂單流量、營收、異常事件等）之能力，以支援行銷調整、緊急問題處理與經營決策，並具備異常自動告警與可追溯分析功能。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>主管可透過專屬介面隨時查詢最新訂單流量、營收及過去30天內異常記錄。</li>
+<li>系統於訂單流量或金流異常（如超標、驟降）時能於3分鐘內自動通知管理者。</li>
+<li>所有數據異常紀錄具備完整追溯來源與查詢時間戳記。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>異常偵測失靈將造成營運風險無法即時回應。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-13-多方溝通協作渠道">REQ-13: 多方溝通協作渠道</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 平台應支援有效且順暢的溝通機制，讓營運管理者能與商家、外送員互動協調，處理平台營運相關議題，並能即時將重要訊息訊息推送給指定對象，避免因溝通不暢導致問題積壓及客服壓力增加。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>管理者可一站式查閱並回覆外送員或商家來訊，支持主題分類與訊息查詢。</li>
+<li>平台支援雙向訊息推播機制（如公告、警示），訊息到達率達98%以上。</li>
+<li>所有溝通記錄及處理結果可追溯、具查詢與導出功能。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>溝通機制設計不良會造成處理延誤與申訴量增加。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-14-金流與稅務合規作業">REQ-14: 金流與稅務合規作業</h5>
+<ul>
+<li><strong>Type</strong>: constraint</li>
+<li><strong>Requirement</strong>: 平台處理金流及稅務等相關作業時，必須遵守所有適用法規（含第三方支付、消費者保護、個資及稅務法等），並具備自動保存、查核與稽核機制，以確保所有交易、退款、酬勞結算及相關資料均可供主管機關稽查且保存期限不低於兩年。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>所有金流與營收資料自動保存並可供查核，保存期限不低於兩年。</li>
+<li>支付流程、稅務報表與資料存取均符合台灣主管機關規範及第三方支付業者合規要求。</li>
+<li>平台發現違規事件時能自動記錄處理流程，並於法規要求期限內完成通報。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>若未符合法規要求，將面臨高額罰鍰及經營資格喪失風險。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-15-平台功能與費用平衡性">REQ-15: 平台功能與費用平衡性</h5>
+<ul>
+<li><strong>Type</strong>: non-functional</li>
+<li><strong>Requirement</strong>: 系統整體設計須兼顧吸引消費者、保障外送員權益及維持平台營收三方利益間的平衡，避免任一方因費用規劃失衡而影響服務持續性與合作意願。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>每次費用方案調整後三個月內，消費者及外送員流失率皆未超過過往基準的20%。</li>
+<li>平台毛利率皆於營運預期標準範圍內變動（上下不超過20%）。</li>
+<li>系統設有收集和分析各方回饋機制，用於評估費用與功能平衡性。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>單方利益過度傾斜將導致合作崩解或服務中斷。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-16-後台介面簡化與訂單資訊自動同步">REQ-16: 後台介面簡化與訂單資訊自動同步</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 當餐廳商家人員管理訂單時，系統應提供簡單易用的後台介面，並自動同步訂單資訊、庫存狀態及營業時間，確保所見資訊為最新狀態，以降低操作複雜性與錯誤風險。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>商家可於一個頁面查看所有訂單資訊、庫存現況及營業時間。</li>
+<li>每次訂單更新（如新訂單、取消、完成）後，庫存與營業時間自動同步至後台，不需手動重載頁面。</li>
+<li>使用流程不超過三個步驟即可完成訂單管理主要操作。</li>
+<li>操作介面標示明確，誤操作比例明顯下降（如錯誤訂單量較過去降低至少20%）。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>自動同步失效導致資訊過時或錯誤。</li>
+<li>介面簡化過度可能影響進階操作需求。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-17-訂單責任歸屬釐清與爭議協作">REQ-17: 訂單責任歸屬釐清與爭議協作</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 當發生消費者投訴或外送員遲到等爭議事件時，系統應協助餐廳商家查詢相關訂單資料、歷程紀錄及推導事件責任歸屬，並提供申訴或協同處理通道，以避免商家單方面承擔無法判斷的損失。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>商家可在爭議訂單詳情頁查看所有關鍵紀錄（下單、出餐、分派、遲到紀錄等）。</li>
+<li>系統依流程自動標示暫時歸責判斷（如消費者、商家、外送員責任）。</li>
+<li>提供線上提交補充證據與申訴的功能，並有平台管理人員後續介入處理機制。</li>
+<li>所有舉證與溝通記錄可供日後查證。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>依據紀錄自動歸責易因資料不全誤判，需要人為介入。</li>
+<li>過程複雜可能影響商家反饋效率與流程時效。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-18-結算撥款準時與明細透明">REQ-18: 結算撥款準時與明細透明</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 系統應準時完成餐廳商家之結算撥款，並於後台明確揭示結算明細、計算方式及扣款理由，保證資訊完整透明，避免無預警扣款或結帳延遲。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>商家可在每結算週期結束當天於後台查詢當期結算明細、收入及扣款說明。</li>
+<li>自動推播提醒商家結算結果，遇異常能查詢相關理由與紀錄。</li>
+<li>所有結算與撥款紀錄保存不少於兩年，並可匯出查證。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>結算系統異常或資料延遲造成撥款未及時。</li>
+<li>扣款細節不清易引發申訴。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-19-手續費合理性與商家合作維持">REQ-19: 手續費合理性與商家合作維持</h5>
+<ul>
+<li><strong>Type</strong>: non-functional</li>
+<li><strong>Requirement</strong>: 平台向餐廳商家收取之手續費需維持在產業合理範圍，確保商家於薄利多銷情境下仍有盈餘，並不因費率異動大幅影響持續上架意願。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>商家可於後台隨時查詢其適用手續費率及變更記錄。</li>
+<li>過去一年內平台平均手續費率不高於同業競品10%。</li>
+<li>若手續費調整後三個月內，合作商家持續率未下降超過過往基準20%。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>外部產業變動可能導致手續費率標準調整頻繁。</li>
+<li>平台若費率偏高，商家流失風險升高。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-20-即時暫停接單與訂單處理">REQ-20: 即時暫停接單與訂單處理</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 當餐廳出現食材短缺或臨時公休等狀況時，系統應允許商家即時在後台暫停接單，並自動通知消費者及調整外送員派單，以避免產生無法履約的訂單。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>商家可隨時於後台一鍵啟用及解除暫停接單功能，操作完成後即時生效。</li>
+<li>平台自動於前台標示商家暫停狀態，並停止所有新訂單派單流程。</li>
+<li>因暫停接單造成的未完成訂單自動退單處理且消費者取得即時通知。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>暫停接單通知未即時傳遞可能導致誤接新訂單。</li>
+<li>頻繁暫停接單影響整體平台訂單分配與營業效率。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-21-彈性取餐地點與指示資訊管理">REQ-21: 彈性取餐地點與指示資訊管理</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 系統應允許消費者於每筆訂餐流程中，自由選擇取餐地點與接收方式，包括住家、公司、超商、公共空間等場域，並可在平台介面補充取餐相關指示或注意事項（如備註、特殊交付需求等），所有資訊須確實同步給外送員並於外送員操作介面即時顯示，協助外送員正確履行交付任務。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>消費者於下單流程可從多種取餐地點與取餐方式中彈性選擇，並可於同一介面輸入特殊指示。</li>
+<li>外送員操作介面可完整顯示消費者補充的取餐資訊與注意事項。</li>
+<li>平台自動紀錄每筆訂單取餐地點及交付指示內容，並可追溯查詢。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>消費者填寫的資訊過於敏感或違反個資法，恐造成資料外洩風險。</li>
+<li>部分交付地點涉及第三方通行權問題，若處理流程不明將引發平台責任爭議。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-22-取餐方式明確告知與同意機制">REQ-22: 取餐方式明確告知與同意機制</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 系統於消費者設定或變更取餐方式及取餐地點時，應以明確介面揭示每種選項資訊、適用條件及可能限制，並於消費者確認頁明確取得用戶同意，嚴禁系統自動決定或變更取餐方式而未經消費者明確同意。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>消費者變更或設定取餐方式時，系統顯示所有可選項目、條件、風險說明及需明確勾選同意。</li>
+<li>系統不得在未經消費者操作或同意下自動變更其既有取餐方式。</li>
+<li>所有取餐方式設定、同意紀錄需留存至少二年，並可供稽核查詢。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>介面設計不佳或流程過於繁瑣會降低用戶滿意度。</li>
+<li>未妥善揭露風險或揭示限制，將影響法遵安全。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-23-金流與交易資料保存年限與不可竄改要求">REQ-23: 金流與交易資料保存年限與不可竄改要求</h5>
+<ul>
+<li><strong>Type</strong>: constraint</li>
+<li><strong>Requirement</strong>: 系統必須依據適用法規及各國商業合約要求，保存所有金流與交易原始資料於法定年限內（不得短於二年），並確保於稽核、查核或調查時，所有原始紀錄可立即調閱且無法被任意修改或刪除。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>交易及金流相關資料保存年限不得短於適用法規及合約最低要求。</li>
+<li>所有原始紀錄於調閱時可即時查得且保存不可被修改之版本證據。</li>
+<li>稽核或調查流程有相關存取及編輯日誌留存。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>資料保存不符合法定年限，或存在可被異動之風險，會導致監管罰責。</li>
+<li>跨國業務合約要求年限不一，系統需足夠彈性設定。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-24-金流與交易資料格式化匯出支援">REQ-24: 金流與交易資料格式化匯出支援</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 系統應支援營運管理者查詢、篩選及依需求以審查用途格式（如CSV、PDF或API）匯出所有金流與交易資料，並於匯出資料中保留必要的完整性、真實性與原始紀錄資訊，以利營運管理、稽核及法務查證。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>平台管理人員可按時間區間、資料類型查詢並下載或調用API取得金流與交易相關資料。</li>
+<li>匯出資料格式至少支援CSV、PDF與標準API，保留原始記錄欄位及時戳。</li>
+<li>所有匯出或存取行為有操作紀錄留存，不得影響原始資料不可竄改性。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>資料匯出接口設計不良將降低審查效率或導致原始資料遺失爭議。</li>
+<li>匯出過程資訊安全控管不足恐致敏感資料外洩。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-25-異常狀況快速上報與後續指引及派單保護">REQ-25: 異常狀況快速上報與後續指引及派單保護</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 系統應允許外送員於遇到餐廳未營業、備餐延遲等異常時能於平台快速上報，並即時收到明確的後續處理指引，同時系統需設計保障機制，確保異常上報後該外送員不因事件而遭受不公平的派單減少或收入影響。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>外送員可於訂單操作界面在兩步驟內完成異常事件回報。</li>
+<li>系統於回報後即時顯示後續標準處理流程、補償或釐清指引。</li>
+<li>異常上報不得自動導致該外送員派單量被減少，需人工審查決策紀錄。</li>
+<li>外送員可查詢個人所有異常上報紀錄及其對派單的實際影響。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>異常上報流程若不友善將減少外送員配合意願。</li>
+<li>派單演算法若未釐清和留存紀錄，恐引發公平爭議或法規檢查風險。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-26-特殊取餐指示同步與回讀管理">REQ-26: 特殊取餐指示同步與回讀管理</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 當消費者於訂餐流程中補充或變更取餐地點、接收方式或特殊指示時，系統應於消費者介面明確提示外送員已閱讀並確認相關資訊，並於外送員介面即時、明顯顯示所有相關指示，不被藏於多層選單或頁面，並保留外送員確認紀錄以供後續查詢及責任釐清。系統亦應於接單後及配送前提醒外送員確實查看並執行相關指示，遇有指示異常時協助後續雙向通知與追蹤。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>消費者於補充或變更取餐地點、接收方式、指示後，平台回饋外送員已讀確認於消費者介面。</li>
+<li>外送員操作介面於接單後及配送前能即時、明顯顯示所有有效指示、留言或臨時變更內容，不被隱藏於次要頁面或多層選單。</li>
+<li>特殊指示閱讀及確認情形有留存紀錄，並可於事後查詢。</li>
+<li>當外送員有未確認或未依指示執行時，系統應提醒外送員並協助追蹤處理進度。</li>
+<li>任一有效指示未於關鍵流程節點主動顯示的情形，每日不得超過1%（以日均訂單計算）。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>訊息傳遞延遲、顯示不完整或介面設計不良可能造成資訊遺漏或操作誤失。</li>
+<li>過度提示或設計複雜會影響操作效率。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-27-特殊取餐指示違規與補償流程">REQ-27: 特殊取餐指示違規與補償流程</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 當外送員未依照已讀取的取餐指示完成交付時，系統須主動通知消費者相關異常，提供外送員說明未能配合之原因，協助消費者瞭解處理流程；於無合理理由時，平台應依明確標準提供具體補償，並保留完整處理紀錄。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>外送員未依指示完成交付時，平台自動通知消費者並顯示異常原因與後續處理指引。</li>
+<li>外送員可於平台介面填寫未配合之事實或說明理由。</li>
+<li>無合理理由未配合時，平台依規定自動啟動補償流程並通知消費者。</li>
+<li>所有異常、說明與處理流程有完整紀錄供查詢。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>補償標準模糊或處理程序不一致增加平台風險。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-28-特殊及高風險地點揭露與消費者同意證明">REQ-28: 特殊及高風險地點揭露與消費者同意證明</h5>
+<ul>
+<li><strong>Type</strong>: constraint</li>
+<li><strong>Requirement</strong>: 當消費者指定非住家、特殊或高風險地點（如公司、超商、公共空間）作為取餐地點時，平台必須於下單過程明確揭露進出限制、風險與權利義務，必要時要求用戶確認條款、進出說明或提供聯絡協助，對於高風險或特殊場所應依主管機關規定留存消費者同意證據及進出權資訊，以備法規查核。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>平台於消費者下單流程中對非住家或高風險地點揭露進出權說明、風險警示與責任條款。</li>
+<li>必要情境須用戶明確勾選或確認相關同意條款，必要時須提供進出資訊或聯絡方式。</li>
+<li>所有同意與進出證據紀錄至少保存二年，可供主管機關查核。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>進出權資訊管理不善將使平台承擔難舉證之法律責任。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-29-任務提醒提示與關鍵資訊顯示">REQ-29: 任務提醒提示與關鍵資訊顯示</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 系統在外送員執行送餐流程的每個關鍵步驟時，應於操作介面提供明顯、易於辨識且不易忽略的任務提醒，並確保所有重要訊息（如即時配送狀態、特殊指示、確認訊息、風險通知）均直接呈現在主要操作畫面，不得隱藏於多層選單或次要頁面，以降低資訊遺漏及誤操作風險。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>外送員於出發、到店、取餐、配送、完成等流程步驟，操作介面均有明確的提醒提示。</li>
+<li>重要任務資訊須於主要頁面（如地圖導航、取餐及配送任務頁）直接顯示，無須展開多層次選單查找。</li>
+<li>發生配送異常、風險或臨時變動時，系統即時以彈窗、顏色突顯或圖示等方式提示外送員。</li>
+<li>任一流程節點未主動顯示的提醒訊息比例低於1%（以日均量計算）。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>過多彈窗或提示畫面設計不良可能干擾外送員操作。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-30-操作流程不受提醒干擾">REQ-30: 操作流程不受提醒干擾</h5>
+<ul>
+<li><strong>Type</strong>: non-functional</li>
+<li><strong>Requirement</strong>: 系統所有提醒功能應設計於不妨礙外送員主要操作流程（如導航、問題回報、收款等），避免因提醒訊息導致操作誤觸、中斷或延遲任務進行；重要提醒須以適當方式疊加、不覆蓋主要功能按鈕或行動路徑。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>提醒訊息彈出時不阻擋導航、回報、主要資訊查詢或必要操作區域。</li>
+<li>平台每月因提醒設計問題（如誤觸、遮蔽導航等）造成的流程中斷或投訴個案比例低於0.1%。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>過於簡化提醒設計可能導致重要訊息未能有效傳達。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-31-補償申請與多樣補救方式">REQ-31: 補償申請與多樣補救方式</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 系統於消費者因外送員未依補充取餐指示導致訂單問題時，須提供消費者於平台介面簡單、快速選擇退款或等值補償（如折價券、平台點數）之申請流程，補償金額需明確反映實際損失，並允許消費者根據個人偏好選擇補償方式；系統應記錄補償過程及決策依據。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>消費者於相關異常事件後可於兩步驟內於平台提出退款或補償申請。</li>
+<li>平台提供多種補償方式選擇（如原路退費、折價券、點數），輔以實際損失金額計算。</li>
+<li>所有補償申請、金額核算及消費者選擇紀錄可追溯查詢。</li>
+<li>補償流程完成後三個工作天內消費者獲知處理結果並取得補償。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>補償機制或標準不明，恐引發消費者不信任或濫用補償申請。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-32-客服即時協助與主動進度通知">REQ-32: 客服即時協助與主動進度通知</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 當消費者於外送過程中無法聯絡外送員或現場發生特殊、複雜問題（如配送遲到、地點糾紛等）時，系統應主動偵測相關情境並於平台介面提供客服協助入口，同步自動或人工推送進度通知，減少消費者需多次主動追問處理狀態之負擔。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>系統可於外送員聯絡異常或問題事件發生時，自動於消費者介面彈出客服協助選項。</li>
+<li>消費者於發起客服協助後，平台即時推送處理進度與狀態更新，期間無須多次主動查詢。</li>
+<li>各類複雜情境下消費者可於一頁介面追蹤所有協助與異常處理紀錄。</li>
+<li>客服協助入口每一異常個案皆有完整處理紀錄與最終決議資訊。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>自動判斷異常情境或客服推播失效，可能降低服務信任度。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-33-特殊取餐地點風險揭露與同意紀錄">REQ-33: 特殊取餐地點風險揭露與同意紀錄</h5>
+<ul>
+<li><strong>Type</strong>: constraint</li>
+<li><strong>Requirement</strong>: 當消費者於下單流程中指定特殊取餐地點（如校園、醫院、商辦大樓等）時，系統須明確揭露該地點的進出限制、現場規範或相關隱私政策，要求消費者在訂單成立前明確同意相關風險與現場規則。必要時，系統應提示消費者提供臨時聯絡人或門禁資訊，並保留所有用戶同意紀錄及進出資訊紀錄，俾供主管機關稽核，以確保平台不會因現場配送問題而被推定為唯一責任方。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>消費者選擇特殊取餐地點時，平台介面揭露該地點進出限制、現場規範及風險說明。</li>
+<li>消費者下單前須明確同意相關條款，並於必要時補充臨時聯絡人或門禁資訊。</li>
+<li>各項同意、聯絡資訊及配送進出證據至少保存二年，可供主管機關查核。</li>
+<li>消費爭議或配送失誤時，平台能檢附揭露、同意及進出資訊紀錄。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>資料保護不當將造成個資外洩或主管機關調查時資料不足。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-34-配送異常即時回報與處理協助">REQ-34: 配送異常即時回報與處理協助</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 當外送員無法依消費者補充指示完成配送、或於現場遇到突發狀況時，系統應於外送員端介面提供簡單且可快速操作的異常回報與協助流程，包括常見問題選項、即時留言功能、即時同步通知消費者及取得其回應機制。若消費者未回應，必須由平台自動或人工介入協助，並於整個異常處理過程中向外送員提供進度提醒與處理紀錄，確保外送員權益不受損。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>外送員可於配送異常發生時，2步驟內向平台發送異常回報並選擇常見問題類型或留言說明現場狀況。</li>
+<li>平台收到異常回報後，於30秒內自動通知消費者，且同步開啟即時回應／協助機制。</li>
+<li>消費者未於3分鐘內回應時，平台自動啟動人工或自動協助處理流程並明確通知外送員。</li>
+<li>外送員可於任一異常處理階段即時查閱案件進度與歷史紀錄，相關流程與結果紀錄保存不少於二年。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>流程設計過於繁瑣導致外送員不願配合，影響異常處理成功率。</li>
+<li>即時通知並聯繫消費者機制可能受網路或系統異常影響處理時效。</li>
+</ul>
+</li>
+</ul>
+<p><strong>Reason</strong>:</p>
+<ul>
+<li>本輪已對 coverage_gaps 中所有 current_URL 條目進行群組、統整與正式化，形成可驗證且追蹤的 REQ 條目。</li>
+<li>針對外送員目標需求，依實際功能、品質屬性與流程拆分成獨立 REQ 條目，並滿足 SRS 追蹤、驗收、可讀性的正式需求描述。</li>
+<li>本次將 coverage_gaps 中5筆 User Requirements 正式化為系統需覆蓋的功能、品質及限制需求。</li>
+<li>title 修正為簡明核心短語，去除角色名稱前綴，強化需求可追蹤性。</li>
+<li>本次覆蓋所有 coverage_gaps 中新發現的需求，並以功能、限制明確分群</li>
+<li>沒有合併至既有 REQ 項目。</li>
+<li>針對 coverage gap 的 User Requirements，分群後新增3筆正式需求條目，涵蓋所有未覆蓋內容。</li>
+<li>本次將 coverage_gaps 條目依同質性分群，新建四筆 REQ 完成正式化與 coverage 對應。</li>
+<li>本次針對仍有缺口的 User Requirement（URL-36、URL-37）分別新增一筆 constraint 與 functional REQ 予以正式覆蓋，解決 coverage gap。</li>
+</ul>
+<h3 id="消費者">消費者</h3>
+<p>目前前面整理的幾項需求（像是特殊取餐指示同步、資訊確認、異常處理、補償流程）都有反映到我的實際需求。只要外送員有確實看到我補充的指示、有問題能即時通知我、發生沒照做可以讓我直接申請補償，整個流程如果真的能做得到且清楚記錄，我是可以接受的。我只在意萬一系統通知不及時、外送員其實沒收到重要訊息，或者補償金額很低、平台讓我自己舉證很麻煩，這就不行。如果操作步驟都能在 app 內不用反覆確認、也不用一直等線上客服回應，那整體滿意。</p>
+<h3 id="外送員">外送員</h3>
+<p>我認同目前需求都有涵蓋到我的主要痛點。包含指示資訊一定要在主要畫面明顯，不要藏在選單裡；遇到特殊情境缺資料要能有一鍵聯絡、或明確指出我該聯絡誰才能進去。我的底線就是資訊要正確無誤、碰到例外流程要極簡（不能一直跳視窗妨礙我導航），系統要保障只要不是我不配合（像現場真的進不去或消費者臨時變更又沒通知我），不要立刻懲處或少派單給我。流程太複雜或容易誤觸、沒紀錄我順時回報時點，都會讓我覺得風險太大。</p>
+<h3 id="平台營運管理者">平台營運管理者</h3>
+<p>我確認各項需求、限制和優先順序都與我們營運合規及降低申訴、罰款、品牌風險需求相符。特殊地點/高風險地點的同意紀錄、資料揭露、流程保存等都有顧到主管機關查核底線。只要流程設計不要造成消費體驗暴降、外送員抱怨流程死板、或餐廳配合度下降，我都可以接受。風險提示、資料保存細節（尤其個資、進出權同意等）若和稽核需求對不上，會是我唯一無法讓步的底線。總原則是三方利益平衡不能被打破。</p>
+<h3 id="餐廳商家">餐廳商家</h3>
+<p>從現有需求來看，因為這波聚焦在配送、消費端與外送員互動，所以不會影響我們餐廳實際上的日常營運，大致沒意見。只要異常爭議與責任歸屬處理時平台可以自動紀錄，不會每次出問題都怪在餐廳頭上，流程能讓我留存證據平反，我都可接受。唯一會擔憂的是平台在消費申訴或外送失誤時，直接預設餐廳要負責吸收損失、或沒有適當調查機制—這情況我無法接受。</p>
+<p>綜合來說，目前需求正式化內容已能反映各自最核心的需求與不可讓步的底線。</p>
+<h3 id="analyst-2">analyst</h3>
+<p>本分析師就「需求正式化」議題發表如下意見：</p>
+<p>現行資料及會議回顧顯示，需求涵蓋性與條目內容、來源追蹤、驗收條件等皆已落實並清楚可追蹤，包含消費者、外送員、平台營運管理者、餐廳商家四方核心優先需求與底線皆有明確回映。以系統性複查結果，所有 URL 條目均得正式需求條目（REQ）覆蓋，並已完成需求合理拆分、合併及維度分類。各條 REQ 條目驗收條件充分、可操作及可驗證，不論功能、品質屬性或約束均能分別被驗證。</p>
+<p>針對「特殊指示同步」、「資訊確認」、「異常處理」、「補償」等消費端及外送端常見需求，此輪討論皆能找到 REQ 條目的對應（特別如 REQ-26、REQ-31、REQ-32 等），並於會議或決策紀錄中有來源可循（包含來源 URL 與 meeting trace）。多角色關注的異常處理／補償界線及資料保存年限問題，皆依現行法規及主管機關要求加入必要 constraint 條目，無 coverage gap。</p>
+<p>現有粒度及分群符合正式需求定義，沒有混合核心意圖、不明確驗收條件或重疊模糊情況。審查結果也未檢出有 evidence gap、來源斷裂、責任邊界不明或決策未依 trace 要求的疑慮。</p>
+<p>因此，本分析師認為本輪有充分證據宣告正式化結論，無需再細分或反覆調整，如需更細的需求分群可留待 refine_requirement 議題。</p>
+<p>在目前版本下，「特殊資訊同步/指示確認/異常回報/補償/資料保存」等議題已從需求、驗收到稽核皆可回溯、可收斂，能直接支持下一步行動與後續 SRS 或測試。</p>
+<p>若有新業務場景、法規翻修或涉外（跨域）情境出現時，建議追蹤資料保存規則、補償流程設計是否需重新引入審核或遞延需求。</p>
+<h4 id="需求更新-2">需求更新</h4>
+<h5 id="req-26-特殊取餐指示同步與資訊顯示">REQ-26: 特殊取餐指示同步與資訊顯示</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 當消費者於訂單流程補充或變更取餐地點、接收方式、特殊指示時，系統應於消費者端即時顯示外送員閱讀與確認狀態，並於外送員端各關鍵節點（接單後、前往目的地、配送前）明顯顯示所有有效指示與變更內容，不得隱藏於多層頁面或選單，協助外送員正確執行配送。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>消費者於補充或變更指示後，平台介面即時顯示外送員已讀與確認狀態。</li>
+<li>外送員端於接單及配送關鍵節點均能明顯查看所有有效指示及臨時變更內容。</li>
+<li>所有特殊指示、留言、臨時變更內容不得隱藏於多層選單或次要頁面。</li>
+<li>特殊指示閱讀及確認情形有紀錄，並可於事後查詢。</li>
+<li>任一有效指示未於關鍵節點主動顯示的情形，每日不得超過1%（以日均訂單計）。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>訊息顯示延遲、設計不良或過度複雜導致資訊遺漏。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-31-異常處理與流程協助">REQ-31: 異常處理與流程協助</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 當外送員資訊未確認、未依指示執行或因現場原因無法配合時，系統應允許外送員於2步驟內快速回報異常，平台於30秒內同步通知消費者並開啟即時協助介面，並於回報時提供異常說明機制及處理進度查詢。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>外送員於資訊未確認、未依指示或遇現場障礙時，2步驟內可回報異常。</li>
+<li>平台於異常回報後30秒內同步通知消費者並顯示協助入口。</li>
+<li>外送員可填寫原因，異常回報及進度有完整紀錄可查詢。</li>
+<li>相關異常處理紀錄保存不少於二年。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>流程過繁或提示失效導致異常回報率下降、後續處理不及時。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-32-補償申請處理與紀錄">REQ-32: 補償申請處理與紀錄</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 於外送員未依指示且無合理理由時，系統於消費者介面自動通知可於兩步驟內申請補償（如退款、折價券、點數），並明確記錄申請決策依據與處理結果，三日內完成通知，所有申請相關紀錄保存至少二年。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>外送員未依指示且無合理理由時，平台自動通知消費者啟動補償申請。</li>
+<li>消費者兩步驟內完成申請，支援多元補償方式並有金額計算依據紀錄。</li>
+<li>三日內平台完成審查、核定補償與申請結果通知。</li>
+<li>所有補償申請、決策、金額核算與結果資料可於日後查詢，保存不少於兩年。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>補償標準模糊或補償流程不一致易引起申訴或濫用。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-35-異常處理流程與即時回報補救">REQ-35: 異常處理流程與即時回報補救</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 若外送員有資訊未確認、未依指示執行或因現場原因無法配合時，系統應啟動異常處理流程，包含外送員於2步驟內回報異常、即時通知消費者、提供外送員說明機制、同步開啟即時協助與進度查詢，並保留歷史處理紀錄。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>外送員資訊未確認、未依指示執行或現場遇到無法配合時，系統自動提醒並允許外送員於2步驟內回報異常。</li>
+<li>平台收到異常回報後，30秒內同步通知消費者且開啟即時協助介面。</li>
+<li>外送員可於回報異常時填寫原因說明，所有處理進度與回報時點完整留存並於事後可查詢。</li>
+<li>所有異常流程相關紀錄保存不少於二年。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>流程設計過於繁瑣導致外送員不願配合，影響異常處理成功率。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-36-補償申請與補救處理">REQ-36: 補償申請與補救處理</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 於外送員無合理理由未配合消費者指示時，平台應依標準流程主動通知消費者可於平台2步驟內提出補償（如退款、折價券、點數）申請，系統須明確記錄補償金額、申請決策依據及處理結果，三日內回覆消費者。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>外送員未依指示且無合理理由時，平台自動通知消費者協助追蹤並開啟補償申請。</li>
+<li>消費者可於兩步驟內完成申請，平台提供退款、折價券、點數等多種補償方式選擇，並記錄補償金額計算依據。</li>
+<li>三個工作天內通知消費者審查及補償結果。</li>
+<li>所有補償申請、決策、金額核算與結果紀錄可供日後查詢，紀錄保存時間不少於兩年。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>補償標準模糊、決策流程不一致恐引發不信任或被濫用。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-37-異常處理資料保存年限">REQ-37: 異常處理資料保存年限</h5>
+<ul>
+<li><strong>Type</strong>: constraint</li>
+<li><strong>Requirement</strong>: 系統於異常處理、補償流程及雙方資訊互動過程中，須依法保存所有回報、處理、外送員說明、消費者申請、協助、決策及最終補償紀錄，不得少於法規要求的年限（至少二年），並需可供主管機關、消費爭議查調。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>所有異常處理、指示閱讀、補償申請、金額決策及相關雙方交互紀錄保存時間不得低於二年。</li>
+<li>必要時可應主管機關查調需求即時匯出處理紀錄。</li>
+<li>資料保存機制須符合法規及個人資料保護規範，不得刪改或竄改相關證據。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>資料保存不當、年限不足或遭竄改可能造成證據力不足及合規違規。</li>
+<li>個資法規與多地保存要求不同，系統需具彈性。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-40-異常處理與補償資料保存年限要求">REQ-40: 異常處理與補償資料保存年限要求</h5>
+<ul>
+<li><strong>Type</strong>: constraint</li>
+<li><strong>Requirement</strong>: 系統於異常處理、補償申請及相關雙方互動紀錄須依法保存所有回報、處理、申請、協助、決策及最終結果紀錄，不得少於法規要求的年限（至少二年），並可供主管機關或消費爭議查調，資料不得被刪改或竄改。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>所有異常處理、補償申請、協助與決策紀錄保存不得低於二年。</li>
+<li>必要時可依主管機關要求即時匯出資料。</li>
+<li>資料保存機制符合法規及個人資料保護規範，不得刪改。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>資料保存不當、年限不足或遭未授權竄改會造成證據力不足與合規違反。</li>
+</ul>
+</li>
+</ul>
+<p><strong>Reason</strong>:</p>
+<ul>
+<li>所有 current_URL 條目已由現有 REQ 條目覆蓋，無需新增或修改 REQ</li>
+<li>coverage mapping 完整。</li>
+</ul>
+</div>
+
+</body>
+</html>

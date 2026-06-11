@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>R1-M1</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, "Noto Sans TC", sans-serif; margin: 24px; }
+    body.has-floating-toc { margin-right: 292px; }
+    .md-body { max-width: 1200px; margin: 0 auto; }
+    .plant-floating-toc {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      z-index: 20;
+      width: 236px;
+      max-height: calc(100vh - 48px);
+      overflow-y: auto;
+      scrollbar-width: none;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.12);
+      padding: 10px;
+    }
+    .plant-floating-toc::-webkit-scrollbar { display: none; }
+    .plant-floating-toc__title { margin: 0 0 6px; min-height: 20px; font-size: 13px; font-weight: 700; color: #1e293b; }
+    .plant-floating-toc__title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      list-style: none;
+      user-select: none;
+    }
+    .plant-floating-toc__title::-webkit-details-marker { display: none; }
+    .plant-floating-toc__title::after {
+      content: "收起";
+      padding: 2px 0;
+      color: #64748b;
+      font-size: 11px;
+      font-weight: 650;
+    }
+    .plant-floating-toc:not([open]) {
+      width: auto;
+      overflow: visible;
+      padding: 8px 10px;
+    }
+    .plant-floating-toc:not([open]) .plant-floating-toc__title { margin: 0; }
+    .plant-floating-toc:not([open]) .plant-floating-toc__title::after { content: "目錄"; }
+    .plant-floating-toc__items { display: flex; flex-direction: column; gap: 2px; }
+    .plant-floating-toc__link {
+      display: block;
+      border-radius: 7px;
+      padding: 6px 8px;
+      color: #475569;
+      font-size: 12px;
+      line-height: 1.35;
+      text-decoration: none;
+    }
+    .plant-floating-toc__link:hover { background: #f1f5f9; color: #0f172a; }
+    .plant-floating-toc__link.is-active {
+      background: #e5e7eb;
+      color: #1f2937;
+      font-weight: 700;
+    }
+    .plant-floating-toc__link--level-3 { padding-left: 18px; color: #64748b; }
+    .plant-floating-toc__link--level-4,
+    .plant-floating-toc__link--level-5,
+    .plant-floating-toc__link--level-6 { padding-left: 28px; color: #64748b; }
+    .table-wrap { width: 100%; overflow-x: auto; }
+    table { border-collapse: collapse; width: 100%; table-layout: fixed; margin: 12px 0; }
+    th, td { border: 1px solid #d0d0d0; padding: 8px; text-align: left; vertical-align: top; }
+    .table-compact th, .table-compact td { white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
+    .table-readable th, .table-readable td { white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
+    .table-traceability { table-layout: fixed; }
+    .table-traceability th:first-child, .table-traceability td:first-child { width: 128px; white-space: nowrap; }
+    .table-traceability th:nth-child(2), .table-traceability td:nth-child(2) { width: auto; }
+    .table-traceability th:nth-child(3), .table-traceability td:nth-child(3) { width: 260px; white-space: normal; overflow-wrap: anywhere; word-break: normal; }
+    .table-traceability td:nth-child(3) a { display: inline-block; margin: 0 4px 4px 0; white-space: nowrap; }
+    .dr-trace-feedback-table { table-layout: fixed; width: 100%; }
+    .dr-trace-feedback-table th,
+    .dr-trace-feedback-table td { white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
+    .dr-trace-feedback-table th:nth-child(1), .dr-trace-feedback-table td:nth-child(1) { width: 72px; }
+    .dr-trace-feedback-table th:nth-child(2), .dr-trace-feedback-table td:nth-child(2) { width: 120px; }
+    .dr-trace-feedback-table th:nth-child(3), .dr-trace-feedback-table td:nth-child(3) { width: 190px; }
+    .dr-trace-source-chip {
+      display: inline-block;
+      margin: 0 4px 4px 0;
+      padding: 2px 6px;
+      border-radius: 999px;
+      background: #eef2f7;
+      color: #475569;
+      font-size: 0.86em;
+      line-height: 1.45;
+      white-space: nowrap;
+    }
+    .table-user-requirements th:first-child, .table-user-requirements td:first-child { width: 96px; white-space: nowrap; }
+    .table-user-requirements th:nth-child(2), .table-user-requirements td:nth-child(2),
+    .table-user-requirements th:nth-child(4), .table-user-requirements td:nth-child(4) { width: 180px; }
+    .table-open-questions th:first-child, .table-open-questions td:first-child { width: 96px; white-space: nowrap; }
+    .table-open-questions th:nth-child(3), .table-open-questions td:nth-child(3) { width: 220px; white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
+    td > p:first-child { margin-top: 0; }
+    td > p:last-child { margin-bottom: 0; }
+    img { max-width: 100%; height: auto; display: block; margin: 12px auto; }
+    code, pre { white-space: pre-wrap; }
+    .srs-dr-ref,
+    h4 a[href*="design_rationale.html#"],
+    li a[href*="design_rationale.html#con-"] {
+      display: inline-flex;
+      align-items: center;
+      margin-left: 0.35rem;
+      transform: translateY(-0.35em);
+      font-size: 0.62em;
+      font-weight: 700;
+      line-height: 1;
+      color: #64748b;
+      text-decoration: none;
+    }
+    .srs-dr-ref:hover,
+    h4 a[href*="design_rationale.html#"]:hover,
+    li a[href*="design_rationale.html#con-"]:hover { color: #0f172a; text-decoration: underline; }
+    @media (max-width: 1024px) {
+      body.has-floating-toc { margin: 16px; padding-bottom: 72px; }
+      .plant-floating-toc {
+        top: auto;
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        width: auto;
+        max-height: 38vh;
+      }
+    }
+  </style>
+</head>
+<body class="">
+
+<div class="md-body">
+<h1 id="釐清系統邊界與責任">釐清系統邊界與責任</h1>
+<ul>
+<li><strong>Proposed by</strong>: mediator</li>
+<li><strong>Participants</strong>: mediator, 消費者, 外送員, 平台營運管理者, 餐廳商家, analyst</li>
+<li><strong>Status</strong>: agreed</li>
+</ul>
+<h2 id="摘要">摘要</h2>
+<p>本議題聚焦於多方需求衝突的解決，核心問題為平台費用透明、派單公平、異常處理、資訊提醒及特殊場域責任分界。主要參與者包括消費者、外送員、平台營運管理者與餐廳商家，各方關注自身權益保障、流程透明與責任明確。討論後確認以條件式邏輯與正式協議為主軸，兼顧彈性與公平，並明確規範費用揭露、異常處理及資訊傳遞機制。</p>
+<h2 id="決議">決議</h2>
+<p>本議題決議採用 conflict report 中 5 筆推薦解法（CR-1 至 CR-5）處理需求衝突：包括以 Stakeholder Negotiation 及條件式邏輯設計費用分潤、派單異常、資訊提醒、特殊場域責任及三方流程整合。各方案需落實於規格書，明確揭露費用、定義異常情境、動態資訊提醒及責任分界，確保後續需求沉澱與系統落地。</p>
+<h2 id="討論紀錄">討論紀錄</h2>
+<h3 id="消費者">消費者</h3>
+<p>針對 CR-1，我個人最在意的是價格一定要透明，不接受結帳時才突然出現沒有提前標示的手續費或服務費。我能接受平台或商家酌收合理費用，但一定要在下單前全部清楚揭露。如果費用結構要做調整，至少要確保這一點不能被忽略。同時，當有不同活動、優惠或特殊情境如高峰加價，也要讓我在選擇時能直接看到金額變化。若費用協商未能解決，最低條件是：所有費用要一目了然，尤其在手機/APP上，流程不能有『最後一頁才冒出額外金額』這種狀況。</p>
+<p>針對 CR-3，外送員一定要收到我補充的取餐指示，並且我希望能看到對方已讀且確認的回饋，不然我會擔心資訊沒被看到，導致送錯或下錯地方。如果提醒設計會影響外送員操作，可以有彈性，但不能讓我的需求（讓對方讀到、確認訊息）被省略掉。我的底線是：只要我有輸入額外指示，一定要有『已送達、已讀、已被處理』的狀態顯示給我。</p>
+<p>針對 CR-4，彈性交付是我的日常需求，但如果指定高風險地點需要多一層同意或說明流程，我可以接受，前提是不能讓整體流程變得很麻煩。也就是說，住家維持快速、特殊地點多一層確認即可，但這些分流要清楚明確，不要搞混或看不出來自己的訂單是不是屬於特殊處理。</p>
+<p>針對 CR-5，遇到配送問題時，平台要讓我能快速選擇退款或補償（折價券、點數），而流程不能太繁瑣。我理解外送員也有他們難處，但我的權益必須獲得保障，失誤非我責任時平台必須主動處理。核心底線是：我補充的取餐指示沒被遵守、有合理損失時，平台應能讓我自主選擇補償方式，流程必須即時易懂，有問題時平台一定要跟我說明進度。</p>
+<h3 id="外送員">外送員</h3>
+<p>針對 CR-2，我非常在意平台派單公平，也在意遇到異常（比如餐廳沒開、備餐超久）時，報備後不能影響到我的派單和收入。只要我如實上報異常，系統就不能算我沒接單；而且這過程一定要讓我操作方便，也不能讓異常處理被濫用影響到其他外送員。我可以接受平台設計條件式判斷，但需明確定義哪些情況屬於『合理異常』，並且這些申報流程一定要夠快且容易，不然一單搞很久還被扣派單，真的很不合理。</p>
+<p>針對 CR-3，強烈支持只要有重要指示或消費者臨時留言就要即時通知我，但不能影響我導航、接單、回報問題等主要操作，不然會增加接單風險或操作失誤。我不能接受彈出干擾性很強的提示直接打斷我正在做的事，也不能讓重要資訊只藏在某個不容易看的地方。底線是：重要指示一定不能漏接，但彈性提醒機制要能自動根據我當下的操作調整，任何過度干擾或造成誤觸的設計都不行。</p>
+<p>針對 CR-5，每次遇到消費者額外要求、地點難找或送餐現場有突發，回報流程要操作簡單，系統要能讓我快速說明怎麼處理，也要給我即時進度。不能出現因為現場環境而讓我權益沒被保障的情況，如果消費者堅持補償但我有正當理由，必須有明確申訴機制和暫停對我不利判定。</p>
+<h3 id="平台營運管理者">平台營運管理者</h3>
+<p>針對 CR-1，我們在意的是系統及平台必須兼顧收支平衡，同時保證消費者價格體驗、商家手續費負擔不能過高與外送員權益。建議依照 Option A，召開協調會找出三方可接受的費用架構底線，例如手續費上限與必須揭露的收費明細都必須納入明文規定。不可能完全偏向某一方，若無共識，只能保留各方最低底線，剩下的再以第一優先保障平台合規、營運風險可控、品牌形象。</p>
+<p>針對 CR-4，我們必須讓高風險場合（如校園、醫院、辦公大樓）每一筆訂單都留有完整的同意查驗紀錄和聯絡方式，以免平台被歸責於現場發生的糾紛。如果流程沒能區分特殊地點和一般住家或大樓，對我們是不可接受的經營風險。最低可接受條件是：特殊/高風險地點必須多一層控管與風險揭露、消費者必須明確點選同意、系統要可留存證明。</p>
+<p>針對 CR-5，所有補償處理必須有可視歷程、明確申訴流程，以及消費者和外送員資料同步，平台需能在兩方爭議時快速做出判定，不讓單一方權益被犧牲。尤其消費者選擇補償時，平台必須有判斷依據和仲裁流程，避免濫用或誤判導致商譽受損。</p>
+<h3 id="餐廳商家">餐廳商家</h3>
+<p>針對 CR-1，手續費務必維持在可承受、明確公開的範圍，只要平台或消費者單方面變動收費都不行。如果有新的分潤方案，必須提前清楚告知、說明計算原則，不能動不動改抽成比例。我能配合平台和消費者需求，但只要影響我本業獲利，例如低價促銷或高額平台抽成直接推給商家吸收，我會考慮下架、終止合作。最低接受條件是：費用結構需公開透明、有上限並可預期，不能透過隱藏規則反覆變動。</p>
+<p>對其他 conflict 報告，如果會影響我的收入，例如補償機制讓商家無法自主證明責任歸屬，導致必須負擔消費者或外送員爭議時費用，我必須有機會在流程中具名回應、提出證據。不然平台直接扣除款項或要求吸收損失，是我無法接受的。</p>
+<p>整體而言，各方都同意協調或條件式設計方案，但絕對不能犧牲自己最基本的權益揭露和獲利（或補償/公平）底線。對於有彈性空間的地方，只要不違反這些原則，大家都能合作。</p>
+<h3 id="analyst">analyst</h3>
+<p>根據目前的衝突報告與多方利害關係人的回饋，針對本次 M-1『解決需求衝突』議題，分析如下：</p>
+<p>CR-1（平台費用、公開透明、手續費合理）：建議採用衝突報告推薦的 Option A，即透過正式協調會議，將各方可接受的費用結構底線與揭露機制明文寫入規格書。各方均已明確表達需保障自身最低權益（價格透明、收費上限、預期穩定），且多數利害關係人皆同意由協議歸結與以條件設計納入彈性，不建議只偏向單方利益，建議既保留每筆 URL 字句原意，也預留後續依協調細則修訂的可能性。</p>
+<p>CR-2（派單公平與異常保障）：同樣建議採用 Option A，明確以條件式邏輯調整派單規則；外送員現場報備經確認後，派單考核與收入不受異常影響。這與來源所提外送員要求快速、易操作且定義明確完全一致，無重大異議。</p>
+<p>CR-3（提醒即時、明顯又不干擾操作）：採用 Option A『彈性提醒』（情境條件式）的動態調整方案最能解決雙方訴求衝突，且同時兼顧消費者要求即時狀態回饋與外送員操作流暢；本案雖複雜，但目前根據多方共識已可準備納入需求初稿細節設計。</p>
+<p>CR-4（地點彈性與風險揭露/責任）：推薦 Option A，即訂單動態區分高風險或特殊地點自動啟動揭露與同意/查驗流程，一般住家保持簡便。此設計得以兼顧消費者彈性與平台風險控管，亦符合來源各方需求底線。</p>
+<p>CR-5（補償、權益保障、判定流程）：此部分依據衝突報告建議採用 Option B，設計條件式流程，依據外送員回報的正當性、消費者選擇及後續判斷設計明確且彈性快捷的補償/申訴路徑。這與三方需求（快、可查證、權責明確、易於操作與即時回饋）一致。</p>
+<p>以上建議均以各 URL 來源內容“保留”為原則，未出現必須刪除的部分。若需調整，應待未來協議會議再細緻修正其語句細節，目前各需求都須保留於待決合約細節層級。</p>
+</div>
+
+</body>
+</html>

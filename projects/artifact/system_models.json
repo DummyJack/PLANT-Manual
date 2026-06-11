@@ -1,0 +1,301 @@
+[
+  {
+    "id": "SM-1",
+    "name": "外送平台系統情境圖",
+    "type": "context_diagram",
+    "plantuml": "@startuml\nleft to right direction\nactor \"消費者\" as Consumer\nactor \"外送員\" as Courier\nactor \"餐廳商家\" as Merchant\nactor \"平台營運管理者\" as Operator\nrectangle \"外送平台系統\" as System\ncloud \"第三方支付/金流服務\" as PaymentService\n\nConsumer --> System : 下單、付款、查詢進度、退款申請、補償申請、投訴\nSystem --> Consumer : 訂單狀態、價格/費用揭露、退款/補償結果、通知\n\nCourier --> System : 接單、取餐/送餐進度回報、異常上報、酬勞查詢、投訴/申訴\nSystem --> Courier : 派單、路線導航、取餐/送餐指示、酬勞結算、通知\n\nMerchant --> System : 接單、備餐進度、營業/庫存同步、暫停接單、結算查詢、責任釐清申請\nSystem --> Merchant : 訂單通知、結算明細、異常/投訴通知\n\nOperator --> System : 系統監控、數據查詢、營運管理、資料匯出、爭議處理、合規查核\nSystem --> Operator : 營運報表、異常/稽核通知、資料查詢結果\n\nSystem --> PaymentService : 付款請求、退款請求、結算撥款、資料查詢\nPaymentService --> System : 付款/退款/結算結果、金流資料\n@enduml",
+    "image_path": "../models/外送平台系統情境圖.png",
+    "related_requirement_ids": [
+      "URL-1",
+      "URL-10",
+      "URL-11",
+      "URL-12",
+      "URL-13",
+      "URL-14",
+      "URL-15",
+      "URL-16",
+      "URL-17",
+      "URL-18",
+      "URL-19",
+      "URL-2",
+      "URL-20",
+      "URL-21",
+      "URL-22",
+      "URL-23",
+      "URL-24",
+      "URL-25",
+      "URL-26",
+      "URL-27",
+      "URL-28",
+      "URL-29",
+      "URL-3",
+      "URL-30",
+      "URL-31",
+      "URL-32",
+      "URL-33",
+      "URL-34",
+      "URL-35",
+      "URL-36",
+      "URL-37",
+      "URL-4",
+      "URL-5",
+      "URL-6",
+      "URL-7",
+      "URL-8",
+      "URL-9"
+    ],
+    "description": "此情境圖用來釐清外送平台系統的邊界，明確呈現消費者、外送員、餐廳商家與平台營運管理者等主要外部角色，以及與第三方支付/金流服務的互動，並標示各角色與系統間的主要資料流、事件流與責任分工。",
+    "source": ""
+  },
+  {
+    "id": "SM-2",
+    "name": "外送平台主要角色用例圖",
+    "type": "use_case_diagram",
+    "plantuml": "@startuml\nleft to right direction\n\nactor 消費者\nactor 外送員\nactor 餐廳商家\nactor 平台營運管理者\n\nrectangle \"外送平台系統\" {\n  usecase \"瀏覽餐廳與商品\" as UC1\n  usecase \"下訂單與付款\" as UC2\n  usecase \"查詢訂單進度\" as UC3\n  usecase \"補充取餐地點與指示\" as UC4\n  usecase \"申請退款或補償\" as UC5\n  usecase \"即時客服協助\" as UC6\n  usecase \"接收訂單與備餐\" as UC7\n  usecase \"管理商品、庫存與營業時間\" as UC8\n  usecase \"暫停接單\" as UC9\n  usecase \"回報異常與爭議處理\" as UC10\n  usecase \"接收配送任務與導航\" as UC11\n  usecase \"回報配送進度與異常\" as UC12\n  usecase \"查詢酬勞與結算明細\" as UC13\n  usecase \"管理派單與公平分配\" as UC14\n  usecase \"數據分析與營運監控\" as UC15\n  usecase \"金流與稅務管理\" as UC16\n  usecase \"溝通協作與訊息管理\" as UC17\n  usecase \"資料查詢與匯出\" as UC18\n\n  消費者 --> UC1\n  消費者 --> UC2\n  消費者 --> UC3\n  消費者 --> UC4\n  消費者 --> UC5\n  消費者 --> UC6\n\n  餐廳商家 --> UC7\n  餐廳商家 --> UC8\n  餐廳商家 --> UC9\n  餐廳商家 --> UC10\n  餐廳商家 --> UC17\n  餐廳商家 --> UC18\n\n  外送員 --> UC10\n  外送員 --> UC11\n  外送員 --> UC12\n  外送員 --> UC13\n  外送員 --> UC17\n\n  平台營運管理者 --> UC14\n  平台營運管理者 --> UC15\n  平台營運管理者 --> UC16\n  平台營運管理者 --> UC17\n  平台營運管理者 --> UC18\n}\n@enduml",
+    "image_path": "../models/外送平台主要角色用例圖.png",
+    "related_requirement_ids": [
+      "URL-1",
+      "URL-10",
+      "URL-11",
+      "URL-12",
+      "URL-13",
+      "URL-14",
+      "URL-15",
+      "URL-16",
+      "URL-17",
+      "URL-18",
+      "URL-19",
+      "URL-2",
+      "URL-20",
+      "URL-21",
+      "URL-22",
+      "URL-23",
+      "URL-24",
+      "URL-25",
+      "URL-26",
+      "URL-27",
+      "URL-28",
+      "URL-29",
+      "URL-3",
+      "URL-30",
+      "URL-31",
+      "URL-32",
+      "URL-33",
+      "URL-34",
+      "URL-35",
+      "URL-36",
+      "URL-37",
+      "URL-4",
+      "URL-5",
+      "URL-6",
+      "URL-7",
+      "URL-8",
+      "URL-9"
+    ],
+    "description": "此用例圖用來釐清外送平台系統中消費者、外送員、餐廳商家與平台營運管理者等主要角色可執行的核心系統能力，明確界定各角色的操作範圍與責任分工，作為後續需求細化與流程建模的基礎。",
+    "text": [
+      {
+        "id": "UC1",
+        "actor": "消費者",
+        "name": "瀏覽餐廳與商品",
+        "purpose": "消費者可於平台上瀏覽可訂購的餐廳與商品資訊，了解菜單、價格、營業時間等內容。",
+        "related_requirement_ids": [
+          "URL-1",
+          "URL-3"
+        ],
+        "interface": "餐廳列表頁、餐廳詳細頁、商品（菜單）瀏覽頁"
+      },
+      {
+        "id": "UC2",
+        "actor": "消費者",
+        "name": "下訂單與付款",
+        "purpose": "消費者選擇商品後可建立訂單並完成付款，系統需揭露所有費用並支援多元支付方式。",
+        "related_requirement_ids": [
+          "URL-1",
+          "URL-22",
+          "URL-3"
+        ],
+        "interface": "購物車頁、訂單確認頁、付款流程頁、費用明細揭露區"
+      },
+      {
+        "id": "UC3",
+        "actor": "消費者",
+        "name": "查詢訂單進度",
+        "purpose": "消費者可即時查詢訂單處理、備餐、配送等進度及預計送達時間。",
+        "related_requirement_ids": [
+          "URL-1",
+          "URL-5"
+        ],
+        "interface": "訂單進度查詢頁、訂單詳情頁"
+      },
+      {
+        "id": "UC4",
+        "actor": "消費者",
+        "name": "補充取餐地點與指示",
+        "purpose": "消費者可於下單時或訂單成立後補充取餐地點、接收方式及特殊指示，並確認外送員已讀取。",
+        "related_requirement_ids": [
+          "URL-21",
+          "URL-22",
+          "URL-26"
+        ],
+        "interface": "取餐地點設定頁、訂單備註／指示填寫區、指示已讀回饋區"
+      },
+      {
+        "id": "UC5",
+        "actor": "消費者",
+        "name": "申請退款或補償",
+        "purpose": "消費者於訂單異常、配送問題或服務不佳時可申請退款或補償，並選擇補償方式。",
+        "related_requirement_ids": [
+          "URL-2",
+          "URL-34",
+          "URL-4"
+        ],
+        "interface": "訂單問題申請頁、退款／補償申請流程頁、補償方式選擇區"
+      },
+      {
+        "id": "UC6",
+        "actor": "消費者",
+        "name": "即時客服協助",
+        "purpose": "消費者於訂單過程中遇到問題時可即時聯繫客服，獲得協助與處理進度回饋。",
+        "related_requirement_ids": [
+          "URL-2",
+          "URL-35"
+        ],
+        "interface": "客服聯繫頁、即時對話／留言區"
+      },
+      {
+        "id": "UC7",
+        "actor": "餐廳商家",
+        "name": "接收訂單與備餐",
+        "purpose": "餐廳商家接收新訂單並依據訂單內容備餐，更新訂單狀態。",
+        "related_requirement_ids": [
+          "URL-16"
+        ],
+        "interface": "訂單接收頁、訂單詳情頁、備餐進度管理頁"
+      },
+      {
+        "id": "UC8",
+        "actor": "餐廳商家",
+        "name": "管理商品、庫存與營業時間",
+        "purpose": "餐廳商家可管理菜單商品、調整庫存數量及設定營業時間，確保資訊同步。",
+        "related_requirement_ids": [
+          "URL-16"
+        ],
+        "interface": "商品管理頁、庫存管理頁、營業時間設定頁"
+      },
+      {
+        "id": "UC9",
+        "actor": "餐廳商家",
+        "name": "暫停接單",
+        "purpose": "餐廳商家可因臨時公休或食材短缺等原因，暫停接單以避免無法完成訂單。",
+        "related_requirement_ids": [
+          "URL-20"
+        ],
+        "interface": "接單狀態設定頁"
+      },
+      {
+        "id": "UC10",
+        "actor": "餐廳商家、外送員",
+        "name": "回報異常與爭議處理",
+        "purpose": "餐廳商家或外送員可針對訂單異常（如備餐延遲、配送問題）進行回報，並啟動爭議處理流程。",
+        "related_requirement_ids": [
+          "URL-17",
+          "URL-25",
+          "URL-37"
+        ],
+        "interface": "外送員配送任務頁、配送狀態回報頁、異常回報頁"
+      },
+      {
+        "id": "UC11",
+        "actor": "外送員",
+        "name": "接收配送任務與導航",
+        "purpose": "外送員接收新配送任務，取得取餐與送餐地點資訊，並可使用導航功能。",
+        "related_requirement_ids": [
+          "URL-6",
+          "URL-8"
+        ],
+        "interface": "配送任務列表頁、任務詳情頁、地圖導航頁"
+      },
+      {
+        "id": "UC12",
+        "actor": "外送員",
+        "name": "回報配送進度與異常",
+        "purpose": "外送員於配送過程中可回報進度、異常狀況或現場問題，並獲得處理指引。",
+        "related_requirement_ids": [
+          "URL-25",
+          "URL-28",
+          "URL-31",
+          "URL-32",
+          "URL-33"
+        ],
+        "interface": "外送員配送任務頁、配送狀態回報頁、異常回報頁"
+      },
+      {
+        "id": "UC13",
+        "actor": "外送員",
+        "name": "查詢酬勞與結算明細",
+        "purpose": "外送員可查詢歷史酬勞、結算明細及撥款狀態，確保收入透明。",
+        "related_requirement_ids": [
+          "URL-9"
+        ],
+        "interface": "酬勞查詢頁、結算明細頁"
+      },
+      {
+        "id": "UC14",
+        "actor": "平台營運管理者",
+        "name": "管理派單與公平分配",
+        "purpose": "平台營運管理者可設定與監控訂單派發規則，確保派單公平並處理異常分配。",
+        "related_requirement_ids": [
+          "URL-10"
+        ],
+        "interface": "派單規則設定頁、派單監控頁、異常分配查詢頁"
+      },
+      {
+        "id": "UC15",
+        "actor": "平台營運管理者",
+        "name": "數據分析與營運監控",
+        "purpose": "平台營運管理者可即時查看訂單流量、營收、異常狀況等數據，支援營運決策。",
+        "related_requirement_ids": [
+          "URL-11",
+          "URL-12"
+        ],
+        "interface": "數據儀表板、營運監控頁、異常狀況分析頁"
+      },
+      {
+        "id": "UC16",
+        "actor": "平台營運管理者",
+        "name": "金流與稅務管理",
+        "purpose": "平台營運管理者可管理金流結算、稅務作業，並確保符合法規要求。",
+        "related_requirement_ids": [
+          "URL-14",
+          "URL-18",
+          "URL-23"
+        ],
+        "interface": "金流管理頁、稅務管理頁、結算紀錄查詢頁"
+      },
+      {
+        "id": "UC17",
+        "actor": "餐廳商家、外送員、平台營運管理者",
+        "name": "溝通協作與訊息管理",
+        "purpose": "多方角色可於平台內進行訊息溝通、協作與重要通知管理，提升協作效率。",
+        "related_requirement_ids": [
+          "URL-13"
+        ],
+        "interface": "訊息中心頁、協作通知頁"
+      },
+      {
+        "id": "UC18",
+        "actor": "餐廳商家、平台營運管理者",
+        "name": "資料查詢與匯出",
+        "purpose": "餐廳商家與平台營運管理者可查詢、匯出訂單、金流、交易等資料，支援稽核與管理。",
+        "related_requirement_ids": [
+          "URL-18",
+          "URL-23",
+          "URL-24"
+        ],
+        "interface": "資料查詢頁、資料匯出頁"
+      }
+    ],
+    "source": ""
+  }
+]

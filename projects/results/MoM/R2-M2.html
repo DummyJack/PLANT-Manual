@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>R2-M2</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, "Noto Sans TC", sans-serif; margin: 24px; }
+    body.has-floating-toc { margin-right: 292px; }
+    .md-body { max-width: 1200px; margin: 0 auto; }
+    .plant-floating-toc {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      z-index: 20;
+      width: 236px;
+      max-height: calc(100vh - 48px);
+      overflow-y: auto;
+      scrollbar-width: none;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.12);
+      padding: 10px;
+    }
+    .plant-floating-toc::-webkit-scrollbar { display: none; }
+    .plant-floating-toc__title { margin: 0 0 6px; min-height: 20px; font-size: 13px; font-weight: 700; color: #1e293b; }
+    .plant-floating-toc__title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      list-style: none;
+      user-select: none;
+    }
+    .plant-floating-toc__title::-webkit-details-marker { display: none; }
+    .plant-floating-toc__title::after {
+      content: "收起";
+      padding: 2px 0;
+      color: #64748b;
+      font-size: 11px;
+      font-weight: 650;
+    }
+    .plant-floating-toc:not([open]) {
+      width: auto;
+      overflow: visible;
+      padding: 8px 10px;
+    }
+    .plant-floating-toc:not([open]) .plant-floating-toc__title { margin: 0; }
+    .plant-floating-toc:not([open]) .plant-floating-toc__title::after { content: "目錄"; }
+    .plant-floating-toc__items { display: flex; flex-direction: column; gap: 2px; }
+    .plant-floating-toc__link {
+      display: block;
+      border-radius: 7px;
+      padding: 6px 8px;
+      color: #475569;
+      font-size: 12px;
+      line-height: 1.35;
+      text-decoration: none;
+    }
+    .plant-floating-toc__link:hover { background: #f1f5f9; color: #0f172a; }
+    .plant-floating-toc__link.is-active {
+      background: #e5e7eb;
+      color: #1f2937;
+      font-weight: 700;
+    }
+    .plant-floating-toc__link--level-3 { padding-left: 18px; color: #64748b; }
+    .plant-floating-toc__link--level-4,
+    .plant-floating-toc__link--level-5,
+    .plant-floating-toc__link--level-6 { padding-left: 28px; color: #64748b; }
+    .table-wrap { width: 100%; overflow-x: auto; }
+    table { border-collapse: collapse; width: 100%; table-layout: fixed; margin: 12px 0; }
+    th, td { border: 1px solid #d0d0d0; padding: 8px; text-align: left; vertical-align: top; }
+    .table-compact th, .table-compact td { white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
+    .table-readable th, .table-readable td { white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
+    .table-traceability { table-layout: fixed; }
+    .table-traceability th:first-child, .table-traceability td:first-child { width: 128px; white-space: nowrap; }
+    .table-traceability th:nth-child(2), .table-traceability td:nth-child(2) { width: auto; }
+    .table-traceability th:nth-child(3), .table-traceability td:nth-child(3) { width: 260px; white-space: normal; overflow-wrap: anywhere; word-break: normal; }
+    .table-traceability td:nth-child(3) a { display: inline-block; margin: 0 4px 4px 0; white-space: nowrap; }
+    .dr-trace-feedback-table { table-layout: fixed; width: 100%; }
+    .dr-trace-feedback-table th,
+    .dr-trace-feedback-table td { white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
+    .dr-trace-feedback-table th:nth-child(1), .dr-trace-feedback-table td:nth-child(1) { width: 72px; }
+    .dr-trace-feedback-table th:nth-child(2), .dr-trace-feedback-table td:nth-child(2) { width: 120px; }
+    .dr-trace-feedback-table th:nth-child(3), .dr-trace-feedback-table td:nth-child(3) { width: 190px; }
+    .dr-trace-source-chip {
+      display: inline-block;
+      margin: 0 4px 4px 0;
+      padding: 2px 6px;
+      border-radius: 999px;
+      background: #eef2f7;
+      color: #475569;
+      font-size: 0.86em;
+      line-height: 1.45;
+      white-space: nowrap;
+    }
+    .table-user-requirements th:first-child, .table-user-requirements td:first-child { width: 96px; white-space: nowrap; }
+    .table-user-requirements th:nth-child(2), .table-user-requirements td:nth-child(2),
+    .table-user-requirements th:nth-child(4), .table-user-requirements td:nth-child(4) { width: 180px; }
+    .table-open-questions th:first-child, .table-open-questions td:first-child { width: 96px; white-space: nowrap; }
+    .table-open-questions th:nth-child(3), .table-open-questions td:nth-child(3) { width: 220px; white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
+    td > p:first-child { margin-top: 0; }
+    td > p:last-child { margin-bottom: 0; }
+    img { max-width: 100%; height: auto; display: block; margin: 12px auto; }
+    code, pre { white-space: pre-wrap; }
+    .srs-dr-ref,
+    h4 a[href*="design_rationale.html#"],
+    li a[href*="design_rationale.html#con-"] {
+      display: inline-flex;
+      align-items: center;
+      margin-left: 0.35rem;
+      transform: translateY(-0.35em);
+      font-size: 0.62em;
+      font-weight: 700;
+      line-height: 1;
+      color: #64748b;
+      text-decoration: none;
+    }
+    .srs-dr-ref:hover,
+    h4 a[href*="design_rationale.html#"]:hover,
+    li a[href*="design_rationale.html#con-"]:hover { color: #0f172a; text-decoration: underline; }
+    @media (max-width: 1024px) {
+      body.has-floating-toc { margin: 16px; padding-bottom: 72px; }
+      .plant-floating-toc {
+        top: auto;
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        width: auto;
+        max-height: 38vh;
+      }
+    }
+  </style>
+</head>
+<body class="">
+
+<div class="md-body">
+<h1 id="釐清異常上報後派單演算法影響條件與平台-外送員責任分工">釐清異常上報後派單演算法影響條件與平台、外送員責任分工</h1>
+<ul>
+<li><strong>Proposed by</strong>: modeler</li>
+<li><strong>Participants</strong>: modeler, analyst, 消費者, 外送員, 平台營運管理者, 餐廳商家</li>
+<li><strong>Status</strong>: agreed</li>
+</ul>
+<h2 id="摘要">摘要</h2>
+<p>本議題聚焦於異常上報後，派單演算法是否自動減少派單及平台與外送員的責任分工。主要參與者包括分析師、建模者、外送員、平台營運管理者等，分別關注權益保障、流程透明與合規。討論後確認，派單異動不得自動化，必須經人工審查並留存紀錄，外送員享有查詢與申訴權益，平台需揭露相關規則與流程。現有需求與模型已涵蓋各方底線，無需新增或修正需求。</p>
+<h2 id="決議">決議</h2>
+<p>確認現有需求 REQ-10、REQ-25 及相關模型內容，明定異常上報後派單異動必須經人工審查並留存紀錄，外送員享有查詢與申訴權益，平台需揭露派單規則與異常處理流程。後續如需細化審查流程或資料格式，於設計階段補充，不影響現階段需求收斂。</p>
+<h2 id="討論紀錄">討論紀錄</h2>
+<h3 id="analyst">analyst</h3>
+<p>本議題聚焦於異常上報後派單演算法影響條件以及平台、外送員之責任分工。根據目前已覆蓋的正式需求（REQ-10、REQ-25）和相關法規、建議、風險敘述，需求範圍已明確指出：</p>
+<ol>
+<li>演算法不得因外送員異常上報自動減少派單，若需影響派單必須經過人工審查並留存決策紀錄（REQ-10、REQ-25，並明列受影響的可查詢權益及申訴管道）。</li>
+<li>平台須揭露異常上報對派單規則的影響條件，以及提供透明申訴流程（constraints.10, constraints.11, recommendations.13 皆已引用）。</li>
+<li>驗收條件已涵蓋異常事件回報便捷性、影響查詢、決策可稽核、人工審查介入機制等，可有效追溯與測試系統是否達標。</li>
+</ol>
+<p>目前條件與影響邊界已依據法規與利害關係人意見清楚界定，已可收斂為正式需求。平台責任、外送員回報權利及營運合規底線都有明確需求與驗證標準，現階段未發現未決爭議、文字衝突或驗收條件不明。</p>
+<p>我建議此議題可以進入收斂：需求條文、驗收方式、追蹤來源與風險描述皆已完備，無明顯缺口需分拆其他 NFR 或需求型態。若未來執行層面有細節流程分歧，建議於後續技術規範或詳細設計階段處理。</p>
+<p>若仍有需要補充的實作細節，例如審查流程的具體判斷標準、資料留存格式等，可另行納入細部設計或流程規範，不影響現行需求層級之完備性。</p>
+<h4 id="需求更新">需求更新</h4>
+<h5 id="req-10-訂單派送公平性">REQ-10: 訂單派送公平性</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 系統所採用的訂單派送演算法應確保所有合格外送員在排除明確違規或不符合作業規範情形下，於其可接單區間內享有公平取得訂單機會，不因外送員個人身份、過往異常上報、服務評價或歷史紀錄，而產生不公平排擠與系統性不利分配。任何由異常上報、評分爭議或其他紀錄影響派單結果者，必須具備明確決策證據、決策歷程與申訴管道，且不得自動對外送員產生持續性不利影響。系統須支援主管以統計報表審查，以及外送員查詢其歷史派單情形或發起申訴。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>平台每週自動產出派單分配統計報表供主管查核。</li>
+<li>若發現演算法造成長期極端分配現象，系統自動產生異常提示並供人工審查介入。</li>
+<li>所有因異常上報、評分或紀錄而減少派單者，須具有人為審查決策及留存紀錄。</li>
+<li>外送員可查閱個人歷史派單分配情況，若有爭議可發起申訴並取得處理結果說明。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>演算法邏輯不透明將引發排擠或信任危機。</li>
+<li>若資料記錄與解釋機制不足，將難以通過主管機關審查。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-25-異常上報處理與派單保障">REQ-25: 異常上報處理與派單保障</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 當外送員於配送過程遇到餐廳未營業、備餐延遲或其他異常時，系統應允許外送員於操作界面兩步驟內快速上報，並即時顯示後續標準處理流程或補償及釐清指引。異常上報行為不得自動導致該名外送員後續訂單量減少或其他不利調度行為，所有因異常上報造成派單異動者，必須有人工審查與決策紀錄，並供外送員查詢所有異常上報紀錄及對其派單的實際影響。相關派單與異常上報決策須符合法定公平原則與資料查核要求。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>外送員可於訂單操作界面在兩步驟內完成異常事件回報。</li>
+<li>系統於回報後即時顯示後續標準處理流程、補償或釐清指引。</li>
+<li>異常上報不得自動導致該外送員派單量被減少，必要時須經人工審查並留存審查決策紀錄。</li>
+<li>外送員可查詢個人所有異常上報紀錄及其對派單的實際影響。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>若派單異動機制未明確記錄與揭露，將引發公平爭議或法規違反風險。</li>
+<li>異常上報流程不友善會降低外送員主動回報意願。</li>
+</ul>
+</li>
+</ul>
+<p><strong>Reason</strong>:</p>
+<ul>
+<li>依會議明確決議修正派單公平與異常上報後派單影響條件，補強公平分配、人工審查、留存紀錄及查詢權益機制。</li>
+</ul>
+<h3 id="modeler">modeler</h3>
+<p>針對本議題「釐清異常上報後派單演算法影響條件與平台、外送員責任分工」，現有兩張核心模型（SM-1情境圖、SM-2用例圖）足以對應目前的需求內容，說明如下：</p>
+<p>結論：現行模型架構已涵蓋異常上報流程、派單演算法影響條件及主要角色責任，未見明顯需求-模型不一致或資訊缺口。責任分工部分，平台營運管理者（SM-2 UC14、UC15）負責監控派單與異常後處理是否公正；外送員則可觸發異常回報（UC10、UC12）並查詢其記錄，以及提出申訴。演算法不得自動因異常上報減少派單，必須經人工審查與留存紀錄（REQ-10、REQ-25），此流程在現有模型已被呈現。</p>
+<p>模型影響：</p>
+<ul>
+<li>SM-1明確界定「外送員」與「平台營運管理者」間關於異常上報、派單、人工審查等互動資料流。用例圖（SM-2）對異常回報、配送進度、申訴、派單管理直接支持需求條件。</li>
+<li>異常上報對派單分配流程的判斷、狀態轉換（如審查/決策/查詢）、資料留存機制皆已在現有模型責任分工下被支援，現階段無欠缺。</li>
+</ul>
+<p>元素邊界：</p>
+<ul>
+<li>角色範圍—只涉及「外送員」與「平台營運管理者」間的異常上報、申訴、派單查詢/管理，沒有跨出其他業務範疇。</li>
+<li>資料流與責任—外送員負責回報與查詢本人事件紀錄，平台管理者負責審查與結果留存，兩者責任邊界明確。</li>
+<li>子流程—派單異動須附明確人工審查節點，且資料揭露與查核符合主管機關要求。</li>
+</ul>
+<p>建議下一步：</p>
+<ul>
+<li>若後續對人工審查流程、決策留存格式、異常處理標準細節有需求細化，可於後續設計時補充；現有模型對應目前需求足夠，建議議題可進入close流程。</li>
+<li>無關鍵資訊缺口，後續僅需隨設計進度滾動檢視流程與資料物件一致性。</li>
+</ul>
+<p>目前看不到跨部門職責、流程步驟或資料流程邊界上的不明確點。若後續出現額外業務需求或監管準則變更，再根據新需求動作。</p>
+<h3 id="消費者">消費者</h3>
+<p>目前這個議題主要在討論外送員異常上報、派單影響與責任分工，其實跟我日常下單用戶體驗沒有直接關聯。我主要關心的是訂單不要出現配送問題，如果真的發生異常，希望平台能即時通知我、處理流程要快、責任明確、不要讓我無止盡等下去或者補償流程很複雜。只要平台能在配送異常時主動告知、說明或提供客訴補償機制即可；內部外送員派單和審查怎麼分工，我其實不特別在意。只要後端的機制不會導致消費者權益受損（比如餐點嚴重延遲卻沒人處理、補償機制不連貫），對我來說就是可以接受的。</p>
+<h3 id="外送員">外送員</h3>
+<p>目前整理的需求內容（異常上報後派單不減少、要有人工審查、可查詢紀錄、透明申訴）都有涵蓋到我擔心的點。我的底線很簡單：</p>
+<ol>
+<li>我只要善意誠實地回報現場異常（如備餐超時、餐廳臨時公休），不能被系統自動判定扣單或影響收入。</li>
+<li>任何對我派單數量或資格產生影響的決策，都必須有人工審查、明確紀錄，並提供我查詢和即時申訴的管道。</li>
+<li>系統如果突然讓我一段時間單量減少，卻沒有任何通知或說明細節，就是不可以接受的。
+總之，現階段這些條件已足夠保護外送員權益，不會阻礙我們主動回報異常，也能避免『報了反而吃虧』的現象。</li>
+</ol>
+<h3 id="平台營運管理者">平台營運管理者</h3>
+<p>目前的需求收斂方向對於平台合理控管風險、兼顧公平分配與合規，是可以接受的。我的重點是確保系統設計一來不能違反公平交易或勞動相關規定，二來要能留存足夠資料及審查紀錄，萬一遇到主管機關抽查或外送員群體申訴，要能說明清楚決策過程。只要有人工審查機制，決策與紀錄可被查核、查詢功能與申訴流程對外送員與主管都明確可用，就可兼顧系統運作合規、降低爭議風險。唯一需要提醒的，就是人工審查工作的負荷與判斷流程日後要能持續優化，不然前線營運會有壓力。</p>
+<h3 id="餐廳商家">餐廳商家</h3>
+<p>這個議題與業務現場比較無直接關聯。我們最在意的其實是出餐延誤、取餐混亂或爭議歸責時，平台能不能協助釐清責任，避免每次異常都讓商家吸收損失。至於派單演算法、外送員異常上報怎麼處理，只要不直接導致配送現場持續混亂、不影響我們餐廳的出單及結款，這部分流程平台內部怎麼分工和審查，我們並沒有特別意見。</p>
+<p>綜合來看，針對本議題需求，目前已足夠，沒有新的條件、痛點或驗收細節需要再補。</p>
+<h3 id="analyst-2">analyst</h3>
+<p>作為需求分析師，針對本議題「釐清異常上報後派單演算法影響條件與平台、外送員責任分工」，我認為目前需求條目與驗收條件已臻成熟，具備如下優點：</p>
+<ol>
+<li>需求相關性與範圍明確：本議題與 REQ-10（訂單派送公平性）、REQ-25（異常上報處理與派單保障）高度對應，條文明確約束派單演算法不得自動減單，強調需人工審查、資料留存與外送員查詢、申訴等透明救濟配套。權利、義務及資料流邊界清楚，無跨足新增範疇。</li>
+<li>條目品質與驗收條件：需求描述、驗收標準及資料揭露義務具體、可實測，並有週期性報表、異常提示、查詢申訴流程明確支撐。</li>
+<li>來源與追蹤：來源（如 URL-10、URL-25）及風險、約束、建議等 trace 都有明確對應，不存在來源不明的條件。使用者、外送員及平台管理者等不同角色觀點也被充分覆蓋。</li>
+<li>需求無明顯缺口：未發現明確未決爭議點、需求詞義衝突或驗收方式不明狀況。用例圖與情境圖皆對應現有需求。</li>
+<li>處理策略：即便後續細節如人工審查判斷標準或資料格式仍可於技術設計階段細化，不影響現階段需求收斂。</li>
+</ol>
+<p>綜合而言，此議題現狀已可判斷 ready to close。若要強化系統未來彈性或防止執行時產生新衝突，可於後續專案里程碑持續評估細節（如審查流程負荷、資料存取權責等），但無礙目前 as-is 需求及驗收邊界。</p>
+<p>若現場代表或主管機關對審查責任、資料保存或特殊異常情境（例如惡意集體上報）的認定方式有其他需求，屆時可彈性提出並以 open question 登錄，暫無須封裝到本階段 FR。</p>
+<p>本輪無須新增開放問題，建議可進行議題收斂/close。</p>
+<h4 id="需求更新-2">需求更新</h4>
+<h5 id="req-10-訂單派送公平性-2">REQ-10: 訂單派送公平性</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 當外送員回報配送過程中的異常（如備餐延遲、餐廳未營業等）時，系統所採用的訂單派送演算法不得自動減少該外送員可分配到的訂單量，除非經過明確的人為審查決策並留有決策紀錄。任何因異常上報、服務評分或歷史紀錄等因素影響派單結果者，必須具備決策證據與完整查詢紀錄，平台需提供外送員查詢歷史派單情形及申訴管道。平台每週應自動產生派單分配統計報表供主管查核，當發現長期極端分配現象時，系統需自動產生異常提示以供人工審查。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>平台每週自動產出派單分配統計報表供主管查核。</li>
+<li>若發現演算法造成長期極端分配現象，系統自動產生異常提示並供人工審查介入。</li>
+<li>所有因異常上報、評分或紀錄而減少派單者，須具有人為審查決策及留存紀錄。</li>
+<li>外送員可查閱個人歷史派單分配情況，若有爭議可發起申訴並取得處理結果說明。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>演算法邏輯不透明將引發排擠或信任危機。</li>
+<li>若資料記錄與解釋機制不足，將難以通過主管機關審查。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-25-異常上報處理與派單保障-2">REQ-25: 異常上報處理與派單保障</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 當外送員於配送過程遇到餐廳未營業、備餐延遲或其他異常時，系統應允許外送員於操作界面兩步驟內快速上報，並即時顯示後續標準處理流程或補償及釐清指引。異常上報行為不得自動導致該名外送員後續訂單量減少或其他不利調度行為，所有因異常上報造成派單異動者，必須經過人工審查與決策紀錄，並供外送員查詢所有異常上報紀錄及對其派單的實際影響。相關派單與異常上報決策須符合法定公平原則與資料查核要求。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>外送員可於訂單操作界面在兩步驟內完成異常事件回報。</li>
+<li>系統於回報後即時顯示後續標準處理流程、補償或釐清指引。</li>
+<li>異常上報不得自動導致該外送員派單量被減少，必要時須經人工審查並留存審查決策紀錄。</li>
+<li>外送員可查詢個人所有異常上報紀錄及其對派單的實際影響。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>若派單異動機制未明確記錄與揭露，將引發公平爭議或法規違反風險。</li>
+<li>異常上報流程不友善會降低外送員主動回報意願。</li>
+</ul>
+</li>
+</ul>
+<p><strong>Reason</strong>:</p>
+<ul>
+<li>依據會議決議與各方明確回饋，REQ-10 與 REQ-25 內容精修並保持完整追蹤，滿足本議題所有正式需求條件。</li>
+</ul>
+<h3 id="modeler-2">modeler</h3>
+<p>就本議題（釐清異常上報後派單演算法影響條件與平台、外送員責任分工）而言，依現有正式需求（REQ-10、REQ-25）以及現有系統模型（SM-1 外送平台系統情境圖，SM-2 主要角色用例圖）分析如下：</p>
+<p>結論：目前模型與需求具有高度一致性，無重大資訊缺口或模型不符需求之處，因此可判斷 ready to close。</p>
+<p>模型影響：</p>
+<ul>
+<li>SM-1（情境圖）已明確界定外送員、平台營運管理者、系統及其間異常上報、派單、人工審查等資料流與互動。異常上報到派單異動的人為審查與紀錄保留也有體現。</li>
+<li>SM-2（用例圖）中，外送員執行「回報配送進度與異常」、「回報異常與爭議處理」等用例，平台營運管理者有「管理派單與公平分配」、「數據分析與營運監控」等用例，可支援異常上報對派單分配的監控、異議申訴及公正分配。</li>
+</ul>
+<p>元素邊界：</p>
+<ul>
+<li>主要涉及「外送員」與「平台營運管理者」兩角色於派單分配、異常上報、審查與查詢紀錄間的責任交界。消費者、餐廳商家在本議題僅作背景不主角。</li>
+<li>流程上，異常上報必經人工審查才能影響派單。資料層面，須保留審查決策、異常紀錄與可查詢的分配統計。</li>
+<li>沒有額外跨部門、外部系統或非需求來源支撐的流程或資料依存性。</li>
+</ul>
+<p>建議下一步：</p>
+<ul>
+<li>現有模型結構及責任分工對現階段需求已具備充分支撐力。若未來細部實作（如審查標準、決策紀錄結構）需更細緻流程建模，再於細部設計時補充即可。</li>
+<li>如有任何流程或資料存取細節面出現具體分歧，再以議題分拆或細部設計變更；不影響此階段需求與模型一致性。</li>
+</ul>
+<p>目前，針對角色互動、流程步驟、資料紀錄、人工審查點、查詢與申訴管道等關鍵責任分界都已充分反映於現有模型與需求，並支聘主管機關查核及多方利害關係人底線，故本議題可收斂。</p>
+<h3 id="消費者-2">消費者</h3>
+<p>站在我的角度，這次討論的異常上報與派單公平，雖然是平台跟外送員比較相關的問題，但我會在意的只有一點：這套機制不能讓我下單後無人應單、派單混亂或出現延誤卻沒被即時通知。最重要的是，只要系統內部怎麼處理異常都不會讓消費體驗變爛、補償被拖延，對我就可以接受。目前描述平台需要即時處理異常、有明確分工、消費者端看到的應該只是更及時的通知和負責的客服，這就沒什麼問題。</p>
+<h3 id="外送員-2">外送員</h3>
+<p>就我來說，這一輪整理的重點是保護外送員只要誠實回報異常（例如餐廳休息、備餐異常拖延），平台不能自動把我當成問題外送員就減少派單。我要的是：1) 派單減少這種決策要有人工審查、可查證紀錄、我自己也能查詢原因；2) 發現自己的派單突然變很少，一定要有通知，無論是真有違規還是系統誤會，都要給我明確申訴機會。這些條件現已在需求裡有涵蓋，已經能讓我安心回報異常，不會被系統黑箱處理，也不怕被誤懲。</p>
+<h3 id="平台營運管理者-2">平台營運管理者</h3>
+<p>我的核心重點，除了平台有責任公平分配派單和合規外，就是內部流程需能被主管機關查核。現在標準流程（異常上報不自動減單、所有派單異動有人為決策和紀錄、外送員有查詢/申訴功能）都對應到法規和實務需要。唯一持續要關注的是，人工審查的負擔和標準在日常營運要能持續優化，以免流程太重拖到營運效率，但這細節可留給後面設計階段討論。目前 as-is 需求夠用。</p>
+<h3 id="餐廳商家-2">餐廳商家</h3>
+<p>以我們實務來說，目前這個派單分工和異常上報流程，對餐廳只要不會造成點餐、出餐、結帳混亂，都沒問題。我關心的是責任釐清時，平台能協助界定是外送員、消費者還是餐廳自己責任，避免全部風險我們吸收。就目前設計，看不出這輪的流程會直接影響我們餐廳權益或造成流程疑慮，所以可以接受。</p>
+<p>總之，從所有這幾個角色角度，現有需求細節和底線需求都已滿足，沒有再需要補充、修正或提出特殊例外驗收條件。</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+[
+  {
+    "meeting_id": "R3-M1",
+    "issue_id": "M-1",
+    "category": "clarify_requirement",
+    "proposed_by": "analyst",
+    "participants": [
+      "analyst",
+      "user"
+    ],
+    "discussion_mode": "sequential"
+  }
+]

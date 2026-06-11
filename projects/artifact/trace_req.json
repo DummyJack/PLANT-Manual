@@ -1,0 +1,4711 @@
+[
+  {
+    "event_id": "TE-1",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-3",
+      "URL-2"
+    ],
+    "output_ids": [
+      "FB-1"
+    ],
+    "source": "ELICIT-R1-T1",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "此規定直接影響商品價格公開與退款機制要求，對應已存在需求。",
+    "trace_confidence": "explicit",
+    "trace_reason": "此規定直接影響商品價格公開與退款機制要求，對應已存在需求。",
+    "created_at": "2026-06-11T00:54:42.891439+00:00"
+  },
+  {
+    "event_id": "TE-2",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-9",
+      "URL-14",
+      "URL-18"
+    ],
+    "output_ids": [
+      "FB-2"
+    ],
+    "source": "ELICIT-R1-T1",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "金流透明與紀錄保存義務對應酬勞、撥款結算與合規需求。",
+    "trace_confidence": "explicit",
+    "trace_reason": "金流透明與紀錄保存義務對應酬勞、撥款結算與合規需求。",
+    "created_at": "2026-06-11T00:54:42.891687+00:00"
+  },
+  {
+    "event_id": "TE-3",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-2",
+      "URL-3",
+      "URL-9",
+      "URL-18"
+    ],
+    "output_ids": [
+      "FB-3"
+    ],
+    "source": "ELICIT-R1-T1",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "第三方支付合規影響付款、退款與結算相關需求驗收。",
+    "trace_confidence": "explicit",
+    "trace_reason": "第三方支付合規影響付款、退款與結算相關需求驗收。",
+    "created_at": "2026-06-11T00:54:42.891711+00:00"
+  },
+  {
+    "event_id": "TE-4",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-3"
+    ],
+    "output_ids": [
+      "FB-4"
+    ],
+    "source": "ELICIT-R1-T1",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "明確揭示價格與退費資訊為法定強制界線，直接影響價格透明與信任需求可行性。",
+    "trace_confidence": "explicit",
+    "trace_reason": "明確揭示價格與退費資訊為法定強制界線，直接影響價格透明與信任需求可行性。",
+    "created_at": "2026-06-11T00:54:42.891736+00:00"
+  },
+  {
+    "event_id": "TE-5",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-9",
+      "URL-14",
+      "URL-18"
+    ],
+    "output_ids": [
+      "FB-5"
+    ],
+    "source": "ELICIT-R1-T1",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "資料保存義務可能限制平台資料刪除、溯源要求，對系統設計與驗收帶來邊界。",
+    "trace_confidence": "explicit",
+    "trace_reason": "資料保存義務可能限制平台資料刪除、溯源要求，對系統設計與驗收帶來邊界。",
+    "created_at": "2026-06-11T00:54:42.891757+00:00"
+  },
+  {
+    "event_id": "TE-6",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-3",
+      "URL-2"
+    ],
+    "output_ids": [
+      "FB-6"
+    ],
+    "source": "ELICIT-R1-T1",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "揭示不全構成法規違規，直接衝擊系統驗收與合規風險。",
+    "trace_confidence": "explicit",
+    "trace_reason": "揭示不全構成法規違規，直接衝擊系統驗收與合規風險。",
+    "created_at": "2026-06-11T00:54:42.891784+00:00"
+  },
+  {
+    "event_id": "TE-7",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-9",
+      "URL-18",
+      "URL-14"
+    ],
+    "output_ids": [
+      "FB-7"
+    ],
+    "source": "ELICIT-R1-T1",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "紀錄保存瑕疵直接威脅金流、合約與商業合作穩定性。",
+    "trace_confidence": "explicit",
+    "trace_reason": "紀錄保存瑕疵直接威脅金流、合約與商業合作穩定性。",
+    "created_at": "2026-06-11T00:54:42.891809+00:00"
+  },
+  {
+    "event_id": "TE-8",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-2",
+      "URL-3",
+      "URL-9",
+      "URL-18"
+    ],
+    "output_ids": [
+      "FB-8"
+    ],
+    "source": "ELICIT-R1-T1",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "金流、退費相關資訊強制揭示，有助於合規驗收與用戶信任。",
+    "trace_confidence": "explicit",
+    "trace_reason": "金流、退費相關資訊強制揭示，有助於合規驗收與用戶信任。",
+    "created_at": "2026-06-11T00:54:42.891834+00:00"
+  },
+  {
+    "event_id": "TE-9",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-9",
+      "URL-14",
+      "URL-18"
+    ],
+    "output_ids": [
+      "FB-9"
+    ],
+    "source": "ELICIT-R1-T1",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "保留完整記錄為合規必備，能支持稅務查核與責任歸屬。",
+    "trace_confidence": "explicit",
+    "trace_reason": "保留完整記錄為合規必備，能支持稅務查核與責任歸屬。",
+    "created_at": "2026-06-11T00:54:42.891859+00:00"
+  },
+  {
+    "event_id": "TE-10",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [],
+    "output_ids": [
+      "FB-10"
+    ],
+    "source": "ELICIT-R1-T2",
+    "relation": "supports",
+    "confidence": "missing",
+    "reason": "該法令明確要求資料保存及資料保護，對彈性取餐流程之系統設計有基礎限制，但此規範尚無法明確對應特定單一需求。",
+    "trace_confidence": "missing",
+    "trace_reason": "該法令明確要求資料保存及資料保護，對彈性取餐流程之系統設計有基礎限制，但此規範尚無法明確對應特定單一需求。",
+    "created_at": "2026-06-11T00:56:09.643755+00:00"
+  },
+  {
+    "event_id": "TE-11",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [],
+    "output_ids": [
+      "FB-11"
+    ],
+    "source": "ELICIT-R1-T2",
+    "relation": "supports",
+    "confidence": "missing",
+    "reason": "第三方場所交付的執行風險取決於自治條例和場所實際管理規則，目前無既有需求專門對應。",
+    "trace_confidence": "missing",
+    "trace_reason": "第三方場所交付的執行風險取決於自治條例和場所實際管理規則，目前無既有需求專門對應。",
+    "created_at": "2026-06-11T00:56:09.643783+00:00"
+  },
+  {
+    "event_id": "TE-12",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [],
+    "output_ids": [
+      "FB-12"
+    ],
+    "source": "ELICIT-R1-T2",
+    "relation": "supports",
+    "confidence": "missing",
+    "reason": "資料錄入流程必須先檢核個資合規性，此為彈性交付點設計的合規門檻，尚無特定需求直接串接。",
+    "trace_confidence": "missing",
+    "trace_reason": "資料錄入流程必須先檢核個資合規性，此為彈性交付點設計的合規門檻，尚無特定需求直接串接。",
+    "created_at": "2026-06-11T00:56:09.643799+00:00"
+  },
+  {
+    "event_id": "TE-13",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [],
+    "output_ids": [
+      "FB-13"
+    ],
+    "source": "ELICIT-R1-T2",
+    "relation": "supports",
+    "confidence": "missing",
+    "reason": "缺乏與場所管理相關的需求掛鉤，需進一步界定第三方場合交付可行性。",
+    "trace_confidence": "missing",
+    "trace_reason": "缺乏與場所管理相關的需求掛鉤，需進一步界定第三方場合交付可行性。",
+    "created_at": "2026-06-11T00:56:09.643814+00:00"
+  },
+  {
+    "event_id": "TE-14",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [],
+    "output_ids": [
+      "FB-14"
+    ],
+    "source": "ELICIT-R1-T2",
+    "relation": "supports",
+    "confidence": "missing",
+    "reason": "外送糾紛經常發生於第三方場所授權不明的情境，目前無特定需求直接對應此安全及責任界線。",
+    "trace_confidence": "missing",
+    "trace_reason": "外送糾紛經常發生於第三方場所授權不明的情境，目前無特定需求直接對應此安全及責任界線。",
+    "created_at": "2026-06-11T00:56:09.643832+00:00"
+  },
+  {
+    "event_id": "TE-15",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [],
+    "output_ids": [
+      "FB-15"
+    ],
+    "source": "ELICIT-R1-T2",
+    "relation": "supports",
+    "confidence": "missing",
+    "reason": "尚無現有需求處理彈性交付資訊脫敏與個資管理議題。",
+    "trace_confidence": "missing",
+    "trace_reason": "尚無現有需求處理彈性交付資訊脫敏與個資管理議題。",
+    "created_at": "2026-06-11T00:56:09.643854+00:00"
+  },
+  {
+    "event_id": "TE-16",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [],
+    "output_ids": [
+      "FB-16"
+    ],
+    "source": "ELICIT-R1-T2",
+    "relation": "supports",
+    "confidence": "missing",
+    "reason": "協助消費者、平台與外送員理解各自權益與風險，減輕平台承擔之不確定性。",
+    "trace_confidence": "missing",
+    "trace_reason": "協助消費者、平台與外送員理解各自權益與風險，減輕平台承擔之不確定性。",
+    "created_at": "2026-06-11T00:56:09.643876+00:00"
+  },
+  {
+    "event_id": "TE-17",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [],
+    "output_ids": [
+      "FB-17"
+    ],
+    "source": "ELICIT-R1-T2",
+    "relation": "supports",
+    "confidence": "missing",
+    "reason": "國際實務推薦於資料敏感欄進行存取控制與紀錄，尚無現有需求落實。",
+    "trace_confidence": "missing",
+    "trace_reason": "國際實務推薦於資料敏感欄進行存取控制與紀錄，尚無現有需求落實。",
+    "created_at": "2026-06-11T00:56:09.643894+00:00"
+  },
+  {
+    "event_id": "TE-18",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [],
+    "output_ids": [
+      "FB-18"
+    ],
+    "source": "ELICIT-R1-T2",
+    "relation": "supports",
+    "confidence": "missing",
+    "reason": "明確條款能界定法律與營運風險，對現有需求仍屬補充建議。",
+    "trace_confidence": "missing",
+    "trace_reason": "明確條款能界定法律與營運風險，對現有需求仍屬補充建議。",
+    "created_at": "2026-06-11T00:56:09.643917+00:00"
+  },
+  {
+    "event_id": "TE-19",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T2",
+    "input_ids": [],
+    "output_ids": [
+      "FB-4"
+    ],
+    "relation": "supports",
+    "confidence": "missing",
+    "created_at": "2026-06-11T00:57:01.301164+00:00",
+    "reason": "該法令明確要求資料保存及資料保護，對彈性取餐流程之系統設計有基礎限制，但此規範尚無法明確對應特定單一需求。",
+    "trace_reason": "該法令明確要求資料保存及資料保護，對彈性取餐流程之系統設計有基礎限制，但此規範尚無法明確對應特定單一需求。"
+  },
+  {
+    "event_id": "TE-20",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T2",
+    "input_ids": [],
+    "output_ids": [
+      "FB-5"
+    ],
+    "relation": "supports",
+    "confidence": "missing",
+    "created_at": "2026-06-11T00:57:01.301212+00:00",
+    "reason": "第三方場所交付的執行風險取決於自治條例和場所實際管理規則，目前無既有需求專門對應。",
+    "trace_reason": "第三方場所交付的執行風險取決於自治條例和場所實際管理規則，目前無既有需求專門對應。"
+  },
+  {
+    "event_id": "TE-21",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T1",
+    "input_ids": [
+      "URL-3"
+    ],
+    "output_ids": [
+      "FB-6"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:57:01.301246+00:00",
+    "reason": "明確揭示價格與退費資訊為法定強制界線，直接影響價格透明與信任需求可行性。",
+    "trace_reason": "明確揭示價格與退費資訊為法定強制界線，直接影響價格透明與信任需求可行性。"
+  },
+  {
+    "event_id": "TE-22",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T1",
+    "input_ids": [
+      "URL-9",
+      "URL-14",
+      "URL-18"
+    ],
+    "output_ids": [
+      "FB-7"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:57:01.301279+00:00",
+    "reason": "資料保存義務可能限制平台資料刪除、溯源要求，對系統設計與驗收帶來邊界。",
+    "trace_reason": "資料保存義務可能限制平台資料刪除、溯源要求，對系統設計與驗收帶來邊界。"
+  },
+  {
+    "event_id": "TE-23",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T2",
+    "input_ids": [],
+    "output_ids": [
+      "FB-8"
+    ],
+    "relation": "supports",
+    "confidence": "missing",
+    "created_at": "2026-06-11T00:57:01.301313+00:00",
+    "reason": "資料錄入流程必須先檢核個資合規性，此為彈性交付點設計的合規門檻，尚無特定需求直接串接。",
+    "trace_reason": "資料錄入流程必須先檢核個資合規性，此為彈性交付點設計的合規門檻，尚無特定需求直接串接。"
+  },
+  {
+    "event_id": "TE-24",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T2",
+    "input_ids": [],
+    "output_ids": [
+      "FB-9"
+    ],
+    "relation": "supports",
+    "confidence": "missing",
+    "created_at": "2026-06-11T00:57:01.301346+00:00",
+    "reason": "缺乏與場所管理相關的需求掛鉤，需進一步界定第三方場合交付可行性。",
+    "trace_reason": "缺乏與場所管理相關的需求掛鉤，需進一步界定第三方場合交付可行性。"
+  },
+  {
+    "event_id": "TE-25",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T1",
+    "input_ids": [
+      "URL-3",
+      "URL-2"
+    ],
+    "output_ids": [
+      "FB-10"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:57:01.301382+00:00",
+    "reason": "揭示不全構成法規違規，直接衝擊系統驗收與合規風險。",
+    "trace_reason": "揭示不全構成法規違規，直接衝擊系統驗收與合規風險。"
+  },
+  {
+    "event_id": "TE-26",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T1",
+    "input_ids": [
+      "URL-9",
+      "URL-18",
+      "URL-14"
+    ],
+    "output_ids": [
+      "FB-11"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:57:01.301419+00:00",
+    "reason": "紀錄保存瑕疵直接威脅金流、合約與商業合作穩定性。",
+    "trace_reason": "紀錄保存瑕疵直接威脅金流、合約與商業合作穩定性。"
+  },
+  {
+    "event_id": "TE-27",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T1",
+    "input_ids": [
+      "URL-2",
+      "URL-3",
+      "URL-9",
+      "URL-18"
+    ],
+    "output_ids": [
+      "FB-14"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:57:01.301472+00:00",
+    "reason": "金流、退費相關資訊強制揭示，有助於合規驗收與用戶信任。",
+    "trace_reason": "金流、退費相關資訊強制揭示，有助於合規驗收與用戶信任。"
+  },
+  {
+    "event_id": "TE-28",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T1",
+    "input_ids": [
+      "URL-9",
+      "URL-14",
+      "URL-18"
+    ],
+    "output_ids": [
+      "FB-15"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:57:01.301513+00:00",
+    "reason": "保留完整記錄為合規必備，能支持稅務查核與責任歸屬。",
+    "trace_reason": "保留完整記錄為合規必備，能支持稅務查核與責任歸屬。"
+  },
+  {
+    "event_id": "TE-29",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [],
+    "output_ids": [
+      "FB-19"
+    ],
+    "source": "ELICIT-R1-T3",
+    "relation": "supports",
+    "confidence": "missing",
+    "reason": "本發現屬於主管機關對資訊揭露的明確責任，但目前無對應特定需求。",
+    "trace_confidence": "missing",
+    "trace_reason": "本發現屬於主管機關對資訊揭露的明確責任，但目前無對應特定需求。",
+    "created_at": "2026-06-11T00:57:25.635375+00:00"
+  },
+  {
+    "event_id": "TE-30",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [],
+    "output_ids": [
+      "FB-20"
+    ],
+    "source": "ELICIT-R1-T3",
+    "relation": "supports",
+    "confidence": "missing",
+    "reason": "此義務為資訊揭露與消費者保護的基礎，但目前需求紀錄尚無明確連結。",
+    "trace_confidence": "missing",
+    "trace_reason": "此義務為資訊揭露與消費者保護的基礎，但目前需求紀錄尚無明確連結。",
+    "created_at": "2026-06-11T00:57:25.635409+00:00"
+  },
+  {
+    "event_id": "TE-31",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [],
+    "output_ids": [
+      "FB-21"
+    ],
+    "source": "ELICIT-R1-T3",
+    "relation": "supports",
+    "confidence": "missing",
+    "reason": "說明現行主管機關僅要求資訊揭露，未強制權限核查流程，暫無特定對應需求。",
+    "trace_confidence": "missing",
+    "trace_reason": "說明現行主管機關僅要求資訊揭露，未強制權限核查流程，暫無特定對應需求。",
+    "created_at": "2026-06-11T00:57:25.635433+00:00"
+  },
+  {
+    "event_id": "TE-32",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [],
+    "output_ids": [
+      "FB-22"
+    ],
+    "source": "ELICIT-R1-T3",
+    "relation": "supports",
+    "confidence": "missing",
+    "reason": "對於流程設計設定揭露資訊與同意條款之下限要求，尚未明定更嚴格查核義務。",
+    "trace_confidence": "missing",
+    "trace_reason": "對於流程設計設定揭露資訊與同意條款之下限要求，尚未明定更嚴格查核義務。",
+    "created_at": "2026-06-11T00:57:25.635458+00:00"
+  },
+  {
+    "event_id": "TE-33",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [],
+    "output_ids": [
+      "FB-23"
+    ],
+    "source": "ELICIT-R1-T3",
+    "relation": "supports",
+    "confidence": "missing",
+    "reason": "揭露不全可能直接引發紛爭與合規爭議，目前尚無現有需求條列相應防範。",
+    "trace_confidence": "missing",
+    "trace_reason": "揭露不全可能直接引發紛爭與合規爭議，目前尚無現有需求條列相應防範。",
+    "created_at": "2026-06-11T00:57:25.635483+00:00"
+  },
+  {
+    "event_id": "TE-34",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [],
+    "output_ids": [
+      "FB-24"
+    ],
+    "source": "ELICIT-R1-T3",
+    "relation": "supports",
+    "confidence": "missing",
+    "reason": "根據資訊揭露精神提出強化流程建議，有利風險提醒與歸責清楚。",
+    "trace_confidence": "missing",
+    "trace_reason": "根據資訊揭露精神提出強化流程建議，有利風險提醒與歸責清楚。",
+    "created_at": "2026-06-11T00:57:25.635509+00:00"
+  },
+  {
+    "event_id": "TE-35",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [],
+    "output_ids": [
+      "FB-25"
+    ],
+    "source": "ELICIT-R1-T3",
+    "relation": "supports",
+    "confidence": "missing",
+    "reason": "有助平台主動控管非住家取餐交付的風險，作為最佳實務參考。",
+    "trace_confidence": "missing",
+    "trace_reason": "有助平台主動控管非住家取餐交付的風險，作為最佳實務參考。",
+    "created_at": "2026-06-11T00:57:25.635535+00:00"
+  },
+  {
+    "event_id": "TE-36",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T3",
+    "input_ids": [],
+    "output_ids": [
+      "FB-6"
+    ],
+    "relation": "supports",
+    "confidence": "missing",
+    "created_at": "2026-06-11T00:58:22.006791+00:00",
+    "reason": "本發現屬於主管機關對資訊揭露的明確責任，但目前無對應特定需求。",
+    "trace_reason": "本發現屬於主管機關對資訊揭露的明確責任，但目前無對應特定需求。"
+  },
+  {
+    "event_id": "TE-37",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T3",
+    "input_ids": [],
+    "output_ids": [
+      "FB-7"
+    ],
+    "relation": "supports",
+    "confidence": "missing",
+    "created_at": "2026-06-11T00:58:22.006854+00:00",
+    "reason": "此義務為資訊揭露與消費者保護的基礎，但目前需求紀錄尚無明確連結。",
+    "trace_reason": "此義務為資訊揭露與消費者保護的基礎，但目前需求紀錄尚無明確連結。"
+  },
+  {
+    "event_id": "TE-38",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T1",
+    "input_ids": [
+      "URL-3"
+    ],
+    "output_ids": [
+      "FB-9"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:58:22.006912+00:00",
+    "reason": "明確揭示價格與退費資訊為法定強制界線，直接影響價格透明與信任需求可行性。",
+    "trace_reason": "明確揭示價格與退費資訊為法定強制界線，直接影響價格透明與信任需求可行性。"
+  },
+  {
+    "event_id": "TE-39",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T1",
+    "input_ids": [
+      "URL-9",
+      "URL-14",
+      "URL-18"
+    ],
+    "output_ids": [
+      "FB-10"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:58:22.006964+00:00",
+    "reason": "資料保存義務可能限制平台資料刪除、溯源要求，對系統設計與驗收帶來邊界。",
+    "trace_reason": "資料保存義務可能限制平台資料刪除、溯源要求，對系統設計與驗收帶來邊界。"
+  },
+  {
+    "event_id": "TE-40",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T1",
+    "input_ids": [
+      "URL-3",
+      "URL-2"
+    ],
+    "output_ids": [
+      "FB-14"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:58:22.007040+00:00",
+    "reason": "揭示不全構成法規違規，直接衝擊系統驗收與合規風險。",
+    "trace_reason": "揭示不全構成法規違規，直接衝擊系統驗收與合規風險。"
+  },
+  {
+    "event_id": "TE-41",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T1",
+    "input_ids": [
+      "URL-9",
+      "URL-18",
+      "URL-14"
+    ],
+    "output_ids": [
+      "FB-15"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:58:22.007110+00:00",
+    "reason": "紀錄保存瑕疵直接威脅金流、合約與商業合作穩定性。",
+    "trace_reason": "紀錄保存瑕疵直接威脅金流、合約與商業合作穩定性。"
+  },
+  {
+    "event_id": "TE-42",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T1",
+    "input_ids": [
+      "URL-2",
+      "URL-3",
+      "URL-9",
+      "URL-18"
+    ],
+    "output_ids": [
+      "FB-19"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:58:22.007191+00:00",
+    "reason": "金流、退費相關資訊強制揭示，有助於合規驗收與用戶信任。",
+    "trace_reason": "金流、退費相關資訊強制揭示，有助於合規驗收與用戶信任。"
+  },
+  {
+    "event_id": "TE-43",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T1",
+    "input_ids": [
+      "URL-9",
+      "URL-14",
+      "URL-18"
+    ],
+    "output_ids": [
+      "FB-20"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:58:22.007248+00:00",
+    "reason": "保留完整記錄為合規必備，能支持稅務查核與責任歸屬。",
+    "trace_reason": "保留完整記錄為合規必備，能支持稅務查核與責任歸屬。"
+  },
+  {
+    "event_id": "TE-44",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-1",
+      "URL-2"
+    ],
+    "output_ids": [
+      "PAIR-1"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:59:42.477285+00:00",
+    "reason": "URL-1關注於操作流程的簡單及資訊明確性提升使用意願，URL-2則聚焦於即時協助與退款流程優化提升服務可靠性，兩者內容互補，不產生需求衝突。",
+    "trace_reason": "URL-1關注於操作流程的簡單及資訊明確性提升使用意願，URL-2則聚焦於即時協助與退款流程優化提升服務可靠性，兩者內容互補，不產生需求衝突。"
+  },
+  {
+    "event_id": "TE-45",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-3",
+      "URL-4"
+    ],
+    "output_ids": [
+      "PAIR-2"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:59:42.477381+00:00",
+    "reason": "URL-3為價格透明與資訊公開，URL-4為補償機制於配送問題發生時啟動，兩者未出現邏輯、技術或範疇互斥，不構成衝突。",
+    "trace_reason": "URL-3為價格透明與資訊公開，URL-4為補償機制於配送問題發生時啟動，兩者未出現邏輯、技術或範疇互斥，不構成衝突。"
+  },
+  {
+    "event_id": "TE-46",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-5",
+      "URL-6"
+    ],
+    "output_ids": [
+      "PAIR-3"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:59:42.477435+00:00",
+    "reason": "URL-5為消費者即時查詢訂單送達時間，URL-6為外送員端地圖與流程需求，兩者各自針對不同用戶端訴求，設計上可同時滿足，無衝突。",
+    "trace_reason": "URL-5為消費者即時查詢訂單送達時間，URL-6為外送員端地圖與流程需求，兩者各自針對不同用戶端訴求，設計上可同時滿足，無衝突。"
+  },
+  {
+    "event_id": "TE-47",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-7",
+      "URL-8"
+    ],
+    "output_ids": [
+      "PAIR-4"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:59:42.477484+00:00",
+    "reason": "URL-7為公平處理投訴與爭議，URL-8為配送地點資訊的辨識與聯絡方式補充，兩者目的及範疇並無直接衝突。",
+    "trace_reason": "URL-7為公平處理投訴與爭議，URL-8為配送地點資訊的辨識與聯絡方式補充，兩者目的及範疇並無直接衝突。"
+  },
+  {
+    "event_id": "TE-48",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-9",
+      "URL-10"
+    ],
+    "output_ids": [
+      "PAIR-5"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:59:42.477536+00:00",
+    "reason": "URL-9為酬勞結算準確與定期，URL-10為派單公平性，焦點分屬金流計算及訂單分派，實作上可並行，不產生衝突。",
+    "trace_reason": "URL-9為酬勞結算準確與定期，URL-10為派單公平性，焦點分屬金流計算及訂單分派，實作上可並行，不產生衝突。"
+  },
+  {
+    "event_id": "TE-49",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-11",
+      "URL-12"
+    ],
+    "output_ids": [
+      "PAIR-6"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:59:42.477588+00:00",
+    "reason": "URL-11要求系統穩定可靠，URL-12強調即時數據分析與異常監控，數據分析屬於系統功能之一，不損及穩定性，兩者無互斥。",
+    "trace_reason": "URL-11要求系統穩定可靠，URL-12強調即時數據分析與異常監控，數據分析屬於系統功能之一，不損及穩定性，兩者無互斥。"
+  },
+  {
+    "event_id": "TE-50",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-13",
+      "URL-14"
+    ],
+    "output_ids": [
+      "PAIR-7"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:59:42.477639+00:00",
+    "reason": "URL-13要求溝通順暢以紓緩客服壓力，URL-14則是金流稅務符合法規，各自明確於不同子系統上，無重疊或矛盾。",
+    "trace_reason": "URL-13要求溝通順暢以紓緩客服壓力，URL-14則是金流稅務符合法規，各自明確於不同子系統上，無重疊或矛盾。"
+  },
+  {
+    "event_id": "TE-51",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-15",
+      "URL-16"
+    ],
+    "output_ids": [
+      "PAIR-8"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:59:42.477690+00:00",
+    "reason": "URL-15聚焦平台多目標平衡，URL-16關注商家端操作介面與同步正確性，兩者定位無排斥可協同運作。",
+    "trace_reason": "URL-15聚焦平台多目標平衡，URL-16關注商家端操作介面與同步正確性，兩者定位無排斥可協同運作。"
+  },
+  {
+    "event_id": "TE-52",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-17",
+      "URL-18"
+    ],
+    "output_ids": [
+      "PAIR-9"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:59:42.477745+00:00",
+    "reason": "URL-17著重責任歸屬釐清避免商家被動承擔損失，URL-18則為撥款透明與準時結算，兩者功能與目標可並存，不衝突。",
+    "trace_reason": "URL-17著重責任歸屬釐清避免商家被動承擔損失，URL-18則為撥款透明與準時結算，兩者功能與目標可並存，不衝突。"
+  },
+  {
+    "event_id": "TE-53",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-19",
+      "URL-20"
+    ],
+    "output_ids": [
+      "PAIR-10"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:59:42.477799+00:00",
+    "reason": "URL-19為手續費水平維持合理，URL-20關於商家可即時暫停接單以因應營運需求，兩者不同作業功能，未產生衝突。",
+    "trace_reason": "URL-19為手續費水平維持合理，URL-20關於商家可即時暫停接單以因應營運需求，兩者不同作業功能，未產生衝突。"
+  },
+  {
+    "event_id": "TE-54",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-21",
+      "URL-22"
+    ],
+    "output_ids": [
+      "PAIR-11"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:59:42.477855+00:00",
+    "reason": "URL-21強調消費者選擇與指示傳遞，URL-22則是設定取餐方式時須消費者同意，兩者皆以保障消費者自主為主，內容互補無衝突。",
+    "trace_reason": "URL-21強調消費者選擇與指示傳遞，URL-22則是設定取餐方式時須消費者同意，兩者皆以保障消費者自主為主，內容互補無衝突。"
+  },
+  {
+    "event_id": "TE-55",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-23",
+      "URL-24"
+    ],
+    "output_ids": [
+      "PAIR-12"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:59:42.477909+00:00",
+    "reason": "URL-23為金流與交易資料保存規範，URL-24為資料匯出格式支援，兩者均屬資料管理不同層面，並無邏輯或技術衝突。",
+    "trace_reason": "URL-23為金流與交易資料保存規範，URL-24為資料匯出格式支援，兩者均屬資料管理不同層面，並無邏輯或技術衝突。"
+  },
+  {
+    "event_id": "TE-56",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-25",
+      "URL-26"
+    ],
+    "output_ids": [
+      "PAIR-13"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:59:42.477965+00:00",
+    "reason": "URL-25為外送員回報異常與指引需求，URL-26為消費者端指示已讀回饋，兩者可以同時存在並協同強化資訊流通，無產生衝突。",
+    "trace_reason": "URL-25為外送員回報異常與指引需求，URL-26為消費者端指示已讀回饋，兩者可以同時存在並協同強化資訊流通，無產生衝突。"
+  },
+  {
+    "event_id": "TE-57",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-27",
+      "URL-28"
+    ],
+    "output_ids": [
+      "PAIR-14"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:59:42.478026+00:00",
+    "reason": "URL-27要求非住家地點需消費者風險知情與同意，URL-28強調配送過程特殊指示及即時提醒，兩者可共存且互補資訊完整性，無涉衝突。",
+    "trace_reason": "URL-27要求非住家地點需消費者風險知情與同意，URL-28強調配送過程特殊指示及即時提醒，兩者可共存且互補資訊完整性，無涉衝突。"
+  },
+  {
+    "event_id": "TE-58",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-29",
+      "URL-30"
+    ],
+    "output_ids": [
+      "PAIR-15"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:59:42.478081+00:00",
+    "reason": "URL-29為外送員未依指示時的狀況通知及合理補償，URL-30為特殊場域下消費者同意與場域資訊蒐集流程，兩者分屬不同風險控管與補償處理程序，不產生邏輯衝突。",
+    "trace_reason": "URL-29為外送員未依指示時的狀況通知及合理補償，URL-30為特殊場域下消費者同意與場域資訊蒐集流程，兩者分屬不同風險控管與補償處理程序，不產生邏輯衝突。"
+  },
+  {
+    "event_id": "TE-59",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-31",
+      "URL-32"
+    ],
+    "output_ids": [
+      "PAIR-16"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:59:42.478139+00:00",
+    "reason": "URL-31與URL-32皆針對外送員端的提醒機制加強資訊明確、即時與易於理解，訴求接近且可合併達成，並無互斥。",
+    "trace_reason": "URL-31與URL-32皆針對外送員端的提醒機制加強資訊明確、即時與易於理解，訴求接近且可合併達成，並無互斥。"
+  },
+  {
+    "event_id": "TE-60",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-33",
+      "URL-34"
+    ],
+    "output_ids": [
+      "PAIR-17"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:59:42.478199+00:00",
+    "reason": "URL-33要求系統提醒功能不影響導航與操作流程，URL-34則是消費者遇配送問題時的補償選項權益，內容各自獨立，無作業衝突。",
+    "trace_reason": "URL-33要求系統提醒功能不影響導航與操作流程，URL-34則是消費者遇配送問題時的補償選項權益，內容各自獨立，無作業衝突。"
+  },
+  {
+    "event_id": "TE-61",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-35",
+      "URL-36"
+    ],
+    "output_ids": [
+      "PAIR-18"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:59:42.478260+00:00",
+    "reason": "URL-35為消費者遇外送員聯繫困難時的主動客服協助，URL-36則處理特殊場域送餐事前規則揭露與同意，兩者功能面向不同場景，不會互斥。",
+    "trace_reason": "URL-35為消費者遇外送員聯繫困難時的主動客服協助，URL-36則處理特殊場域送餐事前規則揭露與同意，兩者功能面向不同場景，不會互斥。"
+  },
+  {
+    "event_id": "TE-62",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-15",
+      "URL-19",
+      "URL-3",
+      "URL-10"
+    ],
+    "output_ids": [
+      "MULTIPLE-1"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:59:42.478325+00:00",
+    "reason": "決策主題：平台費用設計與三方平衡。URL-15要求『系統功能與費用設計須在吸引消費者、照顧外送員權益和維持平台收入三者間取得平衡』，但URL-19要求『手續費維持合理、商家能獲利』，URL-3要求『所有費用資訊透明且無額外費用』，URL-10則要求『訂單要公平分配、避免派單不均』。若平台為吸引消費者壓低手續費或折扣，將壓縮平台或商家獲利，進而影響外送員權益與派案公平性；三方訴求在有限資源/收入下難同時最大化，彼此出現優先順序衝突，不能直接同時納入SRS，需調整平衡機制。",
+    "trace_reason": "決策主題：平台費用設計與三方平衡。URL-15要求『系統功能與費用設計須在吸引消費者、照顧外送員權益和維持平台收入三者間取得平衡』，但URL-19要求『手續費維持合理、商家能獲利』，URL-3要求『所有費用資訊透明且無額外費用』，URL-10則要求『訂單要公平分配、避免派單不均』。若平台為吸引消費者壓低手續費或折扣，將壓縮平台或商家獲利，進而影響外送員權益與派案公平性；三方訴求在有限資源/收入下難同時最大化，彼此出現優先順序衝突，不能直接同時納入SRS，需調整平衡機制。"
+  },
+  {
+    "event_id": "TE-63",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-23",
+      "URL-14",
+      "URL-2",
+      "URL-18"
+    ],
+    "output_ids": [
+      "MULTIPLE-2"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:59:42.478390+00:00",
+    "reason": "決策主題：金流/交易資料保存與刪除、合規與用戶權益。URL-23要求『依不同國家/合約保存交易資料達到年限並不可修改』、URL-14要求『完全符合法規要求』，而URL-2（便捷退款及有效處理爭議）與URL-18（結算撥款透明、避免無預警扣款）暗示消費者或商家須有權查詢或異議資料處理途徑。若要異議或更正，有時會牴觸不可修改與強制保存條款（如GDPR、消費者權益要求刪除/修改資料或快速補償）；法規要求下二者不能完全並存於SRS，需規範例外處理與責任分界。",
+    "trace_reason": "決策主題：金流/交易資料保存與刪除、合規與用戶權益。URL-23要求『依不同國家/合約保存交易資料達到年限並不可修改』、URL-14要求『完全符合法規要求』，而URL-2（便捷退款及有效處理爭議）與URL-18（結算撥款透明、避免無預警扣款）暗示消費者或商家須有權查詢或異議資料處理途徑。若要異議或更正，有時會牴觸不可修改與強制保存條款（如GDPR、消費者權益要求刪除/修改資料或快速補償）；法規要求下二者不能完全並存於SRS，需規範例外處理與責任分界。"
+  },
+  {
+    "event_id": "TE-64",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-7",
+      "URL-4",
+      "URL-17",
+      "URL-29",
+      "URL-34"
+    ],
+    "output_ids": [
+      "MULTIPLE-3"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:59:42.478455+00:00",
+    "reason": "決策主題：爭議處理過程中補償/責任分配。URL-7要求『公平處理惡意投訴/爭議並保護外送員』，而URL-4、URL-29、URL-34等要求在發生外送（取餐/送餐）失誤時平台需對消費者提供明確的賠償、補償、主動協助等，又URL-17要求明確釐清消費者、商家、外送員間的責任。這些需求在消費者要求明確補償/快速補償與外送員/商家主張平台必須調查或防止誤賠之間產生衝突，導致賠償/補償/責任劃分機制若未明定，執行面無法同時滿足不同角色最大利益。",
+    "trace_reason": "決策主題：爭議處理過程中補償/責任分配。URL-7要求『公平處理惡意投訴/爭議並保護外送員』，而URL-4、URL-29、URL-34等要求在發生外送（取餐/送餐）失誤時平台需對消費者提供明確的賠償、補償、主動協助等，又URL-17要求明確釐清消費者、商家、外送員間的責任。這些需求在消費者要求明確補償/快速補償與外送員/商家主張平台必須調查或防止誤賠之間產生衝突，導致賠償/補償/責任劃分機制若未明定，執行面無法同時滿足不同角色最大利益。"
+  },
+  {
+    "event_id": "TE-65",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-20",
+      "URL-16",
+      "URL-25"
+    ],
+    "output_ids": [
+      "MULTIPLE-4"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:59:42.478518+00:00",
+    "reason": "決策主題：訂單狀態控制與異常處理權限。URL-20要求餐廳商家能即時暫停接單以因應突發情形（如公休、食材短缺），URL-25要求外送員於異常狀況下能快速上報，並避免影響派單和收入，URL-16則主張訂單同步與庫存狀態降低錯誤。當商家可「即時暫停」而原有訂單配送流程已啟動或外送員已接單時，狀態切換與權限衝突會導致「可否取消/配送繼續/如何處理異常」機制間衝突，不能直接共存於SRS，需要協商狀態切換點、責任順序及自動/人工介入條件。",
+    "trace_reason": "決策主題：訂單狀態控制與異常處理權限。URL-20要求餐廳商家能即時暫停接單以因應突發情形（如公休、食材短缺），URL-25要求外送員於異常狀況下能快速上報，並避免影響派單和收入，URL-16則主張訂單同步與庫存狀態降低錯誤。當商家可「即時暫停」而原有訂單配送流程已啟動或外送員已接單時，狀態切換與權限衝突會導致「可否取消/配送繼續/如何處理異常」機制間衝突，不能直接共存於SRS，需要協商狀態切換點、責任順序及自動/人工介入條件。"
+  },
+  {
+    "event_id": "TE-66",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-3",
+      "URL-24"
+    ],
+    "output_ids": [
+      "MULTIPLE-5"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T00:59:42.478587+00:00",
+    "reason": "決策主題：資料揭露粒度與稽核用途。URL-3主張商品價格與所有費用完全透明公開且避免未預告費用，但URL-24要求金流與交易資料能以完整稽核格式匯出（如API/csv/pdf），SRS不能同時直接定稿兩者，因消費者可見「全部費用明細」與平台內部/法律/稽核需求下「完全資料匯出」在資料粒度、保密性、權限管理、揭露時機上有衝突，需設定角色分界、資料欄位及格式管控規則。",
+    "trace_reason": "決策主題：資料揭露粒度與稽核用途。URL-3主張商品價格與所有費用完全透明公開且避免未預告費用，但URL-24要求金流與交易資料能以完整稽核格式匯出（如API/csv/pdf），SRS不能同時直接定稿兩者，因消費者可見「全部費用明細」與平台內部/法律/稽核需求下「完全資料匯出」在資料粒度、保密性、權限管理、揭露時機上有衝突，需設定角色分界、資料欄位及格式管控規則。"
+  },
+  {
+    "event_id": "TE-67",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-15",
+      "URL-19",
+      "URL-3"
+    ],
+    "output_ids": [
+      "MULTIPLE-1"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:10:01.880493+00:00",
+    "reason": "共同決策主題：費用設計與利害關係人平衡。URL-15 要求在吸引消費者、照顧外送員權益和維持平台收入三者間取得平衡，URL-19 則要求商家手續費維持在合理範圍以確保商家獲利（在薄利多銷下仍能續約），URL-3 要求所有商品價格及費用公開透明，避免額外費用。三者若原樣寫入將產生直接優先順序與配比矛盾：合理範圍、平台收入與消費者價格透明、公平隨著訂價與分潤調整難以同時達成最大化，必須有明確的商業邏輯或人為裁定流程，否則無法直接入 SRS。",
+    "trace_reason": "共同決策主題：費用設計與利害關係人平衡。URL-15 要求在吸引消費者、照顧外送員權益和維持平台收入三者間取得平衡，URL-19 則要求商家手續費維持在合理範圍以確保商家獲利（在薄利多銷下仍能續約），URL-3 要求所有商品價格及費用公開透明，避免額外費用。三者若原樣寫入將產生直接優先順序與配比矛盾：合理範圍、平台收入與消費者價格透明、公平隨著訂價與分潤調整難以同時達成最大化，必須有明確的商業邏輯或人為裁定流程，否則無法直接入 SRS。"
+  },
+  {
+    "event_id": "TE-68",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-10",
+      "URL-25"
+    ],
+    "output_ids": [
+      "MULTIPLE-2"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:10:01.880645+00:00",
+    "reason": "共同決策主題：外送員派單公平性與異常報告對營收影響。URL-10 要求派單需公平（避免派案數量過少或集中），而 URL-25 則要求外送員通報異常時，需確保派單量與收入不因異常受到不公平影響。兩者必須明確定義什麼情況異常報告會或不會影響派單數或計算方式，否則在異常大量上報時，平衡公平派單與保障報告者權益的演算法邏輯難以同時滿足。",
+    "trace_reason": "共同決策主題：外送員派單公平性與異常報告對營收影響。URL-10 要求派單需公平（避免派案數量過少或集中），而 URL-25 則要求外送員通報異常時，需確保派單量與收入不因異常受到不公平影響。兩者必須明確定義什麼情況異常報告會或不會影響派單數或計算方式，否則在異常大量上報時，平衡公平派單與保障報告者權益的演算法邏輯難以同時滿足。"
+  },
+  {
+    "event_id": "TE-69",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-26",
+      "URL-28",
+      "URL-31",
+      "URL-33"
+    ],
+    "output_ids": [
+      "MULTIPLE-3"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:10:01.880718+00:00",
+    "reason": "共同決策主題：外送員提醒機制的資訊顯著性與操作流暢性。URL-26、URL-28、URL-31都強調資訊須即時、明確、不可被忽略、不能被隱藏於多層頁面，並且需即時通知、提醒外送員。但URL-33要求提醒功能不得干擾導航、回報等操作（避免誤觸或流程中斷）。若所有提醒都必須顯著且不容易關閉，將產生與不干擾操作、不中斷流程的矛盾，這些需求原文合併後將造成衝突，需決定優先順序或設計例外條件。",
+    "trace_reason": "共同決策主題：外送員提醒機制的資訊顯著性與操作流暢性。URL-26、URL-28、URL-31都強調資訊須即時、明確、不可被忽略、不能被隱藏於多層頁面，並且需即時通知、提醒外送員。但URL-33要求提醒功能不得干擾導航、回報等操作（避免誤觸或流程中斷）。若所有提醒都必須顯著且不容易關閉，將產生與不干擾操作、不中斷流程的矛盾，這些需求原文合併後將造成衝突，需決定優先順序或設計例外條件。"
+  },
+  {
+    "event_id": "TE-70",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-21",
+      "URL-27",
+      "URL-30",
+      "URL-36"
+    ],
+    "output_ids": [
+      "MULTIPLE-4"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:10:01.880788+00:00",
+    "reason": "共同決策主題：彈性取餐地點自由與平台／消費者責任控管。URL-21保障消費者每次彈性選擇取餐地點與給予特殊指示；URL-27、URL-30、URL-36則要求高風險／特殊（如公共空間、公司、校園、醫院等）取餐地點時，平台必須增加多重揭露、責任釐清程序、資格查驗甚至資料留存。若所有地點均允許完全自由取餐方式且同時要求場所風險控管與嚴格責任審查，兩者間的操作彈性與法遵要求將產生明顯衝突，不可直接同時寫入SRS。",
+    "trace_reason": "共同決策主題：彈性取餐地點自由與平台／消費者責任控管。URL-21保障消費者每次彈性選擇取餐地點與給予特殊指示；URL-27、URL-30、URL-36則要求高風險／特殊（如公共空間、公司、校園、醫院等）取餐地點時，平台必須增加多重揭露、責任釐清程序、資格查驗甚至資料留存。若所有地點均允許完全自由取餐方式且同時要求場所風險控管與嚴格責任審查，兩者間的操作彈性與法遵要求將產生明顯衝突，不可直接同時寫入SRS。"
+  },
+  {
+    "event_id": "TE-71",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-29",
+      "URL-34",
+      "URL-37"
+    ],
+    "output_ids": [
+      "MULTIPLE-5"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:10:01.880856+00:00",
+    "reason": "共同決策主題：未依補充指示導致問題時外送員、消費者及平台的處理流程責任。URL-29強調外送員未依指示時需補償消費者且要求主動處理；URL-34要求消費者可選簡易補償（退款、折價券等）並要求金額合理且彈性選擇；URL-37則強調外送員遇到無法配合時平台應即時協助，外送員權益不能受損。這三者對流程、違規判定、補償分工（誰證明、誰獲保障）及即時性，界線未明就會產生狀態流轉衝突，無法直接同時定稿。",
+    "trace_reason": "共同決策主題：未依補充指示導致問題時外送員、消費者及平台的處理流程責任。URL-29強調外送員未依指示時需補償消費者且要求主動處理；URL-34要求消費者可選簡易補償（退款、折價券等）並要求金額合理且彈性選擇；URL-37則強調外送員遇到無法配合時平台應即時協助，外送員權益不能受損。這三者對流程、違規判定、補償分工（誰證明、誰獲保障）及即時性，界線未明就會產生狀態流轉衝突，無法直接同時定稿。"
+  },
+  {
+    "event_id": "TE-72",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-3",
+      "URL-14",
+      "URL-18",
+      "URL-23",
+      "URL-24"
+    ],
+    "output_ids": [
+      "FB-26"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "需求涉及支付透明、稅務合規、結算及資料保存，皆受金流法規及主管機關規範約束，影響平台合規與驗收基準。",
+    "trace_confidence": "explicit",
+    "trace_reason": "需求涉及支付透明、稅務合規、結算及資料保存，皆受金流法規及主管機關規範約束，影響平台合規與驗收基準。",
+    "created_at": "2026-06-11T01:11:55.648603+00:00"
+  },
+  {
+    "event_id": "TE-73",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-14",
+      "URL-23",
+      "URL-24"
+    ],
+    "output_ids": [
+      "FB-27"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "涉及稅務、金流、資料保存及合規稽核的系統需求，須兼顧資料安全與法規保存、調閱需求。",
+    "trace_confidence": "explicit",
+    "trace_reason": "涉及稅務、金流、資料保存及合規稽核的系統需求，須兼顧資料安全與法規保存、調閱需求。",
+    "created_at": "2026-06-11T01:11:55.648698+00:00"
+  },
+  {
+    "event_id": "TE-74",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-14",
+      "URL-23",
+      "URL-24"
+    ],
+    "output_ids": [
+      "FB-28"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "資料保存與金流稽核作業符合產業安全標準與主管機關資訊安全審查要件。",
+    "trace_confidence": "explicit",
+    "trace_reason": "資料保存與金流稽核作業符合產業安全標準與主管機關資訊安全審查要件。",
+    "created_at": "2026-06-11T01:11:55.648776+00:00"
+  },
+  {
+    "event_id": "TE-75",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-18",
+      "URL-23",
+      "URL-24"
+    ],
+    "output_ids": [
+      "FB-29"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "結算、稽核、資料保存及匯出功能需求直接受金流稽核規定影響，需滿足合規與查核標準。",
+    "trace_confidence": "explicit",
+    "trace_reason": "結算、稽核、資料保存及匯出功能需求直接受金流稽核規定影響，需滿足合規與查核標準。",
+    "created_at": "2026-06-11T01:11:55.648851+00:00"
+  },
+  {
+    "event_id": "TE-76",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-27",
+      "URL-30",
+      "URL-36"
+    ],
+    "output_ids": [
+      "FB-30"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "此法規明定平台有責任揭露、高風險地點需明確告知並留存同意紀錄以利日後釐清消費爭議或責任歸屬，直接與特殊地點揭露義務與操作關聯。",
+    "trace_confidence": "explicit",
+    "trace_reason": "此法規明定平台有責任揭露、高風險地點需明確告知並留存同意紀錄以利日後釐清消費爭議或責任歸屬，直接與特殊地點揭露義務與操作關聯。",
+    "created_at": "2026-06-11T01:11:55.648927+00:00"
+  },
+  {
+    "event_id": "TE-77",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-27",
+      "URL-30",
+      "URL-36"
+    ],
+    "output_ids": [
+      "FB-31"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "保存資料與同意紀錄為法定義務，監管機關得隨時查調以應付糾紛或稽查需求，與系統同意流程及責任釐清直接相關。",
+    "trace_confidence": "explicit",
+    "trace_reason": "保存資料與同意紀錄為法定義務，監管機關得隨時查調以應付糾紛或稽查需求，與系統同意流程及責任釐清直接相關。",
+    "created_at": "2026-06-11T01:11:55.649003+00:00"
+  },
+  {
+    "event_id": "TE-78",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-21",
+      "URL-27",
+      "URL-30",
+      "URL-36"
+    ],
+    "output_ids": [
+      "FB-32"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "官方指引要求平台對特殊或限制地帶完整揭露資訊及風險，並告知責任歸屬，此為產業具體依循實務。",
+    "trace_confidence": "explicit",
+    "trace_reason": "官方指引要求平台對特殊或限制地帶完整揭露資訊及風險，並告知責任歸屬，此為產業具體依循實務。",
+    "created_at": "2026-06-11T01:11:55.649084+00:00"
+  },
+  {
+    "event_id": "TE-79",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-10",
+      "URL-25"
+    ],
+    "output_ids": [
+      "FB-33"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "URL-10/URL-25 皆涉及派送演算法公平與異常處理，法規雖未明文規定技術細節，但公平交易政策影響需求可行性。",
+    "trace_confidence": "explicit",
+    "trace_reason": "URL-10/URL-25 皆涉及派送演算法公平與異常處理，法規雖未明文規定技術細節，但公平交易政策影響需求可行性。",
+    "created_at": "2026-06-11T01:11:55.649192+00:00"
+  },
+  {
+    "event_id": "TE-80",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-10",
+      "URL-25"
+    ],
+    "output_ids": [
+      "FB-34"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "兩項需求涉及平台因系統或演算法可能帶來的權益不均，因此需參考屬地公平交易相關申訴與稽核要求。",
+    "trace_confidence": "explicit",
+    "trace_reason": "兩項需求涉及平台因系統或演算法可能帶來的權益不均，因此需參考屬地公平交易相關申訴與稽核要求。",
+    "created_at": "2026-06-11T01:11:55.649280+00:00"
+  },
+  {
+    "event_id": "TE-81",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-29",
+      "URL-34",
+      "URL-37"
+    ],
+    "output_ids": [
+      "FB-35"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "消費者保護法要求具備明確申訴、賠償及合理責任分工，直接關聯消費者補償、外送員回報與平台協助等流程。",
+    "trace_confidence": "explicit",
+    "trace_reason": "消費者保護法要求具備明確申訴、賠償及合理責任分工，直接關聯消費者補償、外送員回報與平台協助等流程。",
+    "created_at": "2026-06-11T01:11:55.649389+00:00"
+  },
+  {
+    "event_id": "TE-82",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-29",
+      "URL-34",
+      "URL-37"
+    ],
+    "output_ids": [
+      "FB-36"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "定型化契約義務與資訊揭露明確規範糾紛時補償流程、舉證及責任分工，為外送糾紛處理提供依據。",
+    "trace_confidence": "explicit",
+    "trace_reason": "定型化契約義務與資訊揭露明確規範糾紛時補償流程、舉證及責任分工，為外送糾紛處理提供依據。",
+    "created_at": "2026-06-11T01:11:55.649480+00:00"
+  },
+  {
+    "event_id": "TE-83",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-3",
+      "URL-14",
+      "URL-23",
+      "URL-24"
+    ],
+    "output_ids": [
+      "FB-37"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "相關法規明訂金流資料及個資保存、查核與揭露年限與義務，屬強制性合規要件。",
+    "trace_confidence": "explicit",
+    "trace_reason": "相關法規明訂金流資料及個資保存、查核與揭露年限與義務，屬強制性合規要件。",
+    "created_at": "2026-06-11T01:11:55.649566+00:00"
+  },
+  {
+    "event_id": "TE-84",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-14",
+      "URL-23",
+      "URL-24"
+    ],
+    "output_ids": [
+      "FB-38"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "個資在金流業者及第三方共享時，法規要求揭露必要性、同意及異議處理流程。",
+    "trace_confidence": "explicit",
+    "trace_reason": "個資在金流業者及第三方共享時，法規要求揭露必要性、同意及異議處理流程。",
+    "created_at": "2026-06-11T01:11:55.649651+00:00"
+  },
+  {
+    "event_id": "TE-85",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-27",
+      "URL-30",
+      "URL-36"
+    ],
+    "output_ids": [
+      "FB-39"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "依外送平台管理法之責任揭露、資料保存規定，應設計同意流程並能保存查核資料。",
+    "trace_confidence": "explicit",
+    "trace_reason": "依外送平台管理法之責任揭露、資料保存規定，應設計同意流程並能保存查核資料。",
+    "created_at": "2026-06-11T01:11:55.649736+00:00"
+  },
+  {
+    "event_id": "TE-86",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-21",
+      "URL-27",
+      "URL-30",
+      "URL-36"
+    ],
+    "output_ids": [
+      "FB-40"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "食安法及相關產業指引強調特殊場域風險、揭露、同意程序，若流程不全提升平台營運風險。",
+    "trace_confidence": "explicit",
+    "trace_reason": "食安法及相關產業指引強調特殊場域風險、揭露、同意程序，若流程不全提升平台營運風險。",
+    "created_at": "2026-06-11T01:11:55.649824+00:00"
+  },
+  {
+    "event_id": "TE-87",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-10",
+      "URL-25"
+    ],
+    "output_ids": [
+      "FB-41"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "現行法規雖未詳細規定演算法邏輯，但資料留存、稽核可追蹤與避免偏誤原則為國際及地區主管機關常見要求。",
+    "trace_confidence": "explicit",
+    "trace_reason": "現行法規雖未詳細規定演算法邏輯，但資料留存、稽核可追蹤與避免偏誤原則為國際及地區主管機關常見要求。",
+    "created_at": "2026-06-11T01:11:55.649912+00:00"
+  },
+  {
+    "event_id": "TE-88",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-10",
+      "URL-25"
+    ],
+    "output_ids": [
+      "FB-42"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "以防止平台隱性打壓或誤判為由，主管機關可能要求資訊公開透明與權益救濟管道。",
+    "trace_confidence": "explicit",
+    "trace_reason": "以防止平台隱性打壓或誤判為由，主管機關可能要求資訊公開透明與權益救濟管道。",
+    "created_at": "2026-06-11T01:11:55.649999+00:00"
+  },
+  {
+    "event_id": "TE-89",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-29",
+      "URL-34",
+      "URL-37"
+    ],
+    "output_ids": [
+      "FB-43"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "主管機關有權依消費者保護法檢查契約條款、補償流程與平台對消費者的資訊揭露程度。",
+    "trace_confidence": "explicit",
+    "trace_reason": "主管機關有權依消費者保護法檢查契約條款、補償流程與平台對消費者的資訊揭露程度。",
+    "created_at": "2026-06-11T01:11:55.650089+00:00"
+  },
+  {
+    "event_id": "TE-90",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-29",
+      "URL-34",
+      "URL-37"
+    ],
+    "output_ids": [
+      "FB-44"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "法規明定如無合理條款或證據，企業端在爭議、賠償、舉證分界上傾向認定為對消費者有利。",
+    "trace_confidence": "explicit",
+    "trace_reason": "法規明定如無合理條款或證據，企業端在爭議、賠償、舉證分界上傾向認定為對消費者有利。",
+    "created_at": "2026-06-11T01:11:55.650179+00:00"
+  },
+  {
+    "event_id": "TE-91",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-3",
+      "URL-14",
+      "URL-18",
+      "URL-23",
+      "URL-24"
+    ],
+    "output_ids": [
+      "FB-45"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "金流、個資與稅務合規皆屬強制規範，違反後果嚴重且難以補救。",
+    "trace_confidence": "explicit",
+    "trace_reason": "金流、個資與稅務合規皆屬強制規範，違反後果嚴重且難以補救。",
+    "created_at": "2026-06-11T01:11:55.650270+00:00"
+  },
+  {
+    "event_id": "TE-92",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-14",
+      "URL-23",
+      "URL-24"
+    ],
+    "output_ids": [
+      "FB-46"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "資訊安全不足直接危及金流資料完整與合法保存，增加違法與營運風險。",
+    "trace_confidence": "explicit",
+    "trace_reason": "資訊安全不足直接危及金流資料完整與合法保存，增加違法與營運風險。",
+    "created_at": "2026-06-11T01:11:55.650363+00:00"
+  },
+  {
+    "event_id": "TE-93",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-27",
+      "URL-30",
+      "URL-36"
+    ],
+    "output_ids": [
+      "FB-47"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "法規明定資料保存及同意程序不足會放大法律糾紛或監理風險。",
+    "trace_confidence": "explicit",
+    "trace_reason": "法規明定資料保存及同意程序不足會放大法律糾紛或監理風險。",
+    "created_at": "2026-06-11T01:11:55.650455+00:00"
+  },
+  {
+    "event_id": "TE-94",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-21",
+      "URL-27",
+      "URL-30",
+      "URL-36"
+    ],
+    "output_ids": [
+      "FB-48"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "平台彈性讓步若未落實控管，可能導致責任界線模糊增加營運及合規成本。",
+    "trace_confidence": "explicit",
+    "trace_reason": "平台彈性讓步若未落實控管，可能導致責任界線模糊增加營運及合規成本。",
+    "created_at": "2026-06-11T01:11:55.650549+00:00"
+  },
+  {
+    "event_id": "TE-95",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-10",
+      "URL-25"
+    ],
+    "output_ids": [
+      "FB-49"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "外送平台涉及大規模利害關係人，演算法不透明時易成爭議與法規風險。",
+    "trace_confidence": "explicit",
+    "trace_reason": "外送平台涉及大規模利害關係人，演算法不透明時易成爭議與法規風險。",
+    "created_at": "2026-06-11T01:11:55.650642+00:00"
+  },
+  {
+    "event_id": "TE-96",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-10",
+      "URL-25"
+    ],
+    "output_ids": [
+      "FB-50"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "異常上報與演算法分配若無防作弊或公正程序，將引發高稽核風險。",
+    "trace_confidence": "explicit",
+    "trace_reason": "異常上報與演算法分配若無防作弊或公正程序，將引發高稽核風險。",
+    "created_at": "2026-06-11T01:11:55.650739+00:00"
+  },
+  {
+    "event_id": "TE-97",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-29",
+      "URL-34",
+      "URL-37"
+    ],
+    "output_ids": [
+      "FB-51"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "消保法及主管機關審查，重舉證與資訊揭露，平台未明定時極易產生合規與營運風險。",
+    "trace_confidence": "explicit",
+    "trace_reason": "消保法及主管機關審查，重舉證與資訊揭露，平台未明定時極易產生合規與營運風險。",
+    "created_at": "2026-06-11T01:11:55.650835+00:00"
+  },
+  {
+    "event_id": "TE-98",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-29",
+      "URL-37"
+    ],
+    "output_ids": [
+      "FB-52"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "法規強調資訊揭露與責任對等，缺乏明定將導致平台舉證不易、權責不明及商譽損失。",
+    "trace_confidence": "explicit",
+    "trace_reason": "法規強調資訊揭露與責任對等，缺乏明定將導致平台舉證不易、權責不明及商譽損失。",
+    "created_at": "2026-06-11T01:11:55.650932+00:00"
+  },
+  {
+    "event_id": "TE-99",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-3",
+      "URL-14",
+      "URL-18",
+      "URL-23",
+      "URL-24"
+    ],
+    "output_ids": [
+      "FB-53"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "最佳實務應結合法定要求與業界領先操作，減少往返調整或驗收爭議。",
+    "trace_confidence": "explicit",
+    "trace_reason": "最佳實務應結合法定要求與業界領先操作，減少往返調整或驗收爭議。",
+    "created_at": "2026-06-11T01:11:55.651031+00:00"
+  },
+  {
+    "event_id": "TE-100",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-14",
+      "URL-23",
+      "URL-24"
+    ],
+    "output_ids": [
+      "FB-54"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "明確揭露與同意機制有助於用戶信任維護與後續爭議減少，為最佳實務。",
+    "trace_confidence": "explicit",
+    "trace_reason": "明確揭露與同意機制有助於用戶信任維護與後續爭議減少，為最佳實務。",
+    "created_at": "2026-06-11T01:11:55.651131+00:00"
+  },
+  {
+    "event_id": "TE-101",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-21",
+      "URL-27",
+      "URL-30",
+      "URL-36"
+    ],
+    "output_ids": [
+      "FB-55"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "現行法規與官方指引下，確保同意流程與揭露保存兩項要件可降低平台法律爭議及營運風險，並兼容產業實務。",
+    "trace_confidence": "explicit",
+    "trace_reason": "現行法規與官方指引下，確保同意流程與揭露保存兩項要件可降低平台法律爭議及營運風險，並兼容產業實務。",
+    "created_at": "2026-06-11T01:11:55.651231+00:00"
+  },
+  {
+    "event_id": "TE-102",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-21",
+      "URL-27",
+      "URL-30",
+      "URL-36"
+    ],
+    "output_ids": [
+      "FB-56"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "產業實務、指引均提倡資訊應主動、明確揭露並利於舉證及稽核，減少紛爭與法遵疑慮。",
+    "trace_confidence": "explicit",
+    "trace_reason": "產業實務、指引均提倡資訊應主動、明確揭露並利於舉證及稽核，減少紛爭與法遵疑慮。",
+    "created_at": "2026-06-11T01:11:55.651332+00:00"
+  },
+  {
+    "event_id": "TE-103",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-10",
+      "URL-25"
+    ],
+    "output_ids": [
+      "FB-57"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "平台自律機制與引入監理第三方為國際重要合規最佳實務。",
+    "trace_confidence": "explicit",
+    "trace_reason": "平台自律機制與引入監理第三方為國際重要合規最佳實務。",
+    "created_at": "2026-06-11T01:11:55.651452+00:00"
+  },
+  {
+    "event_id": "TE-104",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-10",
+      "URL-25"
+    ],
+    "output_ids": [
+      "FB-58"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "資訊公開與救濟流程有助降低後端黑箱決策造成的合規及聲譽風險。",
+    "trace_confidence": "explicit",
+    "trace_reason": "資訊公開與救濟流程有助降低後端黑箱決策造成的合規及聲譽風險。",
+    "created_at": "2026-06-11T01:11:55.651567+00:00"
+  },
+  {
+    "event_id": "TE-105",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-29",
+      "URL-34",
+      "URL-37"
+    ],
+    "output_ids": [
+      "FB-59"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "明確條約、補償細則及流程可降低主管機關罰處與申訴鎖定風險。",
+    "trace_confidence": "explicit",
+    "trace_reason": "明確條約、補償細則及流程可降低主管機關罰處與申訴鎖定風險。",
+    "created_at": "2026-06-11T01:11:55.651671+00:00"
+  },
+  {
+    "event_id": "TE-106",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "action": "expert.update_feedback",
+    "agent": "expert",
+    "input_ids": [
+      "URL-29",
+      "URL-34",
+      "URL-37"
+    ],
+    "output_ids": [
+      "FB-60"
+    ],
+    "source": "R1-conflict",
+    "relation": "supports",
+    "confidence": "explicit",
+    "reason": "外送服務流程落實數據記錄與異常回報可減少糾紛時證據爭議並支持平衡裁決。",
+    "trace_confidence": "explicit",
+    "trace_reason": "外送服務流程落實數據記錄與異常回報可減少糾紛時證據爭議並支持平衡裁決。",
+    "created_at": "2026-06-11T01:11:55.651776+00:00"
+  },
+  {
+    "event_id": "TE-107",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "R1-conflict",
+    "input_ids": [
+      "URL-3",
+      "URL-14",
+      "URL-18",
+      "URL-23",
+      "URL-24"
+    ],
+    "output_ids": [
+      "FB-9"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:13:10.665781+00:00",
+    "reason": "需求涉及支付透明、稅務合規、結算及資料保存，皆受金流法規及主管機關規範約束，影響平台合規與驗收基準。",
+    "trace_reason": "需求涉及支付透明、稅務合規、結算及資料保存，皆受金流法規及主管機關規範約束，影響平台合規與驗收基準。"
+  },
+  {
+    "event_id": "TE-108",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "R1-conflict",
+    "input_ids": [
+      "URL-14",
+      "URL-23",
+      "URL-24"
+    ],
+    "output_ids": [
+      "FB-10"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:13:10.665899+00:00",
+    "reason": "涉及稅務、金流、資料保存及合規稽核的系統需求，須兼顧資料安全與法規保存、調閱需求。",
+    "trace_reason": "涉及稅務、金流、資料保存及合規稽核的系統需求，須兼顧資料安全與法規保存、調閱需求。"
+  },
+  {
+    "event_id": "TE-109",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "R1-conflict",
+    "input_ids": [
+      "URL-14",
+      "URL-23",
+      "URL-24"
+    ],
+    "output_ids": [
+      "FB-11"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:13:10.665997+00:00",
+    "reason": "資料保存與金流稽核作業符合產業安全標準與主管機關資訊安全審查要件。",
+    "trace_reason": "資料保存與金流稽核作業符合產業安全標準與主管機關資訊安全審查要件。"
+  },
+  {
+    "event_id": "TE-110",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "R1-conflict",
+    "input_ids": [
+      "URL-18",
+      "URL-23",
+      "URL-24"
+    ],
+    "output_ids": [
+      "FB-12"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:13:10.666114+00:00",
+    "reason": "結算、稽核、資料保存及匯出功能需求直接受金流稽核規定影響，需滿足合規與查核標準。",
+    "trace_reason": "結算、稽核、資料保存及匯出功能需求直接受金流稽核規定影響，需滿足合規與查核標準。"
+  },
+  {
+    "event_id": "TE-111",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "R1-conflict",
+    "input_ids": [
+      "URL-27",
+      "URL-30",
+      "URL-36"
+    ],
+    "output_ids": [
+      "FB-13"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:13:10.666223+00:00",
+    "reason": "此法規明定平台有責任揭露、高風險地點需明確告知並留存同意紀錄以利日後釐清消費爭議或責任歸屬，直接與特殊地點揭露義務與操作關聯。",
+    "trace_reason": "此法規明定平台有責任揭露、高風險地點需明確告知並留存同意紀錄以利日後釐清消費爭議或責任歸屬，直接與特殊地點揭露義務與操作關聯。"
+  },
+  {
+    "event_id": "TE-112",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "R1-conflict",
+    "input_ids": [
+      "URL-27",
+      "URL-30",
+      "URL-36"
+    ],
+    "output_ids": [
+      "FB-14"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:13:10.666320+00:00",
+    "reason": "保存資料與同意紀錄為法定義務，監管機關得隨時查調以應付糾紛或稽查需求，與系統同意流程及責任釐清直接相關。",
+    "trace_reason": "保存資料與同意紀錄為法定義務，監管機關得隨時查調以應付糾紛或稽查需求，與系統同意流程及責任釐清直接相關。"
+  },
+  {
+    "event_id": "TE-113",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "R1-conflict",
+    "input_ids": [
+      "URL-21",
+      "URL-27",
+      "URL-30",
+      "URL-36"
+    ],
+    "output_ids": [
+      "FB-15"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:13:10.666416+00:00",
+    "reason": "官方指引要求平台對特殊或限制地帶完整揭露資訊及風險，並告知責任歸屬，此為產業具體依循實務。",
+    "trace_reason": "官方指引要求平台對特殊或限制地帶完整揭露資訊及風險，並告知責任歸屬，此為產業具體依循實務。"
+  },
+  {
+    "event_id": "TE-114",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "R1-conflict",
+    "input_ids": [
+      "URL-10",
+      "URL-25"
+    ],
+    "output_ids": [
+      "FB-16"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:13:10.666540+00:00",
+    "reason": "URL-10/URL-25 皆涉及派送演算法公平與異常處理，法規雖未明文規定技術細節，但公平交易政策影響需求可行性。",
+    "trace_reason": "URL-10/URL-25 皆涉及派送演算法公平與異常處理，法規雖未明文規定技術細節，但公平交易政策影響需求可行性。"
+  },
+  {
+    "event_id": "TE-115",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "R1-conflict",
+    "input_ids": [
+      "URL-10",
+      "URL-25"
+    ],
+    "output_ids": [
+      "FB-17"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:13:10.666642+00:00",
+    "reason": "兩項需求涉及平台因系統或演算法可能帶來的權益不均，因此需參考屬地公平交易相關申訴與稽核要求。",
+    "trace_reason": "兩項需求涉及平台因系統或演算法可能帶來的權益不均，因此需參考屬地公平交易相關申訴與稽核要求。"
+  },
+  {
+    "event_id": "TE-116",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "R1-conflict",
+    "input_ids": [
+      "URL-29",
+      "URL-34",
+      "URL-37"
+    ],
+    "output_ids": [
+      "FB-18"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:13:10.666738+00:00",
+    "reason": "消費者保護法要求具備明確申訴、賠償及合理責任分工，直接關聯消費者補償、外送員回報與平台協助等流程。",
+    "trace_reason": "消費者保護法要求具備明確申訴、賠償及合理責任分工，直接關聯消費者補償、外送員回報與平台協助等流程。"
+  },
+  {
+    "event_id": "TE-117",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "R1-conflict",
+    "input_ids": [
+      "URL-29",
+      "URL-34",
+      "URL-37"
+    ],
+    "output_ids": [
+      "FB-19"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:13:10.666861+00:00",
+    "reason": "定型化契約義務與資訊揭露明確規範糾紛時補償流程、舉證及責任分工，為外送糾紛處理提供依據。",
+    "trace_reason": "定型化契約義務與資訊揭露明確規範糾紛時補償流程、舉證及責任分工，為外送糾紛處理提供依據。"
+  },
+  {
+    "event_id": "TE-118",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T1",
+    "input_ids": [
+      "URL-3"
+    ],
+    "output_ids": [
+      "FB-20"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:13:10.666965+00:00",
+    "reason": "明確揭示價格與退費資訊為法定強制界線，直接影響價格透明與信任需求可行性。",
+    "trace_reason": "明確揭示價格與退費資訊為法定強制界線，直接影響價格透明與信任需求可行性。"
+  },
+  {
+    "event_id": "TE-119",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T1",
+    "input_ids": [
+      "URL-9",
+      "URL-14",
+      "URL-18"
+    ],
+    "output_ids": [
+      "FB-21"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:13:10.667069+00:00",
+    "reason": "資料保存義務可能限制平台資料刪除、溯源要求，對系統設計與驗收帶來邊界。",
+    "trace_reason": "資料保存義務可能限制平台資料刪除、溯源要求，對系統設計與驗收帶來邊界。"
+  },
+  {
+    "event_id": "TE-120",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "R1-conflict",
+    "input_ids": [
+      "URL-3",
+      "URL-14",
+      "URL-23",
+      "URL-24"
+    ],
+    "output_ids": [
+      "FB-25"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:13:10.667196+00:00",
+    "reason": "相關法規明訂金流資料及個資保存、查核與揭露年限與義務，屬強制性合規要件。",
+    "trace_reason": "相關法規明訂金流資料及個資保存、查核與揭露年限與義務，屬強制性合規要件。"
+  },
+  {
+    "event_id": "TE-121",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "R1-conflict",
+    "input_ids": [
+      "URL-14",
+      "URL-23",
+      "URL-24"
+    ],
+    "output_ids": [
+      "FB-26"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:13:10.667296+00:00",
+    "reason": "個資在金流業者及第三方共享時，法規要求揭露必要性、同意及異議處理流程。",
+    "trace_reason": "個資在金流業者及第三方共享時，法規要求揭露必要性、同意及異議處理流程。"
+  },
+  {
+    "event_id": "TE-122",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "R1-conflict",
+    "input_ids": [
+      "URL-27",
+      "URL-30",
+      "URL-36"
+    ],
+    "output_ids": [
+      "FB-27"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:13:10.667395+00:00",
+    "reason": "依外送平台管理法之責任揭露、資料保存規定，應設計同意流程並能保存查核資料。",
+    "trace_reason": "依外送平台管理法之責任揭露、資料保存規定，應設計同意流程並能保存查核資料。"
+  },
+  {
+    "event_id": "TE-123",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "R1-conflict",
+    "input_ids": [
+      "URL-21",
+      "URL-27",
+      "URL-30",
+      "URL-36"
+    ],
+    "output_ids": [
+      "FB-28"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:13:10.667564+00:00",
+    "reason": "食安法及相關產業指引強調特殊場域風險、揭露、同意程序，若流程不全提升平台營運風險。",
+    "trace_reason": "食安法及相關產業指引強調特殊場域風險、揭露、同意程序，若流程不全提升平台營運風險。"
+  },
+  {
+    "event_id": "TE-124",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "R1-conflict",
+    "input_ids": [
+      "URL-10",
+      "URL-25"
+    ],
+    "output_ids": [
+      "FB-29"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:13:10.670178+00:00",
+    "reason": "現行法規雖未詳細規定演算法邏輯，但資料留存、稽核可追蹤與避免偏誤原則為國際及地區主管機關常見要求。",
+    "trace_reason": "現行法規雖未詳細規定演算法邏輯，但資料留存、稽核可追蹤與避免偏誤原則為國際及地區主管機關常見要求。"
+  },
+  {
+    "event_id": "TE-125",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "R1-conflict",
+    "input_ids": [
+      "URL-10",
+      "URL-25"
+    ],
+    "output_ids": [
+      "FB-30"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:13:10.670314+00:00",
+    "reason": "以防止平台隱性打壓或誤判為由，主管機關可能要求資訊公開透明與權益救濟管道。",
+    "trace_reason": "以防止平台隱性打壓或誤判為由，主管機關可能要求資訊公開透明與權益救濟管道。"
+  },
+  {
+    "event_id": "TE-126",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "R1-conflict",
+    "input_ids": [
+      "URL-29",
+      "URL-34",
+      "URL-37"
+    ],
+    "output_ids": [
+      "FB-31"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:13:10.670434+00:00",
+    "reason": "主管機關有權依消費者保護法檢查契約條款、補償流程與平台對消費者的資訊揭露程度。",
+    "trace_reason": "主管機關有權依消費者保護法檢查契約條款、補償流程與平台對消費者的資訊揭露程度。"
+  },
+  {
+    "event_id": "TE-127",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "R1-conflict",
+    "input_ids": [
+      "URL-29",
+      "URL-34",
+      "URL-37"
+    ],
+    "output_ids": [
+      "FB-32"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:13:10.670552+00:00",
+    "reason": "法規明定如無合理條款或證據，企業端在爭議、賠償、舉證分界上傾向認定為對消費者有利。",
+    "trace_reason": "法規明定如無合理條款或證據，企業端在爭議、賠償、舉證分界上傾向認定為對消費者有利。"
+  },
+  {
+    "event_id": "TE-128",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T1",
+    "input_ids": [
+      "URL-3",
+      "URL-2"
+    ],
+    "output_ids": [
+      "FB-33"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:13:10.670669+00:00",
+    "reason": "揭示不全構成法規違規，直接衝擊系統驗收與合規風險。",
+    "trace_reason": "揭示不全構成法規違規，直接衝擊系統驗收與合規風險。"
+  },
+  {
+    "event_id": "TE-129",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T1",
+    "input_ids": [
+      "URL-9",
+      "URL-18",
+      "URL-14"
+    ],
+    "output_ids": [
+      "FB-34"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:13:10.670789+00:00",
+    "reason": "紀錄保存瑕疵直接威脅金流、合約與商業合作穩定性。",
+    "trace_reason": "紀錄保存瑕疵直接威脅金流、合約與商業合作穩定性。"
+  },
+  {
+    "event_id": "TE-130",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T2",
+    "input_ids": [],
+    "output_ids": [
+      "FB-35"
+    ],
+    "relation": "supports",
+    "confidence": "missing",
+    "created_at": "2026-06-11T01:13:10.670908+00:00",
+    "reason": "外送糾紛經常發生於第三方場所授權不明的情境，目前無特定需求直接對應此安全及責任界線。",
+    "trace_reason": "外送糾紛經常發生於第三方場所授權不明的情境，目前無特定需求直接對應此安全及責任界線。"
+  },
+  {
+    "event_id": "TE-131",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T2",
+    "input_ids": [],
+    "output_ids": [
+      "FB-36"
+    ],
+    "relation": "supports",
+    "confidence": "missing",
+    "created_at": "2026-06-11T01:13:10.671025+00:00",
+    "reason": "尚無現有需求處理彈性交付資訊脫敏與個資管理議題。",
+    "trace_reason": "尚無現有需求處理彈性交付資訊脫敏與個資管理議題。"
+  },
+  {
+    "event_id": "TE-132",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T3",
+    "input_ids": [],
+    "output_ids": [
+      "FB-37"
+    ],
+    "relation": "supports",
+    "confidence": "missing",
+    "created_at": "2026-06-11T01:13:10.671143+00:00",
+    "reason": "揭露不全可能直接引發紛爭與合規爭議，目前尚無現有需求條列相應防範。",
+    "trace_reason": "揭露不全可能直接引發紛爭與合規爭議，目前尚無現有需求條列相應防範。"
+  },
+  {
+    "event_id": "TE-133",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "R1-conflict",
+    "input_ids": [
+      "URL-3",
+      "URL-14",
+      "URL-18",
+      "URL-23",
+      "URL-24"
+    ],
+    "output_ids": [
+      "FB-38"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:13:10.671265+00:00",
+    "reason": "金流、個資與稅務合規皆屬強制規範，違反後果嚴重且難以補救。",
+    "trace_reason": "金流、個資與稅務合規皆屬強制規範，違反後果嚴重且難以補救。"
+  },
+  {
+    "event_id": "TE-134",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "R1-conflict",
+    "input_ids": [
+      "URL-14",
+      "URL-23",
+      "URL-24"
+    ],
+    "output_ids": [
+      "FB-39"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:13:10.671387+00:00",
+    "reason": "資訊安全不足直接危及金流資料完整與合法保存，增加違法與營運風險。",
+    "trace_reason": "資訊安全不足直接危及金流資料完整與合法保存，增加違法與營運風險。"
+  },
+  {
+    "event_id": "TE-135",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "R1-conflict",
+    "input_ids": [
+      "URL-27",
+      "URL-30",
+      "URL-36"
+    ],
+    "output_ids": [
+      "FB-40"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:13:10.671505+00:00",
+    "reason": "法規明定資料保存及同意程序不足會放大法律糾紛或監理風險。",
+    "trace_reason": "法規明定資料保存及同意程序不足會放大法律糾紛或監理風險。"
+  },
+  {
+    "event_id": "TE-136",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "R1-conflict",
+    "input_ids": [
+      "URL-21",
+      "URL-27",
+      "URL-30",
+      "URL-36"
+    ],
+    "output_ids": [
+      "FB-41"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:13:10.671608+00:00",
+    "reason": "平台彈性讓步若未落實控管，可能導致責任界線模糊增加營運及合規成本。",
+    "trace_reason": "平台彈性讓步若未落實控管，可能導致責任界線模糊增加營運及合規成本。"
+  },
+  {
+    "event_id": "TE-137",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "R1-conflict",
+    "input_ids": [
+      "URL-10",
+      "URL-25"
+    ],
+    "output_ids": [
+      "FB-43"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:13:10.671718+00:00",
+    "reason": "異常上報與演算法分配若無防作弊或公正程序，將引發高稽核風險。",
+    "trace_reason": "異常上報與演算法分配若無防作弊或公正程序，將引發高稽核風險。"
+  },
+  {
+    "event_id": "TE-138",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "R1-conflict",
+    "input_ids": [
+      "URL-29",
+      "URL-37"
+    ],
+    "output_ids": [
+      "FB-45"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:13:10.671829+00:00",
+    "reason": "法規強調資訊揭露與責任對等，缺乏明定將導致平台舉證不易、權責不明及商譽損失。",
+    "trace_reason": "法規強調資訊揭露與責任對等，缺乏明定將導致平台舉證不易、權責不明及商譽損失。"
+  },
+  {
+    "event_id": "TE-139",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T1",
+    "input_ids": [
+      "URL-2",
+      "URL-3",
+      "URL-9",
+      "URL-18"
+    ],
+    "output_ids": [
+      "FB-46"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:13:10.671935+00:00",
+    "reason": "金流、退費相關資訊強制揭示，有助於合規驗收與用戶信任。",
+    "trace_reason": "金流、退費相關資訊強制揭示，有助於合規驗收與用戶信任。"
+  },
+  {
+    "event_id": "TE-140",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T1",
+    "input_ids": [
+      "URL-9",
+      "URL-14",
+      "URL-18"
+    ],
+    "output_ids": [
+      "FB-47"
+    ],
+    "relation": "supports",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:13:10.672039+00:00",
+    "reason": "保留完整記錄為合規必備，能支持稅務查核與責任歸屬。",
+    "trace_reason": "保留完整記錄為合規必備，能支持稅務查核與責任歸屬。"
+  },
+  {
+    "event_id": "TE-141",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T2",
+    "input_ids": [],
+    "output_ids": [
+      "FB-48"
+    ],
+    "relation": "supports",
+    "confidence": "missing",
+    "created_at": "2026-06-11T01:13:10.672145+00:00",
+    "reason": "協助消費者、平台與外送員理解各自權益與風險，減輕平台承擔之不確定性。",
+    "trace_reason": "協助消費者、平台與外送員理解各自權益與風險，減輕平台承擔之不確定性。"
+  },
+  {
+    "event_id": "TE-142",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T2",
+    "input_ids": [],
+    "output_ids": [
+      "FB-49"
+    ],
+    "relation": "supports",
+    "confidence": "missing",
+    "created_at": "2026-06-11T01:13:10.672250+00:00",
+    "reason": "國際實務推薦於資料敏感欄進行存取控制與紀錄，尚無現有需求落實。",
+    "trace_reason": "國際實務推薦於資料敏感欄進行存取控制與紀錄，尚無現有需求落實。"
+  },
+  {
+    "event_id": "TE-143",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T2",
+    "input_ids": [],
+    "output_ids": [
+      "FB-50"
+    ],
+    "relation": "supports",
+    "confidence": "missing",
+    "created_at": "2026-06-11T01:13:10.672355+00:00",
+    "reason": "明確條款能界定法律與營運風險，對現有需求仍屬補充建議。",
+    "trace_reason": "明確條款能界定法律與營運風險，對現有需求仍屬補充建議。"
+  },
+  {
+    "event_id": "TE-144",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T3",
+    "input_ids": [],
+    "output_ids": [
+      "FB-51"
+    ],
+    "relation": "supports",
+    "confidence": "missing",
+    "created_at": "2026-06-11T01:13:10.672461+00:00",
+    "reason": "根據資訊揭露精神提出強化流程建議，有利風險提醒與歸責清楚。",
+    "trace_reason": "根據資訊揭露精神提出強化流程建議，有利風險提醒與歸責清楚。"
+  },
+  {
+    "event_id": "TE-145",
+    "event_type": "generate_feedback",
+    "stage": "domain_research",
+    "agent": "expert",
+    "action": "expert.update_feedback",
+    "source": "ELICIT-R1-T3",
+    "input_ids": [],
+    "output_ids": [
+      "FB-52"
+    ],
+    "relation": "supports",
+    "confidence": "missing",
+    "created_at": "2026-06-11T01:13:10.672568+00:00",
+    "reason": "有助平台主動控管非住家取餐交付的風險，作為最佳實務參考。",
+    "trace_reason": "有助平台主動控管非住家取餐交付的風險，作為最佳實務參考。"
+  },
+  {
+    "event_id": "TE-146",
+    "event_type": "generate_model",
+    "stage": "system_model",
+    "agent": "modeler",
+    "action": "modeler.generate_model",
+    "source": "",
+    "input_ids": [
+      "URL-1",
+      "URL-2",
+      "URL-3",
+      "URL-4",
+      "URL-5",
+      "URL-6",
+      "URL-7",
+      "URL-8",
+      "URL-9",
+      "URL-10",
+      "URL-11",
+      "URL-12",
+      "URL-13",
+      "URL-14",
+      "URL-15",
+      "URL-16",
+      "URL-17",
+      "URL-18",
+      "URL-19",
+      "URL-20",
+      "URL-21",
+      "URL-22",
+      "URL-23",
+      "URL-24",
+      "URL-25",
+      "URL-26",
+      "URL-27",
+      "URL-28",
+      "URL-29",
+      "URL-30",
+      "URL-31",
+      "URL-32",
+      "URL-33",
+      "URL-34",
+      "URL-35",
+      "URL-36",
+      "URL-37"
+    ],
+    "output_ids": [
+      "SM-1"
+    ],
+    "relation": "models",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:15:11.062392+00:00",
+    "reason": "此情境圖用來釐清外送平台系統的邊界，明確呈現消費者、外送員、餐廳商家與平台營運管理者等主要外部角色，以及與第三方支付/金流服務的互動，並標示各角色與系統間的主要資料流、事件流與責任分工。",
+    "trace_reason": "此情境圖用來釐清外送平台系統的邊界，明確呈現消費者、外送員、餐廳商家與平台營運管理者等主要外部角色，以及與第三方支付/金流服務的互動，並標示各角色與系統間的主要資料流、事件流與責任分工。"
+  },
+  {
+    "event_id": "TE-147",
+    "event_type": "generate_model",
+    "stage": "system_model",
+    "agent": "modeler",
+    "action": "modeler.generate_model",
+    "source": "",
+    "input_ids": [
+      "URL-1",
+      "URL-2",
+      "URL-3",
+      "URL-4",
+      "URL-5",
+      "URL-6",
+      "URL-7",
+      "URL-8",
+      "URL-9",
+      "URL-10",
+      "URL-11",
+      "URL-12",
+      "URL-13",
+      "URL-14",
+      "URL-15",
+      "URL-16",
+      "URL-17",
+      "URL-18",
+      "URL-19",
+      "URL-20",
+      "URL-21",
+      "URL-22",
+      "URL-23",
+      "URL-24",
+      "URL-25",
+      "URL-26",
+      "URL-27",
+      "URL-28",
+      "URL-29",
+      "URL-30",
+      "URL-31",
+      "URL-32",
+      "URL-33",
+      "URL-34",
+      "URL-35",
+      "URL-36",
+      "URL-37"
+    ],
+    "output_ids": [
+      "SM-2"
+    ],
+    "relation": "models",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:15:11.062572+00:00",
+    "reason": "此用例圖用來釐清外送平台系統中消費者、外送員、餐廳商家與平台營運管理者等主要角色可執行的核心系統能力，明確界定各角色的操作範圍與責任分工，作為後續需求細化與流程建模的基礎。",
+    "trace_reason": "此用例圖用來釐清外送平台系統中消費者、外送員、餐廳商家與平台營運管理者等主要角色可執行的核心系統能力，明確界定各角色的操作範圍與責任分工，作為後續需求細化與流程建模的基礎。"
+  },
+  {
+    "event_id": "TE-148",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-15",
+      "URL-19",
+      "URL-3"
+    ],
+    "output_ids": [
+      "CR-1"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:15:15.448526+00:00",
+    "reason": "平台多方利益平衡、商家手續費合理及消費者價格公開透明三項需求，均需共用同一費用設計與分潤決策規則，若無合併、優先順序或明確裁定，將於營運條件、收費透明度及利益分配產生邏輯矛盾，無法原樣共同納入規格書，必須裁定或調整。",
+    "trace_reason": "平台多方利益平衡、商家手續費合理及消費者價格公開透明三項需求，均需共用同一費用設計與分潤決策規則，若無合併、優先順序或明確裁定，將於營運條件、收費透明度及利益分配產生邏輯矛盾，無法原樣共同納入規格書，必須裁定或調整。"
+  },
+  {
+    "event_id": "TE-149",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-10",
+      "URL-25"
+    ],
+    "output_ids": [
+      "CR-2"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:15:15.448608+00:00",
+    "reason": "派單公平與異常上報後保障派單權益兩項需求，均針對同一派單演算法與收入分配提出限制，若未明確定義異常通報對派單的影響，將導致公平性與權益保障在流程與狀態轉移上產生邏輯衝突，無法直接共存，需合併或裁定。",
+    "trace_reason": "派單公平與異常上報後保障派單權益兩項需求，均針對同一派單演算法與收入分配提出限制，若未明確定義異常通報對派單的影響，將導致公平性與權益保障在流程與狀態轉移上產生邏輯衝突，無法直接共存，需合併或裁定。"
+  },
+  {
+    "event_id": "TE-150",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-26",
+      "URL-28",
+      "URL-31",
+      "URL-33"
+    ],
+    "output_ids": [
+      "CR-3"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:15:15.448680+00:00",
+    "reason": "外送員端提醒需即時、明顯且不可忽略，與提醒不得妨礙其他操作的需求，於通知設計與操作流暢性產生不可兼容的流程衝突，若無優先順序或例外條件，將導致界面行為矛盾，必須合併或調整細節後方可納入規格書。",
+    "trace_reason": "外送員端提醒需即時、明顯且不可忽略，與提醒不得妨礙其他操作的需求，於通知設計與操作流暢性產生不可兼容的流程衝突，若無優先順序或例外條件，將導致界面行為矛盾，必須合併或調整細節後方可納入規格書。"
+  },
+  {
+    "event_id": "TE-151",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-21",
+      "URL-27",
+      "URL-30",
+      "URL-36"
+    ],
+    "output_ids": [
+      "CR-4"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:15:15.448747+00:00",
+    "reason": "消費者彈性指定取餐地點與高風險地點需責任揭露、同意及查驗等控管要求，於流程彈性與責任分界產生根本矛盾，若無法合併條件或依法令裁定優先順序，將導致執行流程衝突，無法原樣共存。",
+    "trace_reason": "消費者彈性指定取餐地點與高風險地點需責任揭露、同意及查驗等控管要求，於流程彈性與責任分界產生根本矛盾，若無法合併條件或依法令裁定優先順序，將導致執行流程衝突，無法原樣共存。"
+  },
+  {
+    "event_id": "TE-152",
+    "event_type": "detect_conflict",
+    "stage": "conflict_detection",
+    "agent": "analyst",
+    "action": "analyst.analyze_conflicts",
+    "source": "",
+    "input_ids": [
+      "URL-29",
+      "URL-34",
+      "URL-37"
+    ],
+    "output_ids": [
+      "CR-5"
+    ],
+    "relation": "detects",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:15:15.448815+00:00",
+    "reason": "消費者補償、補償方式選擇與外送員權益保障三項需求，涉及同一爭議判定、補償流程與責任分工，若無明確細則約束，將於計算時機、補償方式、流程進入條件與訊息責任產生狀態與權益分化互斥，需整併或裁定後方可納入規格書。",
+    "trace_reason": "消費者補償、補償方式選擇與外送員權益保障三項需求，涉及同一爭議判定、補償流程與責任分工，若無明確細則約束，將於計算時機、補償方式、流程進入條件與訊息責任產生狀態與權益分化互斥，需整併或裁定後方可納入規格書。"
+  },
+  {
+    "event_id": "TE-153",
+    "event_type": "generate_model",
+    "stage": "system_model",
+    "agent": "modeler",
+    "action": "modeler.generate_model",
+    "source": "",
+    "input_ids": [
+      "URL-1",
+      "URL-10",
+      "URL-11",
+      "URL-12",
+      "URL-13",
+      "URL-14",
+      "URL-15",
+      "URL-16",
+      "URL-17",
+      "URL-18",
+      "URL-19",
+      "URL-2",
+      "URL-20",
+      "URL-21",
+      "URL-22",
+      "URL-23",
+      "URL-24",
+      "URL-25",
+      "URL-26",
+      "URL-27",
+      "URL-28",
+      "URL-29",
+      "URL-3",
+      "URL-30",
+      "URL-31",
+      "URL-32",
+      "URL-33",
+      "URL-34",
+      "URL-35",
+      "URL-36",
+      "URL-37",
+      "URL-4",
+      "URL-5",
+      "URL-6",
+      "URL-7",
+      "URL-8",
+      "URL-9"
+    ],
+    "output_ids": [
+      "SM-1"
+    ],
+    "relation": "models",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.021734+00:00",
+    "reason": "此情境圖用來釐清外送平台系統的邊界，明確呈現消費者、外送員、餐廳商家與平台營運管理者等主要外部角色，以及與第三方支付/金流服務的互動，並標示各角色與系統間的主要資料流、事件流與責任分工。",
+    "trace_reason": "此情境圖用來釐清外送平台系統的邊界，明確呈現消費者、外送員、餐廳商家與平台營運管理者等主要外部角色，以及與第三方支付/金流服務的互動，並標示各角色與系統間的主要資料流、事件流與責任分工。"
+  },
+  {
+    "event_id": "TE-154",
+    "event_type": "generate_model",
+    "stage": "system_model",
+    "agent": "modeler",
+    "action": "modeler.generate_model",
+    "source": "",
+    "input_ids": [
+      "URL-1",
+      "URL-10",
+      "URL-11",
+      "URL-12",
+      "URL-13",
+      "URL-14",
+      "URL-15",
+      "URL-16",
+      "URL-17",
+      "URL-18",
+      "URL-19",
+      "URL-2",
+      "URL-20",
+      "URL-21",
+      "URL-22",
+      "URL-23",
+      "URL-24",
+      "URL-25",
+      "URL-26",
+      "URL-27",
+      "URL-28",
+      "URL-29",
+      "URL-3",
+      "URL-30",
+      "URL-31",
+      "URL-32",
+      "URL-33",
+      "URL-34",
+      "URL-35",
+      "URL-36",
+      "URL-37",
+      "URL-4",
+      "URL-5",
+      "URL-6",
+      "URL-7",
+      "URL-8",
+      "URL-9"
+    ],
+    "output_ids": [
+      "SM-2"
+    ],
+    "relation": "models",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.021872+00:00",
+    "reason": "此用例圖用來釐清外送平台系統中消費者、外送員、餐廳商家與平台營運管理者等主要角色可執行的核心系統能力，明確界定各角色的操作範圍與責任分工，作為後續需求細化與流程建模的基礎。",
+    "trace_reason": "此用例圖用來釐清外送平台系統中消費者、外送員、餐廳商家與平台營運管理者等主要角色可執行的核心系統能力，明確界定各角色的操作範圍與責任分工，作為後續需求細化與流程建模的基礎。"
+  },
+  {
+    "event_id": "TE-155",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-1",
+      "R1-M2"
+    ],
+    "output_ids": [
+      "REQ-1"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.034658+00:00",
+    "reason": "簡化的操作與資訊透明度能降低流失率，促使消費者提高使用頻率。",
+    "trace_reason": "簡化的操作與資訊透明度能降低流失率，促使消費者提高使用頻率。"
+  },
+  {
+    "event_id": "TE-156",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-1"
+    ],
+    "output_ids": [
+      "FR-1"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.034758+00:00"
+  },
+  {
+    "event_id": "TE-157",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-2",
+      "R1-M2"
+    ],
+    "output_ids": [
+      "REQ-2"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.034840+00:00",
+    "reason": "即時協助與便捷退款可提升服務可靠性，及早處理問題維持消費者信任。",
+    "trace_reason": "即時協助與便捷退款可提升服務可靠性，及早處理問題維持消費者信任。"
+  },
+  {
+    "event_id": "TE-158",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-2"
+    ],
+    "output_ids": [
+      "FR-2"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.034930+00:00"
+  },
+  {
+    "event_id": "TE-159",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-3",
+      "R1-M2"
+    ],
+    "output_ids": [
+      "REQ-3"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.035010+00:00",
+    "reason": "強制資訊揭露可避免消費糾紛並符合法規，提升平台信任及法遵風險管理。",
+    "trace_reason": "強制資訊揭露可避免消費糾紛並符合法規，提升平台信任及法遵風險管理。"
+  },
+  {
+    "event_id": "TE-160",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-3"
+    ],
+    "output_ids": [
+      "CON-1"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.035103+00:00"
+  },
+  {
+    "event_id": "TE-161",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-4",
+      "R1-M2"
+    ],
+    "output_ids": [
+      "REQ-4"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.035185+00:00",
+    "reason": "明確的賠償處理機制可減少爭議，增強消費者對平台保障的信任度。",
+    "trace_reason": "明確的賠償處理機制可減少爭議，增強消費者對平台保障的信任度。"
+  },
+  {
+    "event_id": "TE-162",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-4"
+    ],
+    "output_ids": [
+      "FR-3"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.035344+00:00"
+  },
+  {
+    "event_id": "TE-163",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-5",
+      "R1-M2"
+    ],
+    "output_ids": [
+      "REQ-5"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.035430+00:00",
+    "reason": "預計送達時間資訊有助於消費決策，並當配送異常時可及時調整預期與減少抱怨。",
+    "trace_reason": "預計送達時間資訊有助於消費決策，並當配送異常時可及時調整預期與減少抱怨。"
+  },
+  {
+    "event_id": "TE-164",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-5"
+    ],
+    "output_ids": [
+      "FR-4"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.035516+00:00"
+  },
+  {
+    "event_id": "TE-165",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-6",
+      "URL-8"
+    ],
+    "output_ids": [
+      "REQ-6"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.035601+00:00",
+    "reason": "協助外送員流暢執行訂單、正確判讀現場指示並減少因現場障礙或路徑誤導造成送餐失敗，有效提升整體配送效率。",
+    "trace_reason": "協助外送員流暢執行訂單、正確判讀現場指示並減少因現場障礙或路徑誤導造成送餐失敗，有效提升整體配送效率。"
+  },
+  {
+    "event_id": "TE-166",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-6"
+    ],
+    "output_ids": [
+      "FR-5"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.035688+00:00"
+  },
+  {
+    "event_id": "TE-167",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-6",
+      "R1-M2"
+    ],
+    "output_ids": [
+      "REQ-7"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.035776+00:00",
+    "reason": "資訊精準且回應迅速有助於外送員穩定、高效地執行配送任務，維持服務競爭力與可靠度。",
+    "trace_reason": "資訊精準且回應迅速有助於外送員穩定、高效地執行配送任務，維持服務競爭力與可靠度。"
+  },
+  {
+    "event_id": "TE-168",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-7"
+    ],
+    "output_ids": [
+      "NFR-1"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.035863+00:00"
+  },
+  {
+    "event_id": "TE-169",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-7"
+    ],
+    "output_ids": [
+      "REQ-8"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.035949+00:00",
+    "reason": "防止外送員誤受處分與提升外送員對平台公平性的信任感。",
+    "trace_reason": "防止外送員誤受處分與提升外送員對平台公平性的信任感。"
+  },
+  {
+    "event_id": "TE-170",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-8"
+    ],
+    "output_ids": [
+      "FR-6"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.036037+00:00"
+  },
+  {
+    "event_id": "TE-171",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-9"
+    ],
+    "output_ids": [
+      "REQ-9"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.036124+00:00",
+    "reason": "確保酬勞正確無誤，提升外送員合作意願與平台信任度。",
+    "trace_reason": "確保酬勞正確無誤，提升外送員合作意願與平台信任度。"
+  },
+  {
+    "event_id": "TE-172",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-9"
+    ],
+    "output_ids": [
+      "FR-7"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.036213+00:00"
+  },
+  {
+    "event_id": "TE-173",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-10"
+    ],
+    "output_ids": [
+      "REQ-10"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.036300+00:00",
+    "reason": "保障外送員收入機會，減少不公平分配造成的怨懟與申訴壓力，提升平台穩定性。",
+    "trace_reason": "保障外送員收入機會，減少不公平分配造成的怨懟與申訴壓力，提升平台穩定性。"
+  },
+  {
+    "event_id": "TE-174",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-10"
+    ],
+    "output_ids": [
+      "FR-8"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.036390+00:00"
+  },
+  {
+    "event_id": "TE-175",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-11"
+    ],
+    "output_ids": [
+      "REQ-11"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.036478+00:00",
+    "reason": "穩定性與可靠性是維護用戶留存與品牌形象的關鍵因素，避免服務中斷損失商業機會。",
+    "trace_reason": "穩定性與可靠性是維護用戶留存與品牌形象的關鍵因素，避免服務中斷損失商業機會。"
+  },
+  {
+    "event_id": "TE-176",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-11"
+    ],
+    "output_ids": [
+      "NFR-2"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.036569+00:00"
+  },
+  {
+    "event_id": "TE-177",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-12"
+    ],
+    "output_ids": [
+      "REQ-12"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.036659+00:00",
+    "reason": "即時與可追蹤的營運資訊有助於快速決策及風險管理，減少運營損失。",
+    "trace_reason": "即時與可追蹤的營運資訊有助於快速決策及風險管理，減少運營損失。"
+  },
+  {
+    "event_id": "TE-178",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-12"
+    ],
+    "output_ids": [
+      "FR-9"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.036751+00:00"
+  },
+  {
+    "event_id": "TE-179",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-13"
+    ],
+    "output_ids": [
+      "REQ-13"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.036842+00:00",
+    "reason": "有效的溝通協作可即時處理提出問題、減緩客服壓力及提升運營效率。",
+    "trace_reason": "有效的溝通協作可即時處理提出問題、減緩客服壓力及提升運營效率。"
+  },
+  {
+    "event_id": "TE-180",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-13"
+    ],
+    "output_ids": [
+      "FR-10"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.036934+00:00"
+  },
+  {
+    "event_id": "TE-181",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-14"
+    ],
+    "output_ids": [
+      "REQ-14"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.037026+00:00",
+    "reason": "符合法規以避免罰款風險並維護公司合規底線、保護品牌及經營資格。",
+    "trace_reason": "符合法規以避免罰款風險並維護公司合規底線、保護品牌及經營資格。"
+  },
+  {
+    "event_id": "TE-182",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-14"
+    ],
+    "output_ids": [
+      "CON-2"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.037118+00:00"
+  },
+  {
+    "event_id": "TE-183",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-15"
+    ],
+    "output_ids": [
+      "REQ-15"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.037211+00:00",
+    "reason": "三方平衡能確保平台長期競爭力與各角色持續合作意願。",
+    "trace_reason": "三方平衡能確保平台長期競爭力與各角色持續合作意願。"
+  },
+  {
+    "event_id": "TE-184",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-15"
+    ],
+    "output_ids": [
+      "NFR-3"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.037306+00:00"
+  },
+  {
+    "event_id": "TE-185",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-16"
+    ],
+    "output_ids": [
+      "REQ-16"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.037399+00:00",
+    "reason": "降低人員誤操作風險，提高商家管理效率及資訊正確性。",
+    "trace_reason": "降低人員誤操作風險，提高商家管理效率及資訊正確性。"
+  },
+  {
+    "event_id": "TE-186",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-16"
+    ],
+    "output_ids": [
+      "FR-11"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.037495+00:00"
+  },
+  {
+    "event_id": "TE-187",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-17"
+    ],
+    "output_ids": [
+      "REQ-17"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.037589+00:00",
+    "reason": "明確責任歸屬可減少商家不必要損失，提升對平台公正性的信任。",
+    "trace_reason": "明確責任歸屬可減少商家不必要損失，提升對平台公正性的信任。"
+  },
+  {
+    "event_id": "TE-188",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-17"
+    ],
+    "output_ids": [
+      "FR-12"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.037684+00:00"
+  },
+  {
+    "event_id": "TE-189",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-18"
+    ],
+    "output_ids": [
+      "REQ-18"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.037780+00:00",
+    "reason": "資訊透明可建立商家信任並降低不當糾紛。",
+    "trace_reason": "資訊透明可建立商家信任並降低不當糾紛。"
+  },
+  {
+    "event_id": "TE-190",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-18"
+    ],
+    "output_ids": [
+      "FR-13"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.037877+00:00"
+  },
+  {
+    "event_id": "TE-191",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-19"
+    ],
+    "output_ids": [
+      "REQ-19"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.037972+00:00",
+    "reason": "合理費率能維持商家合作動機與平台競爭力。",
+    "trace_reason": "合理費率能維持商家合作動機與平台競爭力。"
+  },
+  {
+    "event_id": "TE-192",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-19"
+    ],
+    "output_ids": [
+      "NFR-4"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.038069+00:00"
+  },
+  {
+    "event_id": "TE-193",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-20"
+    ],
+    "output_ids": [
+      "REQ-20"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.038167+00:00",
+    "reason": "可有效避免訂單無法完成，提升商家服務彈性與顧客體驗。",
+    "trace_reason": "可有效避免訂單無法完成，提升商家服務彈性與顧客體驗。"
+  },
+  {
+    "event_id": "TE-194",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-20"
+    ],
+    "output_ids": [
+      "FR-14"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.038265+00:00"
+  },
+  {
+    "event_id": "TE-195",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-21"
+    ],
+    "output_ids": [
+      "REQ-21"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.038362+00:00",
+    "reason": "提供彈性可因應消費者多元生活需求，並確保外送員取得正確交付資訊，提升服務體驗與任務完成率。",
+    "trace_reason": "提供彈性可因應消費者多元生活需求，並確保外送員取得正確交付資訊，提升服務體驗與任務完成率。"
+  },
+  {
+    "event_id": "TE-196",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-21"
+    ],
+    "output_ids": [
+      "FR-15"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.038462+00:00"
+  },
+  {
+    "event_id": "TE-197",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-22"
+    ],
+    "output_ids": [
+      "REQ-22"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.038560+00:00",
+    "reason": "避免誤設、爭議與消費糾紛，並符合法規對於資訊揭露與取得同意的要求。",
+    "trace_reason": "避免誤設、爭議與消費糾紛，並符合法規對於資訊揭露與取得同意的要求。"
+  },
+  {
+    "event_id": "TE-198",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-22"
+    ],
+    "output_ids": [
+      "FR-16"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.038660+00:00"
+  },
+  {
+    "event_id": "TE-199",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-23"
+    ],
+    "output_ids": [
+      "REQ-23"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.038759+00:00",
+    "reason": "確保符合法規、稅務與商業合約要求，降低合規與經營風險，滿足稽核需求。",
+    "trace_reason": "確保符合法規、稅務與商業合約要求，降低合規與經營風險，滿足稽核需求。"
+  },
+  {
+    "event_id": "TE-200",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-23"
+    ],
+    "output_ids": [
+      "CON-3"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.038861+00:00"
+  },
+  {
+    "event_id": "TE-201",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-24"
+    ],
+    "output_ids": [
+      "REQ-24"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.038961+00:00",
+    "reason": "提升營運透明度與審查效率，符合法規、稅務及稽核流程需求。",
+    "trace_reason": "提升營運透明度與審查效率，符合法規、稅務及稽核流程需求。"
+  },
+  {
+    "event_id": "TE-202",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-24"
+    ],
+    "output_ids": [
+      "FR-17"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.039063+00:00"
+  },
+  {
+    "event_id": "TE-203",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-25"
+    ],
+    "output_ids": [
+      "REQ-25"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.039164+00:00",
+    "reason": "減少現場人力等待與不確定感，並防止異常回報遭報復性派單限制，維護外送員權益與派單公平。",
+    "trace_reason": "減少現場人力等待與不確定感，並防止異常回報遭報復性派單限制，維護外送員權益與派單公平。"
+  },
+  {
+    "event_id": "TE-204",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-25"
+    ],
+    "output_ids": [
+      "FR-18"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.039266+00:00"
+  },
+  {
+    "event_id": "TE-205",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-26",
+      "URL-28",
+      "URL-31"
+    ],
+    "output_ids": [
+      "REQ-26"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.039372+00:00",
+    "reason": "確保資訊同步、已讀確認與顯示完整性，降低資訊遺漏與操作爭議。",
+    "trace_reason": "確保資訊同步、已讀確認與顯示完整性，降低資訊遺漏與操作爭議。"
+  },
+  {
+    "event_id": "TE-206",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-26"
+    ],
+    "output_ids": [
+      "FR-19"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.039475+00:00"
+  },
+  {
+    "event_id": "TE-207",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-27",
+      "URL-30"
+    ],
+    "output_ids": [
+      "REQ-27"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.039579+00:00",
+    "reason": "明確揭露風險、進出條款及同意證明，可控管法律責任並滿足主管機關法定要求。",
+    "trace_reason": "明確揭露風險、進出條款及同意證明，可控管法律責任並滿足主管機關法定要求。"
+  },
+  {
+    "event_id": "TE-208",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-27"
+    ],
+    "output_ids": [
+      "CON-4"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.039684+00:00"
+  },
+  {
+    "event_id": "TE-209",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-31",
+      "URL-32"
+    ],
+    "output_ids": [
+      "REQ-28"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.039788+00:00",
+    "reason": "降低外送員遺漏重要訊息、誤操作風險，提升流程正確性與服務效率。",
+    "trace_reason": "降低外送員遺漏重要訊息、誤操作風險，提升流程正確性與服務效率。"
+  },
+  {
+    "event_id": "TE-210",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-28"
+    ],
+    "output_ids": [
+      "FR-20"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.039894+00:00"
+  },
+  {
+    "event_id": "TE-211",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-33"
+    ],
+    "output_ids": [
+      "REQ-29"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.040000+00:00",
+    "reason": "保持外送員任務流暢性，避免提醒訊息本身成為效率障礙或申訴來源。",
+    "trace_reason": "保持外送員任務流暢性，避免提醒訊息本身成為效率障礙或申訴來源。"
+  },
+  {
+    "event_id": "TE-212",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-29"
+    ],
+    "output_ids": [
+      "NFR-5"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.040108+00:00"
+  },
+  {
+    "event_id": "TE-213",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-36"
+    ],
+    "output_ids": [
+      "REQ-30"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.040215+00:00",
+    "reason": "明確揭露特殊地點限制與保留同意紀錄可降低法規與責任爭議風險，並符合法定揭露義務。",
+    "trace_reason": "明確揭露特殊地點限制與保留同意紀錄可降低法規與責任爭議風險，並符合法定揭露義務。"
+  },
+  {
+    "event_id": "TE-214",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-30"
+    ],
+    "output_ids": [
+      "CON-5"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.040321+00:00"
+  },
+  {
+    "event_id": "TE-215",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-29",
+      "URL-31",
+      "URL-35",
+      "URL-37"
+    ],
+    "output_ids": [
+      "REQ-31"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.040430+00:00",
+    "reason": "簡化異常與協助流程，提升外送員應對效率與保障消費者即時處理需求。",
+    "trace_reason": "簡化異常與協助流程，提升外送員應對效率與保障消費者即時處理需求。"
+  },
+  {
+    "event_id": "TE-216",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-31"
+    ],
+    "output_ids": [
+      "FR-21"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.040538+00:00"
+  },
+  {
+    "event_id": "TE-217",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-29",
+      "URL-34"
+    ],
+    "output_ids": [
+      "REQ-32"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.040646+00:00",
+    "reason": "確保補償申請流程便捷、明確，提升消費者權益維護效率，減少爭議。",
+    "trace_reason": "確保補償申請流程便捷、明確，提升消費者權益維護效率，減少爭議。"
+  },
+  {
+    "event_id": "TE-218",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-32"
+    ],
+    "output_ids": [
+      "FR-22"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:21:58.040756+00:00"
+  },
+  {
+    "event_id": "TE-219",
+    "event_type": "resolve_issue",
+    "stage": "formal_meeting",
+    "agent": "mediator",
+    "action": "mediator.resolve_issue",
+    "source": "R1-M2",
+    "input_ids": [
+      "R1-M2"
+    ],
+    "output_ids": [
+      "REQ-6",
+      "REQ-7",
+      "REQ-26",
+      "REQ-29",
+      "REQ-30",
+      "REQ-31",
+      "REQ-32"
+    ],
+    "relation": "resolves",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:22:06.996397+00:00",
+    "reason": "正式採納現有需求條目為專案正式需求，確認其可驗證、可追蹤、來源明確且符合各方底線。後續如有新場景、法規變動或需求細化，將另開議題追蹤，不影響本次正式化結論。",
+    "trace_reason": "正式採納現有需求條目為專案正式需求，確認其可驗證、可追蹤、來源明確且符合各方底線。後續如有新場景、法規變動或需求細化，將另開議題追蹤，不影響本次正式化結論。"
+  },
+  {
+    "event_id": "TE-220",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-36",
+      "R2-M1"
+    ],
+    "output_ids": [
+      "REQ-30"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:27:27.751509+00:00",
+    "reason": "明確資訊揭露與同意取得，以及保存查核用資料，有助於控管平台法律責任並符合法規要求。",
+    "trace_reason": "明確資訊揭露與同意取得，以及保存查核用資料，有助於控管平台法律責任並符合法規要求。"
+  },
+  {
+    "event_id": "TE-221",
+    "event_type": "resolve_issue",
+    "stage": "formal_meeting",
+    "agent": "mediator",
+    "action": "mediator.resolve_issue",
+    "source": "R2-M1",
+    "input_ids": [
+      "R2-M1"
+    ],
+    "output_ids": [
+      "REQ-27",
+      "REQ-30"
+    ],
+    "relation": "resolves",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:27:27.751953+00:00",
+    "reason": "確認現有需求條文（REQ-27、REQ-30）及相關模型（SM-1、SM-2）已充分涵蓋特殊/高風險取餐地點的揭露、同意、紀錄保存與責任分工，正式納入需求版本。例外情境及介面用語細節由後續設計細化，遇新型場域或法規變動時再補充。餐廳商家責任不延伸至本流程。平台需確保所有同意紀錄保存至少兩年，並於主管機關查核時可追溯。",
+    "trace_reason": "確認現有需求條文（REQ-27、REQ-30）及相關模型（SM-1、SM-2）已充分涵蓋特殊/高風險取餐地點的揭露、同意、紀錄保存與責任分工，正式納入需求版本。例外情境及介面用語細節由後續設計細化，遇新型場域或法規變動時再補充。餐廳商家責任不延伸至本流程。平台需確保所有同意紀錄保存至少兩年，並於主管機關查核時可追溯。"
+  },
+  {
+    "event_id": "TE-222",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-10",
+      "R2-M2"
+    ],
+    "output_ids": [
+      "REQ-10"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:28:28.566677+00:00",
+    "reason": "保障外送員收入與工作機會，降低排擠爭議，並符合公平交易及主管機關查核要求。",
+    "trace_reason": "保障外送員收入與工作機會，降低排擠爭議，並符合公平交易及主管機關查核要求。"
+  },
+  {
+    "event_id": "TE-223",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-25",
+      "R2-M2"
+    ],
+    "output_ids": [
+      "REQ-25"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:28:28.566871+00:00",
+    "reason": "確保外送員善意異常上報不致受報復或不當懲處，提升持續合作意願與平台公信力。",
+    "trace_reason": "確保外送員善意異常上報不致受報復或不當懲處，提升持續合作意願與平台公信力。"
+  },
+  {
+    "event_id": "TE-224",
+    "event_type": "resolve_issue",
+    "stage": "formal_meeting",
+    "agent": "mediator",
+    "action": "mediator.resolve_issue",
+    "source": "R2-M2",
+    "input_ids": [
+      "R2-M2"
+    ],
+    "output_ids": [
+      "REQ-10",
+      "REQ-25"
+    ],
+    "relation": "resolves",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:29:44.061284+00:00",
+    "reason": "確認現有需求條文與模型內容，明定異常上報後派單異動必須經人工審查並留存紀錄，外送員享有查詢與申訴權益，平台需揭露派單規則與異常處理流程。後續如需細化審查流程或資料格式，於設計階段補充，不影響現階段需求收斂。",
+    "trace_reason": "確認現有需求條文與模型內容，明定異常上報後派單異動必須經人工審查並留存紀錄，外送員享有查詢與申訴權益，平台需揭露派單規則與異常處理流程。後續如需細化審查流程或資料格式，於設計階段補充，不影響現階段需求收斂。"
+  },
+  {
+    "event_id": "TE-225",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-4",
+      "R2-M3",
+      "URL-29",
+      "URL-34"
+    ],
+    "output_ids": [
+      "REQ-4"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:31:58.250651+00:00",
+    "reason": "明確、簡便與標準化的補償處理機制及資料保存可保障消費者、外送員及平台權益，並符合法規及主管機關查核要求。",
+    "trace_reason": "明確、簡便與標準化的補償處理機制及資料保存可保障消費者、外送員及平台權益，並符合法規及主管機關查核要求。"
+  },
+  {
+    "event_id": "TE-226",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-4",
+      "R2-M3",
+      "URL-29",
+      "URL-34"
+    ],
+    "output_ids": [
+      "REQ-32"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:31:58.251016+00:00",
+    "reason": "符合法規對舉證、查核要求並確保日後消費爭議、主管機關查核時有完整證明。",
+    "trace_reason": "符合法規對舉證、查核要求並確保日後消費爭議、主管機關查核時有完整證明。"
+  },
+  {
+    "event_id": "TE-227",
+    "event_type": "formalize_requirement",
+    "stage": "srs",
+    "agent": "documentor",
+    "action": "documentor.generate_srs",
+    "source": "",
+    "input_ids": [
+      "REQ-32"
+    ],
+    "output_ids": [
+      "CON-6"
+    ],
+    "relation": "formalizes",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:31:58.251131+00:00"
+  },
+  {
+    "event_id": "TE-228",
+    "event_type": "resolve_issue",
+    "stage": "formal_meeting",
+    "agent": "mediator",
+    "action": "mediator.resolve_issue",
+    "source": "R2-M3",
+    "input_ids": [
+      "R2-M3"
+    ],
+    "output_ids": [
+      "REQ-4",
+      "REQ-32"
+    ],
+    "relation": "resolves",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:32:06.834473+00:00",
+    "reason": "確認現有補償/賠償標準、舉證責任與流程分工細節之需求內容與模型描述，作為正式需求依據進入 SRS drafting。未來如遇法規或營運流程重大變動，需另行提出議題補充修訂。",
+    "trace_reason": "確認現有補償/賠償標準、舉證責任與流程分工細節之需求內容與模型描述，作為正式需求依據進入 SRS drafting。未來如遇法規或營運流程重大變動，需另行提出議題補充修訂。"
+  },
+  {
+    "event_id": "TE-229",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-10",
+      "R2-M2",
+      "R3-M1"
+    ],
+    "output_ids": [
+      "REQ-10"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:57:51.765634+00:00",
+    "reason": "保障外送員收入與工作機會，降低排擠爭議，並符合法律公平交易及主管機關查核要求。",
+    "trace_reason": "保障外送員收入與工作機會，降低排擠爭議，並符合法律公平交易及主管機關查核要求。"
+  },
+  {
+    "event_id": "TE-230",
+    "event_type": "derive_requirement",
+    "stage": "requirements",
+    "agent": "analyst",
+    "action": "analyst.requirement",
+    "source": "",
+    "input_ids": [
+      "URL-25",
+      "R2-M2",
+      "R3-M1"
+    ],
+    "output_ids": [
+      "REQ-25"
+    ],
+    "relation": "derives",
+    "confidence": "explicit",
+    "created_at": "2026-06-11T01:57:51.765847+00:00",
+    "reason": "確保外送員善意異常上報不致受報復或不當懲處，提升持續合作意願與平台公信力。",
+    "trace_reason": "確保外送員善意異常上報不致受報復或不當懲處，提升持續合作意願與平台公信力。"
+  }
+]

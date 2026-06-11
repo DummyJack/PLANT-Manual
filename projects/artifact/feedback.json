@@ -1,0 +1,673 @@
+{
+  "findings": [
+    {
+      "text": "外送平台業者於平台介面有義務明確揭示商品價格、服務費或運費，以及消費者與外送平台業者取消訂單時的退費與理由機制。",
+      "related_requirement_ids": [
+        "URL-3",
+        "URL-2"
+      ],
+      "source": "ELICIT-R1-T1",
+      "trace_reason": "此規定直接影響商品價格公開與退款機制要求，對應已存在需求。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "外送平台業者必須保存貨款計算、交易往來與爭議處理紀錄，提高金流與營運透明度，以降低任意扣款或終止合作的風險。",
+      "related_requirement_ids": [
+        "URL-9",
+        "URL-14",
+        "URL-18"
+      ],
+      "source": "ELICIT-R1-T1",
+      "trace_reason": "金流透明與紀錄保存義務對應酬勞、撥款結算與合規需求。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "外送平台如介接第三方支付金流，應配合法規規範與第三方支付業者之合規要求，確保消費者付款與退款安全。",
+      "related_requirement_ids": [
+        "URL-2",
+        "URL-3",
+        "URL-9",
+        "URL-18"
+      ],
+      "source": "ELICIT-R1-T1",
+      "trace_reason": "第三方支付合規影響付款、退款與結算相關需求驗收。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "根據《外送員權益保障及外送平臺管理法》與多地自治條例，外送平台必須蒐集並依法保存包括消費者自訂取餐地點與交付方式在內的訂單資料，同時必須依個人資料保護法對資料處理、傳輸及調閱承擔法定義務。",
+      "related_requirement_ids": [],
+      "source": "ELICIT-R1-T2",
+      "trace_reason": "該法令明確要求資料保存及資料保護，對彈性取餐流程之系統設計有基礎限制，但此規範尚無法明確對應特定單一需求。",
+      "trace_confidence": "missing"
+    },
+    {
+      "text": "平台管理流程在消費者指定第三方場所時，需釐清場域與管理單位授權或同意規則，善用揭示和條款規定以免平台無意承擔第三方物業或安全責任。",
+      "related_requirement_ids": [],
+      "source": "ELICIT-R1-T2",
+      "trace_reason": "第三方場所交付的執行風險取決於自治條例和場所實際管理規則，目前無既有需求專門對應。",
+      "trace_confidence": "missing"
+    },
+    {
+      "text": "根據主管機關指引，外送平台於消費者指定非住家地點（如公司、超商、公共空間）做為取餐地點時，需履行資訊揭露責任，包括揭示業者資訊、聯絡及申訴管道與商品資訊，保障消費者知情權利。",
+      "related_requirement_ids": [],
+      "source": "ELICIT-R1-T3",
+      "trace_reason": "本發現屬於主管機關對資訊揭露的明確責任，但目前無對應特定需求。",
+      "trace_confidence": "missing"
+    },
+    {
+      "text": "法規要求平台於消費者下單前，應充分揭露商品標示、交付方式等重要資訊，以提升透明度與防止爭議，特別強調消費者訂購過程中的資訊完整性。",
+      "related_requirement_ids": [],
+      "source": "ELICIT-R1-T3",
+      "trace_reason": "此義務為資訊揭露與消費者保護的基礎，但目前需求紀錄尚無明確連結。",
+      "trace_confidence": "missing"
+    },
+    {
+      "text": "現有法規及指引未強制規範平台需查驗消費者於第三方地點的通行權限或主動保留同意紀錄，主要著重於揭露義務，而非進行場所權限查證。",
+      "related_requirement_ids": [],
+      "source": "ELICIT-R1-T3",
+      "trace_reason": "說明現行主管機關僅要求資訊揭露，未強制權限核查流程，暫無特定對應需求。",
+      "trace_confidence": "missing"
+    },
+    {
+      "text": "外送平台金流與支付服務涉及第三方支付業者時，必須符合台灣主管機關對於金流安全、稽核、資金流向管控及資料保存之法定要求，並將勞工待遇與消費者保障納入設計考量。",
+      "related_requirement_ids": [
+        "URL-3",
+        "URL-14",
+        "URL-18",
+        "URL-23",
+        "URL-24"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "需求涉及支付透明、稅務合規、結算及資料保存，皆受金流法規及主管機關規範約束，影響平台合規與驗收基準。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "個人資料蒐集、處理及利用，須遵守台灣個人資料保護法及其相關子法，於金流、消費者資料、訂單資訊等均有強制保存、揭露、查詢與刪除規範要求，違反時主管機關得處以重大罰鍰。",
+      "related_requirement_ids": [
+        "URL-14",
+        "URL-23",
+        "URL-24"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "涉及稅務、金流、資料保存及合規稽核的系統需求，須兼顧資料安全與法規保存、調閱需求。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "金流服務應導入明確的用戶資料安全管控機制，如強制加密、資料分級權限、紀錄留存、防火牆及稽核日誌，以因應產業標準之安全審查與合規要求，並避免個資外洩風險。",
+      "related_requirement_ids": [
+        "URL-14",
+        "URL-23",
+        "URL-24"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "資料保存與金流稽核作業符合產業安全標準與主管機關資訊安全審查要件。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "外送平台金流與支付相關資料，於財務查核或政府稽核時需支援格式化匯出（如CSV、PDF、API），並確保資料完整不被竄改，以滿足查核、報稅與糾紛處理責任。",
+      "related_requirement_ids": [
+        "URL-18",
+        "URL-23",
+        "URL-24"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "結算、稽核、資料保存及匯出功能需求直接受金流稽核規定影響，需滿足合規與查核標準。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "根據《外送員權益保障及外送平臺管理法》第17、18、19條等規定，外送平台在與消費者、合作商家、外送員涉及責任歸屬、異常處理、退款及補償時，必須保存包含訂單、價格、退款、補償、消費者同意紀錄等相關資料至少二年，並不得拒絕主管機關或目的事業主管機關之查閱要求。",
+      "related_requirement_ids": [
+        "URL-27",
+        "URL-30",
+        "URL-36"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "此法規明定平台有責任揭露、高風險地點需明確告知並留存同意紀錄以利日後釐清消費爭議或責任歸屬，直接與特殊地點揭露義務與操作關聯。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "主管機關或目的事業主管機關可要求外送平台提供消費者同意、交易、退款、補償、客訴與風險說明等資料，平台必須依法保存與稽核。",
+      "related_requirement_ids": [
+        "URL-27",
+        "URL-30",
+        "URL-36"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "保存資料與同意紀錄為法定義務，監管機關得隨時查調以應付糾紛或稽查需求，與系統同意流程及責任釐清直接相關。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "衛福部食品外送平台管理指引要求：凡涉及高風險運送地點、消費食品、配送限制時，平台應明確揭露食品衛生及現場管控規範，並依食安法、衛生契約條件揭露風險與消費者注意事項，以保障平台、消費者及外送員之法律責任分界。",
+      "related_requirement_ids": [
+        "URL-21",
+        "URL-27",
+        "URL-30",
+        "URL-36"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "官方指引要求平台對特殊或限制地帶完整揭露資訊及風險，並告知責任歸屬，此為產業具體依循實務。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "目前台灣針對外送平台的管理法規雖以食品安全、勞動權益、個人資料保護等為主，尚未有明確強制針對派單公平性及演算法異常通報防作弊設下具體技術規範，但公平交易法對於平台演算法造成市場壟斷、不公或差別待遇有高度關注，且競爭政策要求平台應避免因系統機制造成利害關係人權益受損。",
+      "related_requirement_ids": [
+        "URL-10",
+        "URL-25"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "URL-10/URL-25 皆涉及派送演算法公平與異常處理，法規雖未明文規定技術細節，但公平交易政策影響需求可行性。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "外送平台因演算法派單、資料揭露與異常機制屬於與多方利害關係人之間的權益分配和資訊透明範疇，若出現明顯偏袒、封殺、差別待遇或在異常上報後系統性對外送員不利，消費者或外送員可透過《公平交易法》向主管機關申訴或檢舉，且需具備妥適佐證流程。",
+      "related_requirement_ids": [
+        "URL-10",
+        "URL-25"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "兩項需求涉及平台因系統或演算法可能帶來的權益不均，因此需參考屬地公平交易相關申訴與稽核要求。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "依據台灣《消費者保護法》，平台需在消費者與服務提供者間遭遇爭議時設有公平的消費申訴與賠償機制，且若未依約或未合理說明則需對損害承擔賠償責任。相關流程舉證義務會視具體爭議內容與平台、外送員角色而定（如定型化契約條款或具體爭議調解程序）。",
+      "related_requirement_ids": [
+        "URL-29",
+        "URL-34",
+        "URL-37"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "消費者保護法要求具備明確申訴、賠償及合理責任分工，直接關聯消費者補償、外送員回報與平台協助等流程。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "消費者保護法及定型化契約規範企業（平台）應提供明確的商品／服務資訊、補償方式、解除契約權及損害賠償機制，並將重要權利、義務、例外及責任於契約條款中清楚載明且取得消費者同意；否則遇到爭議時，即推定為對消費者顯失公平，由企業舉證並承擔較重責任。",
+      "related_requirement_ids": [
+        "URL-29",
+        "URL-34",
+        "URL-37"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "定型化契約義務與資訊揭露明確規範糾紛時補償流程、舉證及責任分工，為外送糾紛處理提供依據。",
+      "trace_confidence": "explicit"
+    }
+  ],
+  "constraints": [
+    {
+      "text": "平台應於操作介面明確揭示所有商品價格、各項服務費與運費，並完整列出各種取消訂單之理由及對應退費機制，不得有未公開的額外費用，此義務為地方法規強制規定。",
+      "related_requirement_ids": [
+        "URL-3"
+      ],
+      "source": "ELICIT-R1-T1",
+      "trace_reason": "明確揭示價格與退費資訊為法定強制界線，直接影響價格透明與信任需求可行性。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "業者須保存金流計算、酬勞、交易紀錄與相關爭議處理資料，以符合法定稽核、查核或客訴需要，避免資料遺失風險。",
+      "related_requirement_ids": [
+        "URL-9",
+        "URL-14",
+        "URL-18"
+      ],
+      "source": "ELICIT-R1-T1",
+      "trace_reason": "資料保存義務可能限制平台資料刪除、溯源要求，對系統設計與驗收帶來邊界。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "若平台需於訂單蒐集、處理或儲存住址、聯絡資訊、自由備註欄等消費者個人資料，必須符合《個人資料保護法》對用途、揭露、範圍、第三方資料提供等規範，並配合地方法規與主管機關指導原則。",
+      "related_requirement_ids": [],
+      "source": "ELICIT-R1-T2",
+      "trace_reason": "資料錄入流程必須先檢核個資合規性，此為彈性交付點設計的合規門檻，尚無特定需求直接串接。",
+      "trace_confidence": "missing"
+    },
+    {
+      "text": "涉及第三方物業、公共空間或受管理區域作為交付地點時，平台候選規約需能提示並管理該地點進出權限或須獲授權事宜，免於違反場域本地營運及管理規則。",
+      "related_requirement_ids": [],
+      "source": "ELICIT-R1-T2",
+      "trace_reason": "缺乏與場所管理相關的需求掛鉤，需進一步界定第三方場合交付可行性。",
+      "trace_confidence": "missing"
+    },
+    {
+      "text": "平台於消費者自訂取餐地點時，必須依主管機關及消保規定揭露重要資訊與責任條款，惟現有規範未強制消費者同意紀錄或進出權查核，僅要求揭示及同意條款機制。",
+      "related_requirement_ids": [],
+      "source": "ELICIT-R1-T3",
+      "trace_reason": "對於流程設計設定揭露資訊與同意條款之下限要求，尚未明定更嚴格查核義務。",
+      "trace_confidence": "missing"
+    },
+    {
+      "text": "金流、支付與退款管理機制必須遵循第三方支付管理辦法及個人資料保護法中訂明的保存年限、查核與揭露義務，不得任意縮短保存期限、隱匿或刪改交易資料。",
+      "related_requirement_ids": [
+        "URL-3",
+        "URL-14",
+        "URL-23",
+        "URL-24"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "相關法規明訂金流資料及個資保存、查核與揭露年限與義務，屬強制性合規要件。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "個人資料於金流串接與名單分享時，僅限於必要範圍內揭露予合作第三方，並須明確告知與用戶同意相關範圍。",
+      "related_requirement_ids": [
+        "URL-14",
+        "URL-23",
+        "URL-24"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "個資在金流業者及第三方共享時，法規要求揭露必要性、同意及異議處理流程。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "平台於高風險或特殊取餐地點須建立明確之同意機制，並保存同意紀錄至少二年，以備主管機關查核。",
+      "related_requirement_ids": [
+        "URL-27",
+        "URL-30",
+        "URL-36"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "依外送平台管理法之責任揭露、資料保存規定，應設計同意流程並能保存查核資料。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "涉及非住家、公共空間、醫院、公司等特殊地點時，應於下單過程明確揭露配送責任、現場入內條件及消費者需同意之風險，違者平台可能需承擔無法舉證之法律責任。",
+      "related_requirement_ids": [
+        "URL-21",
+        "URL-27",
+        "URL-30",
+        "URL-36"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "食安法及相關產業指引強調特殊場域風險、揭露、同意程序，若流程不全提升平台營運風險。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "平台派單機制及異常通報流程應避免造成對特定外送員的不公平排擠、收入下降或報復，平台在設計派單分配、異常報告後續處理時應有資料留存、決策證據及解釋機制以利主管機關查核。",
+      "related_requirement_ids": [
+        "URL-10",
+        "URL-25"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "現行法規雖未詳細規定演算法邏輯，但資料留存、稽核可追蹤與避免偏誤原則為國際及地區主管機關常見要求。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "若平台演算法因異常通報而自動限制派單或降低收入應有明確事前揭露並供外送員陳述意見，避免產生黑箱或不當懲罰現象成為監理檢查重點。",
+      "related_requirement_ids": [
+        "URL-10",
+        "URL-25"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "以防止平台隱性打壓或誤判為由，主管機關可能要求資訊公開透明與權益救濟管道。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "平台必須比對定型化契約應記載與不得記載事項並接受主管機關調查、糾紛時應能提出證據證明已盡揭露與責任分工義務，否則消費者申訴時將被推定為對消費者不利。",
+      "related_requirement_ids": [
+        "URL-29",
+        "URL-34",
+        "URL-37"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "主管機關有權依消費者保護法檢查契約條款、補償流程與平台對消費者的資訊揭露程度。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "補償金額、賠償方式及舉證分工若未在服務條款明確界定，實務上將由調解委員會依個案權責認定，平台應避免使用顯失公平之條款並具備完整爭議處理記錄與證據留存機制。",
+      "related_requirement_ids": [
+        "URL-29",
+        "URL-34",
+        "URL-37"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "法規明定如無合理條款或證據，企業端在爭議、賠償、舉證分界上傾向認定為對消費者有利。",
+      "trace_confidence": "explicit"
+    }
+  ],
+  "risks": [
+    {
+      "text": "未依規範揭示價格或退費機制將可能受到地方政府罰則或消保爭議，或影響營運資格。",
+      "related_requirement_ids": [
+        "URL-3",
+        "URL-2"
+      ],
+      "source": "ELICIT-R1-T1",
+      "trace_reason": "揭示不全構成法規違規，直接衝擊系統驗收與合規風險。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "金流結算或貨款、酬勞處理未保存依法必需的紀錄，將無法於爭議或稽核時提供證明，面臨被認定違規並遭罰款或合作終止風險。",
+      "related_requirement_ids": [
+        "URL-9",
+        "URL-18",
+        "URL-14"
+      ],
+      "source": "ELICIT-R1-T1",
+      "trace_reason": "紀錄保存瑕疵直接威脅金流、合約與商業合作穩定性。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "允許第三方物業、公共場域作為交付地點，若涉及擅自進出、未經同意取得通行權，可能造成營運糾紛、平台或外送員需承擔違規責任甚至涉及居住或公共安全爭論。",
+      "related_requirement_ids": [],
+      "source": "ELICIT-R1-T2",
+      "trace_reason": "外送糾紛經常發生於第三方場所授權不明的情境，目前無特定需求直接對應此安全及責任界線。",
+      "trace_confidence": "missing"
+    },
+    {
+      "text": "消費者如於備註或自訂欄填入過多敏感資訊（如門禁密碼），平台若無充分資料保護與限制機制，恐導致資料外洩、資訊濫用、違反個資法及信任風險。",
+      "related_requirement_ids": [],
+      "source": "ELICIT-R1-T2",
+      "trace_reason": "尚無現有需求處理彈性交付資訊脫敏與個資管理議題。",
+      "trace_confidence": "missing"
+    },
+    {
+      "text": "如未適當揭露交付方式、限制或責任條款，消費糾紛（例如無法進入取餐點、餐點遺失損害）發生時，將提高雙方責任爭議與增加消保風險。",
+      "related_requirement_ids": [],
+      "source": "ELICIT-R1-T3",
+      "trace_reason": "揭露不全可能直接引發紛爭與合規爭議，目前尚無現有需求條列相應防範。",
+      "trace_confidence": "missing"
+    },
+    {
+      "text": "若支付流程、資料保存、審查方式未達主管機關（如金管會或個資保護組織）標準，將構成直接違規，可能面臨高額罰鍰、停權甚至被勒令下架服務。",
+      "related_requirement_ids": [
+        "URL-3",
+        "URL-14",
+        "URL-18",
+        "URL-23",
+        "URL-24"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "金流、個資與稅務合規皆屬強制規範，違反後果嚴重且難以補救。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "資料揭露或保存若欠缺充分加密、防火牆與稽核措施，將提高個資外洩及資料竄改風險，造成消費者信任流失與聲譽損害。",
+      "related_requirement_ids": [
+        "URL-14",
+        "URL-23",
+        "URL-24"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "資訊安全不足直接危及金流資料完整與合法保存，增加違法與營運風險。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "若高風險地點未明確揭露、同意或資訊留存不全，遇到配送失誤、權限糾紛或消費申訴時，平台恐有舉證困難並須承擔加重賠償或監管罰責。",
+      "related_requirement_ids": [
+        "URL-27",
+        "URL-30",
+        "URL-36"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "法規明定資料保存及同意程序不足會放大法律糾紛或監理風險。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "若操作彈性優先於責任揭露，未設限特殊取餐地點流程，將造成平台在消費糾紛或主管機關查核時舉證不全，影響風險控管。",
+      "related_requirement_ids": [
+        "URL-21",
+        "URL-27",
+        "URL-30",
+        "URL-36"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "平台彈性讓步若未落實控管，可能導致責任界線模糊增加營運及合規成本。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "若設計的派單及異常通報邏輯過於複雜不透明，平台一旦發生大規模申訴或群體上報異常，稽核時將無法證明其公平性，有遭主管機關糾正、調查甚至裁罰風險。",
+      "related_requirement_ids": [
+        "URL-10",
+        "URL-25"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "外送平台涉及大規模利害關係人，演算法不透明時易成爭議與法規風險。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "出現集體異常通報時若無合適鑑別、審核與防作弊設計，平台有被指控系統性壓低異常上報者派單量，或被認定有差別待遇行為之法規風險。",
+      "related_requirement_ids": [
+        "URL-10",
+        "URL-25"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "異常上報與演算法分配若無防作弊或公正程序，將引發高稽核風險。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "若補償條款、賠償流程、舉證責任未在服務條款載明，遇糾紛時主管機關或法院易推定平台對消費者不利，導致平台承擔全額賠償或受罰。",
+      "related_requirement_ids": [
+        "URL-29",
+        "URL-34",
+        "URL-37"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "消保法及主管機關審查，重舉證與資訊揭露，平台未明定時極易產生合規與營運風險。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "若外送員權益相關責任、流程界線與例外情形未在契約說明，當外送員未依指示或遇特殊情形時，平台將難以舉證其已履行查證與通知之義務，恐遭糾紛處分。",
+      "related_requirement_ids": [
+        "URL-29",
+        "URL-37"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "法規強調資訊揭露與責任對等，缺乏明定將導致平台舉證不易、權責不明及商譽損失。",
+      "trace_confidence": "explicit"
+    }
+  ],
+  "recommendations": [
+    {
+      "text": "建議訂單、付款與退款流程全面整合金流、退費條件揭示與即時異動回饋，同步確保消費者查詢與紀錄保存。",
+      "related_requirement_ids": [
+        "URL-2",
+        "URL-3",
+        "URL-9",
+        "URL-18"
+      ],
+      "source": "ELICIT-R1-T1",
+      "trace_reason": "金流、退費相關資訊強制揭示，有助於合規驗收與用戶信任。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "建議於訂單與金流記錄系統設立不可刪除、可稽溯之記錄保留機制，支援法規、稅務與爭議處理。",
+      "related_requirement_ids": [
+        "URL-9",
+        "URL-14",
+        "URL-18"
+      ],
+      "source": "ELICIT-R1-T1",
+      "trace_reason": "保留完整記錄為合規必備，能支持稅務查核與責任歸屬。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "建議彈性取餐介面設計採用地點類型分類與風險提示，於選擇第三方場合時提供權利義務揭露及授權警示，降低糾紛與營運爭議。",
+      "related_requirement_ids": [],
+      "source": "ELICIT-R1-T2",
+      "trace_reason": "協助消費者、平台與外送員理解各自權益與風險，減輕平台承擔之不確定性。",
+      "trace_confidence": "missing"
+    },
+    {
+      "text": "建議對訂單敏感資料（如門禁碼、進出說明）設置脫敏顯示、存取日誌與必要性檢查等措施，只讓必須角色限度取得，強化個資保護與日後查證能力。",
+      "related_requirement_ids": [],
+      "source": "ELICIT-R1-T2",
+      "trace_reason": "國際實務推薦於資料敏感欄進行存取控制與紀錄，尚無現有需求落實。",
+      "trace_confidence": "missing"
+    },
+    {
+      "text": "平台條款應告知消費者選擇第三方場所時需主動取得管理單位同意，未獲同意交付失敗或阻礙將不視為平台或外送員違約，以減少平台責任模糊。",
+      "related_requirement_ids": [],
+      "source": "ELICIT-R1-T2",
+      "trace_reason": "明確條款能界定法律與營運風險，對現有需求仍屬補充建議。",
+      "trace_confidence": "missing"
+    },
+    {
+      "text": "建議平台於非住家地點交付時，在下單階段明確揭露風險與限制（如不可進入、超時或特殊管理規範），可增設消費者同意條款以減少糾紛。",
+      "related_requirement_ids": [],
+      "source": "ELICIT-R1-T3",
+      "trace_reason": "根據資訊揭露精神提出強化流程建議，有利風險提醒與歸責清楚。",
+      "trace_confidence": "missing"
+    },
+    {
+      "text": "建議對於高風險或受管制地點，可選擇性增加消費者權限確認（如確認擁有進入權或補充聯絡資訊），以降低平台運營風險。",
+      "related_requirement_ids": [],
+      "source": "ELICIT-R1-T3",
+      "trace_reason": "有助平台主動控管非住家取餐交付的風險，作為最佳實務參考。",
+      "trace_confidence": "missing"
+    },
+    {
+      "text": "候選設計應主動參考金管會、消保團體及大型第三方支付平台公開政策，確立金流、資訊安全、資料保存與查核流程的標準作法，提前映射法規規範到系統設計內容。",
+      "related_requirement_ids": [
+        "URL-3",
+        "URL-14",
+        "URL-18",
+        "URL-23",
+        "URL-24"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "最佳實務應結合法定要求與業界領先操作，減少往返調整或驗收爭議。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "在用戶條款與隱私聲明中，建議明確列出資料保存年限、合作第三方範圍，用戶查詢與刪除機制，以及所有交易或補償資料的保存原則，以減少未來糾紛與法律風險。",
+      "related_requirement_ids": [
+        "URL-14",
+        "URL-23",
+        "URL-24"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "明確揭露與同意機制有助於用戶信任維護與後續爭議減少，為最佳實務。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "建議平台於涉及特殊、非住家或高風險地點時，設計強制同意條款及揭露流程（如每次明顯提示、同意核取、特殊資訊上傳），相關紀錄需可稽核與查調滿足二年以上保留標準。",
+      "related_requirement_ids": [
+        "URL-21",
+        "URL-27",
+        "URL-30",
+        "URL-36"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "現行法規與官方指引下，確保同意流程與揭露保存兩項要件可降低平台法律爭議及營運風險，並兼容產業實務。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "建議平台針對非住家、公共空間、醫院、公司等類型設置自動化識別、風險提醒及責任揭露標準流程，並供消費者及外送員查閱備查，維持證據力。",
+      "related_requirement_ids": [
+        "URL-21",
+        "URL-27",
+        "URL-30",
+        "URL-36"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "產業實務、指引均提倡資訊應主動、明確揭露並利於舉證及稽核，減少紛爭與法遵疑慮。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "建議平台派單與異常處理演算法定期接受第三方審查與稽核，並建立公開透明的申訴及調查管道以降低法規與信任風險。",
+      "related_requirement_ids": [
+        "URL-10",
+        "URL-25"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "平台自律機制與引入監理第三方為國際重要合規最佳實務。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "建議明確揭露異常通報對派單演算法的影響條件與風險，並提供外送員異議申訴與申報歷程查詢功能，以強化營運決策透明度及避免爭議。",
+      "related_requirement_ids": [
+        "URL-10",
+        "URL-25"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "資訊公開與救濟流程有助降低後端黑箱決策造成的合規及聲譽風險。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "建議平台於定型化契約及服務條款明確載明補償金額計算原則、實際補償方式、舉證責任分工及申訴與調解機制，並於平台介面主動揭露並取得消費者同意，確保合規與營運穩定。",
+      "related_requirement_ids": [
+        "URL-29",
+        "URL-34",
+        "URL-37"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "明確條約、補償細則及流程可降低主管機關罰處與申訴鎖定風險。",
+      "trace_confidence": "explicit"
+    },
+    {
+      "text": "建議建立外送過程即時異常記錄、通知回報及全程舉證留存功能，並於糾紛流程界定外送員不可歸責及合理說明之認定基準，以利調解及舉證分流。",
+      "related_requirement_ids": [
+        "URL-29",
+        "URL-34",
+        "URL-37"
+      ],
+      "source": "R1-conflict",
+      "trace_reason": "外送服務流程落實數據記錄與異常回報可減少糾紛時證據爭議並支持平衡裁決。",
+      "trace_confidence": "explicit"
+    }
+  ],
+  "sources": [
+    {
+      "title": "外送平台之整併、收費指引、 個資保護、 產業發展",
+      "url": "https://ppg.ly.gov.tw/ppg/SittingAttachment/download/2024101846/13102020124690060004.pdf"
+    },
+    {
+      "title": "臺北市外送平台管理自治條例（部分條文）",
+      "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL093442"
+    },
+    {
+      "title": "立法院三讀通過「外送員權益保障及外送平臺管理法」",
+      "url": "https://www.mol.gov.tw/1607/1632/1633/87384"
+    },
+    {
+      "title": "外送員權益保障及外送平臺管理法",
+      "url": "https://law.lia-roc.org.tw/Law/Content?lsid=FL105973"
+    },
+    {
+      "title": "臺中市外送平台業者管理自治條例",
+      "url": "https://law.taichung.gov.tw/LawContent.aspx?id=GL004214"
+    },
+    {
+      "title": "網路美食外送平台業者自主衛生管理指引（含部分資訊揭露要求）",
+      "url": "https://www.fda.gov.tw/tc/includes/GetFile.ashx?id=f637044824446715969"
+    },
+    {
+      "title": "網路美食外送平台業者自主衛生管理指引（PDF，臺北市政府官方）",
+      "url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvNjg0L3JlbGZpbGUvNTExMzYvODM1MzI2OS80OTJmOTA0Mi1lY2YyLTRiMTctOGVkNC04MGY0YzhjMDZkOWQucGRm&n=MTEwMDkzMC3kv67mraPjgIzntrLot6%2Fnvo7po5%2FlpJbpgIHlubPlj7Dmpa3ogIXoh6rkuLvooZvnlJ%2FnrqHnkIbmjIflvJXjgI0ucGRm&icon=.pdf"
+    },
+    {
+      "title": "消費者保護專區-線上美食外送平台消費爭議申訴案件",
+      "url": "https://www.pthg.gov.tw/plancse/cp.aspx?n=0953088AA5FDB908"
+    },
+    {
+      "title": "TapPay金流服務平台 隱私權政策",
+      "url": "https://www.tappaysdk.com/taiwan-zhtw/privacy"
+    },
+    {
+      "title": "政府機關公開資料",
+      "url": "https://health.kcg.gov.tw/News_Content.aspx?n=A354A5298C8A4AA8&sms=26BD5515159837CE&s=69FB21D69C6E32DA"
+    },
+    {
+      "title": "外送平台管理之相關法制研析(pdf) - 立法院",
+      "url": "https://www.ly.gov.tw/Pages/ashx/File.ashx?FilePath=~%2FFile%2FAttach%2F246293%2FFile_19842414.pdf"
+    },
+    {
+      "title": "公平交易委員會案例／決議文件",
+      "url": "https://www.ftc.gov.tw/uploadDecision/82b972a5-5e2d-44bf-bd1c-e9dadd0a5abb.pdf"
+    },
+    {
+      "title": "消費者保護法-全國法規資料庫",
+      "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0170001"
+    },
+    {
+      "title": "消費者保護法(行政院全球資訊網-主管法規)",
+      "url": "https://www.ey.gov.tw/Page/4FF303AE95592945/f65a641d-d096-48c1-b357-435ac7786e72"
+    },
+    {
+      "title": "從消費者保護規定的介紹兼論損害賠償責任歸屬的立法趨勢",
+      "url": "https://www.sme.gov.tw/consumer/files/1621/146B6F25-BBF1-4065-80DF-BB80EC258254"
+    },
+    {
+      "title": "消費者保護法第11 條 - 臺北市法規查詢系統",
+      "url": "https://laws.gov.taipei/Law/LawSearch/LawArticleContent/FL012059"
+    }
+  ]
+}

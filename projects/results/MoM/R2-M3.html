@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>R2-M3</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, "Noto Sans TC", sans-serif; margin: 24px; }
+    body.has-floating-toc { margin-right: 292px; }
+    .md-body { max-width: 1200px; margin: 0 auto; }
+    .plant-floating-toc {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      z-index: 20;
+      width: 236px;
+      max-height: calc(100vh - 48px);
+      overflow-y: auto;
+      scrollbar-width: none;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.12);
+      padding: 10px;
+    }
+    .plant-floating-toc::-webkit-scrollbar { display: none; }
+    .plant-floating-toc__title { margin: 0 0 6px; min-height: 20px; font-size: 13px; font-weight: 700; color: #1e293b; }
+    .plant-floating-toc__title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      list-style: none;
+      user-select: none;
+    }
+    .plant-floating-toc__title::-webkit-details-marker { display: none; }
+    .plant-floating-toc__title::after {
+      content: "收起";
+      padding: 2px 0;
+      color: #64748b;
+      font-size: 11px;
+      font-weight: 650;
+    }
+    .plant-floating-toc:not([open]) {
+      width: auto;
+      overflow: visible;
+      padding: 8px 10px;
+    }
+    .plant-floating-toc:not([open]) .plant-floating-toc__title { margin: 0; }
+    .plant-floating-toc:not([open]) .plant-floating-toc__title::after { content: "目錄"; }
+    .plant-floating-toc__items { display: flex; flex-direction: column; gap: 2px; }
+    .plant-floating-toc__link {
+      display: block;
+      border-radius: 7px;
+      padding: 6px 8px;
+      color: #475569;
+      font-size: 12px;
+      line-height: 1.35;
+      text-decoration: none;
+    }
+    .plant-floating-toc__link:hover { background: #f1f5f9; color: #0f172a; }
+    .plant-floating-toc__link.is-active {
+      background: #e5e7eb;
+      color: #1f2937;
+      font-weight: 700;
+    }
+    .plant-floating-toc__link--level-3 { padding-left: 18px; color: #64748b; }
+    .plant-floating-toc__link--level-4,
+    .plant-floating-toc__link--level-5,
+    .plant-floating-toc__link--level-6 { padding-left: 28px; color: #64748b; }
+    .table-wrap { width: 100%; overflow-x: auto; }
+    table { border-collapse: collapse; width: 100%; table-layout: fixed; margin: 12px 0; }
+    th, td { border: 1px solid #d0d0d0; padding: 8px; text-align: left; vertical-align: top; }
+    .table-compact th, .table-compact td { white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
+    .table-readable th, .table-readable td { white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
+    .table-traceability { table-layout: fixed; }
+    .table-traceability th:first-child, .table-traceability td:first-child { width: 128px; white-space: nowrap; }
+    .table-traceability th:nth-child(2), .table-traceability td:nth-child(2) { width: auto; }
+    .table-traceability th:nth-child(3), .table-traceability td:nth-child(3) { width: 260px; white-space: normal; overflow-wrap: anywhere; word-break: normal; }
+    .table-traceability td:nth-child(3) a { display: inline-block; margin: 0 4px 4px 0; white-space: nowrap; }
+    .dr-trace-feedback-table { table-layout: fixed; width: 100%; }
+    .dr-trace-feedback-table th,
+    .dr-trace-feedback-table td { white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
+    .dr-trace-feedback-table th:nth-child(1), .dr-trace-feedback-table td:nth-child(1) { width: 72px; }
+    .dr-trace-feedback-table th:nth-child(2), .dr-trace-feedback-table td:nth-child(2) { width: 120px; }
+    .dr-trace-feedback-table th:nth-child(3), .dr-trace-feedback-table td:nth-child(3) { width: 190px; }
+    .dr-trace-source-chip {
+      display: inline-block;
+      margin: 0 4px 4px 0;
+      padding: 2px 6px;
+      border-radius: 999px;
+      background: #eef2f7;
+      color: #475569;
+      font-size: 0.86em;
+      line-height: 1.45;
+      white-space: nowrap;
+    }
+    .table-user-requirements th:first-child, .table-user-requirements td:first-child { width: 96px; white-space: nowrap; }
+    .table-user-requirements th:nth-child(2), .table-user-requirements td:nth-child(2),
+    .table-user-requirements th:nth-child(4), .table-user-requirements td:nth-child(4) { width: 180px; }
+    .table-open-questions th:first-child, .table-open-questions td:first-child { width: 96px; white-space: nowrap; }
+    .table-open-questions th:nth-child(3), .table-open-questions td:nth-child(3) { width: 220px; white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
+    td > p:first-child { margin-top: 0; }
+    td > p:last-child { margin-bottom: 0; }
+    img { max-width: 100%; height: auto; display: block; margin: 12px auto; }
+    code, pre { white-space: pre-wrap; }
+    .srs-dr-ref,
+    h4 a[href*="design_rationale.html#"],
+    li a[href*="design_rationale.html#con-"] {
+      display: inline-flex;
+      align-items: center;
+      margin-left: 0.35rem;
+      transform: translateY(-0.35em);
+      font-size: 0.62em;
+      font-weight: 700;
+      line-height: 1;
+      color: #64748b;
+      text-decoration: none;
+    }
+    .srs-dr-ref:hover,
+    h4 a[href*="design_rationale.html#"]:hover,
+    li a[href*="design_rationale.html#con-"]:hover { color: #0f172a; text-decoration: underline; }
+    @media (max-width: 1024px) {
+      body.has-floating-toc { margin: 16px; padding-bottom: 72px; }
+      .plant-floating-toc {
+        top: auto;
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        width: auto;
+        max-height: 38vh;
+      }
+    }
+  </style>
+</head>
+<body class="">
+
+<div class="md-body">
+<h1 id="釐清補償-賠償標準-舉證責任與流程分工細節">釐清補償/賠償標準、舉證責任與流程分工細節</h1>
+<ul>
+<li><strong>Proposed by</strong>: modeler</li>
+<li><strong>Participants</strong>: modeler, analyst, 消費者, 外送員, 平台營運管理者, 餐廳商家</li>
+<li><strong>Status</strong>: agreed</li>
+</ul>
+<h2 id="摘要">摘要</h2>
+<p>本議題聚焦於補償/賠償標準、舉證責任及流程分工的明確化，涵蓋消費者、外送員、平台管理者及餐廳商家等主要利害關係人。討論重點包括流程簡便、時效明確、責任分工、資料保存年限、資訊揭露及雙方舉證權益。經各方確認，現有需求條目與模型已充分涵蓋上述重點，無重大缺口或衝突。</p>
+<h2 id="決議">決議</h2>
+<p>確認現有補償/賠償標準、舉證責任與流程分工細節之需求內容與模型描述，作為正式需求依據進入 SRS drafting，並更新需求 REQ-4、REQ-32。未來如遇法規或營運流程重大變動，需另行提出議題補充修訂。</p>
+<h2 id="討論紀錄">討論紀錄</h2>
+<h3 id="analyst">analyst</h3>
+<p>目前針對補償/賠償標準、舉證責任與流程分工的需求，相關來源（REQ-4, REQ-32 及多項法遵、風險、建議）已充分支持下列重點：</p>
+<ol>
+<li>補償與賠償機制明確，含異常事件回報時效、標準作業流程（回報、審查、核定及通知），以及計算與揭示標準，都有清楚描述與驗收條件。</li>
+<li>補償資料與決策依據的記錄保存年限與調閱規則亦已明確作為 constraint 條目，與主管機關法令要求直接對應。</li>
+<li>各利害關係人角色（尤其消費者、外送員、平台管理者）在流程參與與回應責任邊界上，已涵蓋於回報、申請、證據保存、查詢等功能需求與限制條件。</li>
+</ol>
+<p>需求的可驗收性、可追蹤性與來源已充分明確，並區分為功能與約束；目前沒有來源未覆蓋的重大內容，主要法規、運作風險與舉證困難也均有列為需求欄位（risks）、驗收（保存年限/查詢）與背景欄說明。</p>
+<p>現階段沒有留存明顯的需求缺口，也未出現來源支持外的新需求；仍需留意日後若有特定流程例外或法律裁決標準改變，需增修流程分工細節或補充舉證情境，但這需未來重新審查來源或議題才屬必要。</p>
+<p>整體內容已達到正式需求編制標準，適合後續 SRS drafting 或設計討論，建議本議題可收束。</p>
+<h4 id="需求更新">需求更新</h4>
+<h5 id="req-4-訂單異常賠償及處理機制">REQ-4: 訂單異常賠償及處理機制</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 系統應建立於外送過程中發生餐點傾倒、送錯、餐點變冷等異常時的回報入口，提供消費者明確的賠償標準與自動、人工處理機制，同時應允許消費者於訂單異常事件發生後，三分鐘內於平台回報，並於可選項中兩步驟內申請補償（如退款、折價券、點數）。三日內需完成審查、核定補償並通知申請結果。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>消費者可於訂單異常事件發生後三分鐘內於平台完成回報。</li>
+<li>平台系統自動依事件類型推算及提醒可申請之賠償方式及標準，並明確揭示賠償種類與金額計算依據。</li>
+<li>消費者可於兩步驟內申請補償，支援多元補償方式且有金額紀錄依據。</li>
+<li>三日內平台完成審查、核定補償與申請結果通知。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>補償標準模糊或補償流程不一致易引起申訴或濫用。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-32-賠償及補償處理資料保存限制">REQ-32: 賠償及補償處理資料保存限制</h5>
+<ul>
+<li><strong>Type</strong>: constraint</li>
+<li><strong>Requirement</strong>: 所有賠償申請、回報、審查、補償申請、決策依據及處理結果資料，須保存至少二年並可供主管機關或權益人查詢、稽核或調查。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>所有賠償、補償、決策過程、證據及結果資料保存不少於二年。</li>
+<li>上述紀錄於主管機關或權益人查詢、稽核或調查時可被調閱。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>補償及紀錄保存不完善，遇爭議或主管機關查核將影響平台舉證力與合規性。</li>
+</ul>
+</li>
+</ul>
+<p><strong>Reason</strong>:</p>
+<ul>
+<li>原 REQ-4 同時含有系統處理功能與資料保存限制，依規則拆分為 functional 及 constraint，並將補償記錄保存時效明確為 constraint 條目。</li>
+</ul>
+<h3 id="modeler">modeler</h3>
+<p>針對本議題「補償/賠償標準、舉證責任與流程分工細節」，目前已明確支持需求內容且與現有模型（如SM-1外送平台系統情境圖、SM-2用例圖）一致。模型層面，主要元素及邊界說明如下：</p>
+<ol>
+<li>模型影響：</li>
+</ol>
+<ul>
+<li>SM-1（情境圖）已明確標示消費者、外送員、平台營運管理者等角色與系統間的回報、補償申請、異常處理、通知、資料保存及主管機關查詢的資料流。</li>
+<li>SM-2（用例圖）亦涵蓋申請退款/補償、回報異常與爭議處理等用例，明確界定角色操作範圍和系統責任。</li>
+</ul>
+<ol start="2">
+<li>元素邊界：</li>
+</ol>
+<ul>
+<li>各角色責任分工及互動（如消費者回報異常、平台自動推算補償、平台與主管機關資料查調）界線清楚，補償流程動態與資料保存年限也都以需求描述為依據。</li>
+<li>除非後續有特殊例外情境或法律細節變動，目前資料已涵蓋主要資訊揭露、操作流程、責任移轉、資料保存及查詢需求。</li>
+</ul>
+<p>綜上，目前無重大缺口，現有模型已能支撐現階段需求、驗收條件及責任界線討論。</p>
+<p>建議下一步：</p>
+<ul>
+<li>若未來平台或主管機關對補償/舉證標準流程有新政策或例外流程，需再針對流程細圖或例外情景補充模型（如細化補償流程循序圖、異常處理狀態圖等）。現階段建議可進入 SRS drafting 或正式收束本議題。</li>
+</ul>
+<p>如無新增政策動向或針對特定細節的補充，實務上本議題可結案。</p>
+<h3 id="消費者">消費者</h3>
+<p>目前 REQ 和決策內容有對補償/賠償標準、流程、舉證等做清楚規範，這對我來說大致符合需求。我最在意的是發生配送過程中的重大問題時，能三分鐘內回報、清楚看到有那些補償選擇（要標示金額、各種方式），回報流程不要複雜，兩步就能申請完畢。而且補償處理三天內一定要有明確結果和通知。如果這些流程被系統或人員拖延、發生資訊不明或被拒絕時沒有具體說明，就是我無法接受的底線。另外，如果資料保存、回報過程、申訴紀錄未能保存兩年以上，導致日後身分認定或消費爭議調閱困難，也是不行的。整體比照說明而言，需求已被涵蓋，除非將來出現例外高風險案例，現階段可收斂。</p>
+<h3 id="外送員">外送員</h3>
+<p>我的重點一方面是希望補償/賠償有公平審查，不能遇到惡意投訴時隨便就扣我錢或評分，平台目前有提資料保存、明確責任釐清與流程，這點是可以接受的。特別強調，所有異常回報（例如送不到、現場狀況、消費者指示臨時更改、有疑義或僵持不下等）時，都要有完整申報記錄與平台見證下的說明機會，只要這部分資料完整能保存至少兩年，且能避免單方面懲罰，就是我的底線。另外，補償審查必須有雙方都能補充證據的機制，不要自動只信一方。現行描述已符合我的關切。</p>
+<h3 id="平台營運管理者">平台營運管理者</h3>
+<p>補償流程已規範執行時效、分工與數據紀錄保存，且能符合法規及主管機關查核需求，對平台而言這樣才能降低營運與合規風險，現有內容是可以接受的。我底線是：必須系統化且標準化保存所有補償、舉證、決策歷程紀錄、不少於兩年；任何流程都需明文揭露於服務條款，不能有未載明的責任或導致主管機關推定我方須負全責的情況。同時，補償標準及舉證分工如果有變動，需能機動修訂並追蹤。現階段內容可接受。</p>
+<h3 id="餐廳商家">餐廳商家</h3>
+<p>目前流程描述對我的直接需求較少，但我希望平台在發生異常時如果涉及餐廳責任（如備餐超時、出餐品項誤差），審查流程需通知餐廳並給予說明機會，不能單方面讓我們扛損失。只要平台有責任釐清與資料留存、核定判斷不偏向，已在可以接受範圍。偶有消費者及外送員針對同一事件產生各說各話時，希望有完整記錄供往後覆查。從目前說明看我的需求大致能被滿足。</p>
+<p>總結來說，大家對於『流程必須簡單、時間確定、責任明確、資料保存不能隨意遺失且雙方都能說明』這些重點是有共識的。如果將來流程有特殊例外或新法規，建議要能即時修訂並公告所有人知道。</p>
+<h3 id="analyst-2">analyst</h3>
+<p>針對本議題「補償/賠償標準、舉證責任與流程分工細節」，從目前已確認的 REQ-4、REQ-32 及相關法遵條文和利害關係人立場來看，需求內容已明確覆蓋主要焦點，包括：</p>
+<ol>
+<li>各利害關係人的責任分工、流程簡便（二步完成申請）、異常回報時效（三分鐘內）、補償結果通知期限（三日內）等條件均有明確描述，並已落於對應的驗收標準。</li>
+<li>補償方式、金額須揭示、任一方不得單方面主張且雙方皆可舉證，皆已被明列於功能需求與驗收條件中。</li>
+<li>資料保存年限（不少於兩年）與主管機關查調要求皆列入約束條款，且充分考量法律合規、經營風險及後續爭議調閱所需。</li>
+<li>用例圖、情境圖所描繪的流程分工亦與需求內容一致，無明顯模型不一致或衝突。</li>
+<li>各利害關係人的底線（時效、流程簡易性、資訊完整性與查詢可行性等）皆有被對應涵蓋。</li>
+</ol>
+<p>目前沒有留存的重大需求缺口或驗收條件不明，未見到需要以 open question 收束的具體議題。例外或日後特例，如流程特殊情境或法規大幅修正，需以後續議題追蹤或再次需求審查處理，現階段不應列入正式需求。</p>
+<p>本輪需求已可進一步進行 SRS 草稿或下一輪設計，資訊具可驗證性、可追蹤性，來源充足。</p>
+<h4 id="需求更新-2">需求更新</h4>
+<h5 id="req-4-訂單異常補償與審查流程">REQ-4: 訂單異常補償與審查流程</h5>
+<ul>
+<li><strong>Type</strong>: functional</li>
+<li><strong>Requirement</strong>: 當訂單配送過程中發生餐點傾倒、送錯、餐點變冷等異常時，系統須提供消費者在事件發生後三分鐘內於平台回報的入口，並於回報後兩步驟內完成補償申請。平台應自動根據事件類型推算可申請的補償方式及標準，明確揭示補償種類與金額依據。平台需於三日內完成補償審查、核定並通知消費者，任何被拒絕或延遲處理皆須具體說明。補償審查過程應允許雙方補充舉證或說明，並不得單方面接受任一方主張。全程相關資料（申請、決策、證據、結果）需保存不少於兩年。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>消費者可於訂單異常事件發生後三分鐘內於平台完成回報。</li>
+<li>平台自動依異常事件類型推算並揭示各種補償方式與金額計算依據。</li>
+<li>消費者可於兩步驟內申請補償與案件說明。</li>
+<li>三日內完成審查、核定補償及申請處理結果通知，若駁回或延遲必須有明確說明。</li>
+<li>補償審查過程雙方皆可補充舉證或說明，不得僅單方認定。</li>
+<li>所有補償、申請、決策依據、相關資料需保存不少於二年。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>若補償標準不明確、流程不一致或資訊揭露不全可能引起爭議、申訴或遭主管機關裁罰。</li>
+<li>若資料未妥善保存將影響日後舉證與合規性。</li>
+</ul>
+</li>
+</ul>
+<h5 id="req-32-補償與賠償處理資料保存年限">REQ-32: 補償與賠償處理資料保存年限</h5>
+<ul>
+<li><strong>Type</strong>: constraint</li>
+<li><strong>Requirement</strong>: 所有賠償申請、處理回報、審查紀錄、補償決策及決策依據等資料，應保存不少於二年，並於主管機關、權益人查詢、稽核或調查時可供即時查調。</li>
+<li><strong>Acceptance Criteria</strong>:
+<ul>
+<li>所有賠償、補償、審查、決策及其證據與處理結果等資料保存不少於二年。</li>
+<li>於主管機關或權益人提出查詢、稽核或調查時可即時查調完整紀錄。</li>
+</ul>
+</li>
+<li><strong>Risks</strong>:
+<ul>
+<li>資料保存不完整或期限不足將影響平台合規性及爭議處理能力。</li>
+</ul>
+</li>
+</ul>
+<p><strong>Reason</strong>:</p>
+<ul>
+<li>依會議討論明確收斂共識，修正補償/賠償標準、流程、資料保存等內容並優化原 REQ-4、REQ-32 描述與驗收條件，使之完全符合用戶、各角色與主管機關需求。</li>
+</ul>
+<h3 id="modeler-2">modeler</h3>
+<p>本議題『補償/賠償標準、舉證責任與流程分工細節』，目前已取得充分且有來源支撐的需求內容與模型呼應。具體影響說明如下：</p>
+<p>結論：
+現有需求（REQ-4、REQ-32 等）及 SM-1（情境圖）、SM-2（用例圖）皆有明確支援本議題核心重點：異常事件快速回報、補償標準揭露、雙方均可舉證、資料保存年限及查調權限、流程期限明確、角色責任分工清晰。</p>
+<p>模型影響：</p>
+<ol>
+<li>SM-1（系統情境圖）清楚標示消費者、外送員、餐廳商家、平台營運管理者間的主流程與資料流，包含補償申請、異常回報、資料保存及主管機關查詢。</li>
+<li>SM-2（用例圖）明確記載『申請退款或補償』與『回報異常與爭議處理』等用例，並標出消費者、外送員、商家及平台營運管理者的互動範圍及責任分界。</li>
+<li>角色之間補償流程分工、異常回報、資料保存查調的動態，基本皆有覆蓋且無責任灰區。</li>
+</ol>
+<p>元素邊界：</p>
+<ul>
+<li>用例及情境圖的資料流、事件觸發和操作範圍能滿足現有需求的驗收條件。</li>
+<li>各角色參與點與系統職責在現行圖型界線內明確，包括『兩步完成申請』『三日內審查通知』『雙方可補充舉證』『資料保留二年以上』等細則。</li>
+<li>無明顯未涵蓋的例外狀態或需特殊申報的極端情境。</li>
+</ul>
+<p>建議下一步：</p>
+<ul>
+<li>目前資料與模型已能完整支援正式需求與驗收條件，建議可進入 SRS 草稿撰寫或議題正式收束。</li>
+<li>後續若遇政策修正或特定例外情境，應再視實際需求議題補充更細致的流程圖或狀態圖。</li>
+<li>建議定期檢查法令或市場實務變動。（若有，屆時再提出模型細化議題即可。）</li>
+</ul>
+<h3 id="消費者-2">消費者</h3>
+<p>以我的立場來看，現在這一版補償/賠償標準、舉證責任及流程上的說明，確實已經把我最重視的幾點都照顧到，包括流程簡單（兩步驟）、時效（申請三分鐘內、審核三日內）、選項透明、駁回必須說明、資料保存至少兩年等等。</p>
+<p>在我日常的體驗裡，只要發生餐點傾倒、送錯、餐點變冷這種問題，我希望能立刻回報，並清楚知道我能怎麼選（退款還是折價券），而且補償金額要先算給我，讓我不用自己猜。有底線的地方，有像駁回一定要說明，或者申請紀錄沒有了，日後爭議查不到憑據等都會讓我很不滿。這些目前也有被規範住。</p>
+<p>就除非未來遇到出現什麼極端或特殊爭議例外，不然這部分我認為可以接受。</p>
+<h3 id="外送員-2">外送員</h3>
+<p>我看這次需求，說明上有明確講到舉證權益、雙方都要能補充證據、系統要保存所有紀錄、人為判斷時也不能單靠一方主張，以及處理時效、流程要簡單透明。</p>
+<p>我的底線，就是不可以遇到消費者亂檢舉，然後一上報就自動扣我錢或直接評分被砍。尤其異常上報時我也必須能有說明跟舉證紀錄。只要這些流程與保存都照規範來做、平台公平審理，並且資料保留夠久（兩年以上），我就可以接受。</p>
+<p>目前描述真的有對應到這些需求，我覺得沒什麼遺漏。萬一以後法規有修，或遇到特殊糾紛，不排除再討論。</p>
+<h3 id="平台營運管理者-2">平台營運管理者</h3>
+<p>我角度最重要的還是合規、風險、以及系統能不能真的標準化執行這些責任分工。例如每個申請、處理、紀錄、證據都能保存完整，主管機關調查時一定拿得出來，且流程全都明文，無法被誤解或扭曲。這不只是符合法規，對品牌跟營運都有保護。</p>
+<p>目前規範已經涵蓋自動化流程、責任邊界、三日內回應、申請雙方都要能補正，資料保存期也足夠。如有特殊情境時可彈性追蹤修訂。</p>
+<p>若沒有其他更嚴重的法規變動或市場新需求，照目前這樣定義就可接受。</p>
+<h3 id="餐廳商家-2">餐廳商家</h3>
+<p>對我來說，雖然補償與賠償的流程目前重點多在消費者和外送員，但只要流程確保平台要找商家釐清異常時會主動通知我們、讓我們有舉證或回應的機會，我就可以接受。</p>
+<p>我不能接受的是每次遇到投訴或配送問題時，平台都自動直接判定商家錯（例如餐點出錯）、要扣商家錢卻沒讓我們說話，所以一定要有那個參與與通知機會，審查理由需要留紀錄也很重要。</p>
+<p>目前這些點大致上有考慮進去，日後有遇到罕見的情境再說。</p>
+<p>總結：四方的關切和底線都已被現階段的流程和規範覆蓋，除非往後有新型態爭議或法規大改，這部份目前已足以收斂討論。</p>
+</div>
+
+</body>
+</html>

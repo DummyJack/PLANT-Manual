@@ -1,0 +1,304 @@
+{
+  "agents": {
+    "r2": [
+      {
+        "issue_id": "R2-I1",
+        "title": "補齊既有需求的可驗收欄位",
+        "expect_outcome": "逐筆確認缺欄位是否可由現有 artifact 推得；能推得則補齊 acceptance criteria、source、risks、assumptions 與 NFR metric/validation，不能推得則形成明確 open question。",
+        "sources": [
+          {
+            "artifact": "REQ",
+            "ids": [
+              "REQ-1",
+              "REQ-2",
+              "REQ-3",
+              "REQ-4",
+              "REQ-5",
+              "REQ-7",
+              "REQ-8",
+              "REQ-9",
+              "REQ-11",
+              "REQ-12",
+              "REQ-13",
+              "REQ-14",
+              "REQ-15",
+              "REQ-16",
+              "REQ-17",
+              "REQ-18",
+              "REQ-19",
+              "REQ-20",
+              "REQ-22",
+              "REQ-23",
+              "REQ-24",
+              "REQ-25",
+              "REQ-26",
+              "REQ-27",
+              "REQ-28",
+              "REQ-29",
+              "REQ-31",
+              "REQ-32"
+            ],
+            "evidence": "REQ-1：缺 risks, 缺 assumptions；REQ-2：缺 risks, 缺 assumptions；REQ-3：缺 risks, 缺 assumptions；REQ-4：缺 risks, 缺 assumptions；REQ-5：缺 risks, 缺 assumptions；REQ-7：缺 assumptions；REQ-8：缺 assumptions；REQ-9：缺 assumptions；REQ-11：缺 assumptions；REQ-12：缺 assumptions；REQ-13：缺 assumptions；REQ-14：缺 assumptions"
+          }
+        ],
+        "importance": "high",
+        "reason": "既有 REQ 缺少可驗收、可追蹤或可風險管理的欄位，會直接影響 SRS 是否能定稿。",
+        "proposed_by": "mediator",
+        "expected_actions": {
+          "analyst": [
+            "refine_requirement"
+          ]
+        }
+      },
+      {
+        "issue_id": "R2-I2",
+        "title": "對齊需求與系統模型關聯",
+        "expect_outcome": "確認未關聯的 REQ 是否需要補模型、補 related_requirement_ids、調整模型描述，或把模型揭露的缺口回寫成需求/open question。",
+        "sources": [
+          {
+            "artifact": "system_models",
+            "ids": [
+              "REQ-1",
+              "REQ-10",
+              "REQ-11",
+              "REQ-12",
+              "REQ-13",
+              "REQ-14",
+              "REQ-15",
+              "REQ-16",
+              "REQ-17",
+              "REQ-18",
+              "REQ-19",
+              "REQ-2",
+              "REQ-20",
+              "REQ-21",
+              "REQ-22",
+              "REQ-23",
+              "REQ-24",
+              "REQ-25",
+              "REQ-26",
+              "REQ-27",
+              "REQ-28",
+              "REQ-29",
+              "REQ-3",
+              "REQ-30",
+              "REQ-31",
+              "REQ-32",
+              "REQ-4",
+              "REQ-5",
+              "REQ-6",
+              "REQ-7",
+              "REQ-8",
+              "REQ-9"
+            ],
+            "evidence": "REQ 未被模型關聯：REQ-1, REQ-10, REQ-11, REQ-12, REQ-13, REQ-14, REQ-15, REQ-16, REQ-17, REQ-18, REQ-19, REQ-2"
+          }
+        ],
+        "importance": "high",
+        "reason": "需求與模型沒有互相追蹤時，SRS 和設計草稿容易出現流程、狀態、actor 或資料責任不一致。",
+        "proposed_by": "mediator",
+        "expected_actions": {
+          "modeler": [
+            "system_modeling"
+          ]
+        }
+      },
+      {
+        "issue_id": "R2-I3",
+        "title": "確認 feedback 風險與限制是否回寫需求",
+        "expect_outcome": "判斷 feedback 中尚未連到 REQ 的 finding、constraint、risk 或 recommendation 是否應回寫為需求欄位、風險、假設、驗收條件或 open question。",
+        "sources": [
+          {
+            "artifact": "feedback",
+            "ids": [
+              "findings.4",
+              "findings.5",
+              "findings.6",
+              "findings.7",
+              "findings.8",
+              "constraints.3",
+              "constraints.4",
+              "constraints.5",
+              "risks.3",
+              "risks.4",
+              "risks.5",
+              "recommendations.3",
+              "recommendations.4",
+              "recommendations.5",
+              "recommendations.6",
+              "recommendations.7"
+            ],
+            "evidence": "findings.4(findings)：根據《外送員權益保障及外送平臺管理法》與多地自治條例，外送平台必須蒐集並依法保存包括消費者自訂取餐地點與交付方式在內的訂單資料，同時必須依個人資料保護法對資料處理、傳輸及調閱承擔法定義務。；findings.5(findings)：平台管理流程在消費者指定第三方場所時，需釐清場域與管理單位授權或同意規則，善用揭示和條款規定以免平台無意承擔第三方物業或安全責任。；findings.6(findings)：根據主管機關指引，外送平台於消費者指定非住家地點（如公司、超商、公共空間）做為取餐地點時，需履行資訊揭露責任，包括揭示業者資訊、聯絡及申訴管道與商品資訊，保障消費者知情權利。；findings.7(findings)：法規要求平台於消費者下單前，應充分揭露商品標示、交付方式等重要資訊，以提升透明度與防止爭議，特別強調消費者訂購過程中的資訊完整性。；findings.8(findings)：現有法規及指引未強制規範平台需查驗消費者於第三方地點的通行權限或主動保留同意紀錄，主要著重於揭露義務，而非進行場所權限查證。；constraints.3(constraints)：若平台需於訂單蒐集、處理或儲存住址、聯絡資訊、自由備註欄等消費者個人資料，必須符合《個人資料保護法》對用途、揭露、範圍、第三方資料提供等規範，並配合地方法規與主管機關指導原則。；constraints.4(constraints)：涉及第三方物業、公共空間或受管理區域作為交付地點時，平台候選規約需能提示並管理該地點進出權限或須獲授權事宜，免於違反場域本地營運及管理規則。；constraints.5(constraints)：平台於消費者自訂取餐地點時，必須依主管機關及消保規定揭露重要資訊與責任條款，惟現有規範未強制消費者同意紀錄或進出權查核，僅要求揭示及同意條款機制。"
+          }
+        ],
+        "importance": "medium",
+        "reason": "未追蹤的 feedback 可能代表風險、限制或專家建議沒有被 SRS 吸收。",
+        "proposed_by": "mediator",
+        "expected_actions": {
+          "analyst": [
+            "refine_requirement"
+          ]
+        }
+      },
+      {
+        "issue_id": "R2-I4",
+        "title": "特殊/高風險取餐地點揭露與同意流程邊界不明",
+        "expect_outcome": "明確定義特殊/高風險取餐地點（如公司、超商、醫院、公共空間等）揭露、同意、資料保存及責任分工的流程與例外情境，並釐清平台、消費者、外送員的責任邊界。",
+        "sources": [
+          {
+            "artifact": "REQ",
+            "ids": [
+              "REQ-27",
+              "REQ-30"
+            ],
+            "evidence": "現有需求雖要求揭露、同意及資料保存，但對於何種地點屬於高風險、何時需強制同意、進出權限查證、聯絡人/門禁資訊補充的觸發條件、例外情境及責任分工尚未明確，且與法規/指引（feedback.constraints.5, feedback.constraints.8, feedback.constraints.9）有潛在落差。"
+          },
+          {
+            "artifact": "feedback",
+            "ids": [
+              "constraints.5",
+              "constraints.8",
+              "constraints.9",
+              "recommendations.10",
+              "recommendations.11"
+            ],
+            "evidence": "法規與指引強調揭露與同意機制，但對於查驗消費者權限、同意紀錄保存、例外處理及責任分界有不同層次要求，現有需求未完全對齊。"
+          }
+        ],
+        "importance": "high",
+        "reason": "若未明確定義特殊/高風險地點的揭露、同意、資料保存及責任分工，將導致平台在消費糾紛、主管機關查核或法律責任歸屬時無法舉證，影響SRS可驗收性、合規性與系統邊界明確性。",
+        "proposed_by": "modeler"
+      },
+      {
+        "issue_id": "R2-I5",
+        "title": "派單公平性與異常上報後派單演算法影響條件不明",
+        "expect_outcome": "明確定義異常上報後派單演算法對外送員的影響條件、資料留存、人工審查介入時機及申訴流程，並釐清平台與外送員的權益保障與責任分工。",
+        "sources": [
+          {
+            "artifact": "REQ",
+            "ids": [
+              "REQ-10",
+              "REQ-25"
+            ],
+            "evidence": "現有需求雖要求派單公平與異常上報不得自動減少派單，但對於異常上報後演算法調整條件、人工審查流程、資料留存及外送員申訴機制尚未具體化。"
+          },
+          {
+            "artifact": "feedback",
+            "ids": [
+              "constraints.10",
+              "constraints.11",
+              "recommendations.12",
+              "recommendations.13"
+            ],
+            "evidence": "法規與建議要求派單與異常通報流程需有資料留存、決策證據、公開申訴與審查機制，現有需求未完全對齊。"
+          }
+        ],
+        "importance": "high",
+        "reason": "若未明確界定異常上報後派單演算法的影響條件與資料留存，將導致外送員權益爭議、平台難以舉證公平性，影響SRS可驗收性、合規性與責任邊界。",
+        "proposed_by": "modeler"
+      },
+      {
+        "issue_id": "R2-I6",
+        "title": "補償/賠償標準、舉證責任與流程分工不明",
+        "expect_outcome": "明確定義補償/賠償標準、金額計算依據、舉證責任分工、申訴與調解流程，並釐清平台、消費者、外送員的權利義務與資料保存要求。",
+        "sources": [
+          {
+            "artifact": "REQ",
+            "ids": [
+              "REQ-4",
+              "REQ-32"
+            ],
+            "evidence": "現有需求雖有補償申請與處理流程，但補償標準、金額計算、舉證責任、申訴與調解流程細節未明確，且與法規/定型化契約要求有落差。"
+          },
+          {
+            "artifact": "feedback",
+            "ids": [
+              "constraints.12",
+              "constraints.13",
+              "recommendations.14",
+              "recommendations.15"
+            ],
+            "evidence": "法規與建議要求補償標準、舉證責任、流程分工需明確揭露並取得同意，現有需求未完全對齊。"
+          }
+        ],
+        "importance": "high",
+        "reason": "補償/賠償標準與舉證責任不明將導致消費糾紛、主管機關查核時平台無法舉證，影響SRS可驗收性、合規性與流程完整性。",
+        "proposed_by": "modeler"
+      },
+      {
+        "issue_id": "R2-I7",
+        "title": "金流/交易/補償資料保存年限、不可竄改與查詢權限細節不明",
+        "expect_outcome": "明確定義金流、交易、補償、同意等資料的保存年限、不可竄改機制、查詢/匯出權限、資料存取日誌與合規要求，並釐清跨國/多法域情境下的彈性設計。",
+        "sources": [
+          {
+            "artifact": "REQ",
+            "ids": [
+              "REQ-23",
+              "REQ-24"
+            ],
+            "evidence": "現有需求雖有保存年限與不可竄改要求，但對於不同資料類型（如補償、同意、交易）、查詢/匯出權限、存取日誌、跨國法域彈性等細節未明確。"
+          },
+          {
+            "artifact": "feedback",
+            "ids": [
+              "constraints.6",
+              "constraints.7",
+              "recommendations.8",
+              "recommendations.9",
+              "recommendations.2"
+            ],
+            "evidence": "法規與建議要求資料保存、不可竄改、查詢權限、存取日誌等需明確揭露並合規，現有需求未完全對齊。"
+          }
+        ],
+        "importance": "high",
+        "reason": "資料保存、不可竄改與查詢權限不明將導致法規違規、資料遺失、查核失敗，影響SRS可驗收性、合規性與資料生命週期管理。",
+        "proposed_by": "modeler"
+      },
+      {
+        "issue_id": "R2-I8",
+        "title": "特殊取餐指示同步與已讀確認流程細節不足",
+        "expect_outcome": "明確定義特殊取餐指示同步、外送員已讀確認、消費者端回饋、異常處理與資料留存的流程與狀態轉換，並補足用例與流程模型。",
+        "sources": [
+          {
+            "artifact": "REQ",
+            "ids": [
+              "REQ-26"
+            ],
+            "evidence": "現有需求有同步與已讀確認要求，但對於多次變更、異常未讀、流程分歧、資料狀態與責任分工細節未明確，且用例圖/流程模型未完全覆蓋。"
+          }
+        ],
+        "importance": "medium",
+        "reason": "流程細節不足會影響模型一致性、驗收標準與責任分工，雖不阻礙定稿，但會降低SRS品質與後續設計可追蹤性。",
+        "proposed_by": "modeler"
+      },
+      {
+        "issue_id": "R2-I9",
+        "title": "補強既有需求的驗收與品質欄位",
+        "expect_outcome": "針對 latest draft 中多筆 REQ-* 的弱化欄位，討論並補強 acceptance criteria、NFR category、metric、validation、風險或假設，使需求更可測試、可追溯並可寫入 SRS。",
+        "sources": [
+          {
+            "artifact": "REQ",
+            "ids": [
+              "REQ-8",
+              "REQ-21",
+              "REQ-27",
+              "REQ-30"
+            ],
+            "evidence": "REQ-8：Title 可能混入 stakeholder，需確認是否可改成需求核心短語；REQ-21：Description 可能混入多個能力或條件；REQ-27：Title 可能混入 stakeholder，需確認是否可改成需求核心短語；REQ-30：Description 可能混入多個能力或條件"
+          }
+        ],
+        "importance": "high",
+        "reason": "latest draft 中多筆既有 REQ-* 欄位雖存在但內容仍抽象、待確認或不可驗收；這是需求完整性問題，應優先於新增需求處理。",
+        "proposed_by": "analyst"
+      },
+      {
+        "issue_id": "R2-I10",
+        "title": "最終檢查未收斂的需求與模型缺口",
+        "expect_outcome": "確認本輪結束前仍存在的 high/medium backlog 或 deterministic 缺口，決定立即補寫、形成 open question，或明確保留到下一輪處理。",
+        "importance": "high",
+        "reason": "最後一輪前若仍有具體缺口，必須明確處理或保留，避免 MoM 有討論但 artifact 未收斂。",
+        "proposed_by": "mediator"
+      }
+    ]
+  }
+}
